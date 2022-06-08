@@ -213,13 +213,19 @@ pre{padding: 1em;}
 
 .hitady .div form{
   padding-left: 50px;
-  padding-right: 300px;
+  /*padding-right: 300px;*/
   flex: 1 1 auto;
 }
 
 .hitady .div form input{
   height: 50px;
   border-color: #ffb4f5;
+}
+
+.logo-ecommerce{
+  padding-top: 15px;
+  /* padding-left: 50px; */
+  text-align: center;
 }
 
 .hitady .icones{
