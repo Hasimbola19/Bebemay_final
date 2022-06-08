@@ -440,6 +440,7 @@ pre{padding: 1em;}
 .imge{
   text-align: center;
   background-color: rgb(225, 225, 225);
+  overflow: hidden;
 }
 
 .imge img {
@@ -972,7 +973,7 @@ img {vertical-align: middle;}
   }
 
   .ajout i{
-    font-size: 25px;
+    font-size: 30px;
   }
 }
 
@@ -1605,7 +1606,7 @@ footer .droite .droite2 ul li a:hover{
   margin-top: 5%;
 }
 .copyright{
-  font-family: "Comic Sans MS", sans-serif;
+  font-family: sans-serif;
   margin-top: 3%;
   display: flex;
   justify-content: center;
@@ -1614,6 +1615,10 @@ footer .droite .droite2 ul li a:hover{
 }
 .copyright a{
   color:#fff;
+}
+
+.copyright a:hover{
+  color: #0010bb;
 }
 
 .monter{
@@ -2179,7 +2184,7 @@ h4.prix{
 }
 
 .column.containt:hover{
-  zoom: 1.5;
+  /*zoom: 1.5;*/
 }
 
 .containt h3{
