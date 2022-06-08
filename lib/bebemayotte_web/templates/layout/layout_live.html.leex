@@ -19,7 +19,7 @@
     <div class="navigation">
       <div class="header-nav">
         <ul class="ul1">
-          <li class="menu-item3"><a href="mailto:focicom@gmail.com"><i class="fab fa-google"></i> focicom@gmail.com</a></li>
+          <li class="menu-item3"><a href="mailto:focicom@gmail.com"><i class="fab fa-envelop"></i> focicom@gmail.com</a></li>
           <li class="menu-item3"><a href="tel:0269613910">0269 61 39 10</a></li>
         </ul>
          <ul class="ul3">
@@ -41,8 +41,7 @@
               <a href="/account"><span class="fas fa-user"></span> Mon compte</a>
             <% end %>
           </li>
-          <li class="menu-item1"><a href="/contact"><span class="fas fa-phone"></span> Contact</a></li>
-          <li class="menu-item1"><a href="/panier" class="pan"><i  class='fas fa-shopping-cart'></i></a><a href="/question" class="pan"><i  class='fa question-circle'>&#xf059;</i></a></li>
+          <li class="menu-item1"><a href="/panier" class="pan"><i  class='fas fa-shopping-cart'></i> Achat en ligne </a><a href="/question" class="pan"><i  class='fa question-circle'>&#xf059;</i></a></li>
         </ul>
       </div>
       <div class="header-main">
@@ -50,17 +49,20 @@
           <a href="/"><img src="https://bbmay.fr/wp-content/uploads/2019/08/BANNER2.jpg" class="image-ban"></a>
         </div>
         <div class="hitady">
-        <div class="div">
-          <form method="post" class="form__search rech" action="<%= Routes.page_path(@socket, :search) %>">
-              <input type="hidden" name="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>">
-              <%= if is_nil(@search) or @search == "" do %>
-              <input type="search" name="search" placeholder="Recherche des produits...">
-              <% else %>
-              <input type="search" name="search" placeholder="Recherche des produits..." value="<%= @search %>">
-              <% end %>
-              <button type="submit" class="loupe"><i class="fas fa-search "></i></button>
-          </form>
+          <div class="div">
+            <form method="post" class="form__search rech" action="<%= Routes.page_path(@socket, :search) %>">
+                <input type="hidden" name="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>">
+                <%= if is_nil(@search) or @search == "" do %>
+                <input type="search" name="search" placeholder="Recherche des produits...">
+                <% else %>
+                <input type="search" name="search" placeholder="Recherche des produits..." value="<%= @search %>">
+                <% end %>
+                <button type="submit" class="loupe"><i class="fas fa-search "></i></button>
+            </form>
+          </div>
         </div>
+        <div class="logo-ecommerce">
+          <img src="https://bbmay.fr/wp-content/uploads/2019/09/logo_ca_desk-1.jpg" alt="bébé mayotte et E-transactions" width="60%">
         </div>
       </div>
       <div class="header-item" id="main-nav">
