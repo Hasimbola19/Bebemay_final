@@ -1,0 +1,146 @@
+<div class="row product">
+  <!-- début aside bar -->
+  <section class="col col-lg-2 side">
+  <div class="sider">
+    <form phx-change="tri" class="form-tri">
+      <input type="hidden" name="valeur" id="selectedHidden" value="<%= @tri_select %>" >
+      <input type="hidden" name="cat" value="<%= @cat %>" >
+      <input type="hidden" name="souscat" value="<%= @souscat %>" >
+      <input type="hidden" name="search" value="<%= @search %>" >
+      <select name="select-1" id="select-1">
+        <option value="1" id="selected-1">Tri par defaut</option>
+        <option value="2" id="selected-2">Tri par tarif croissant</option>
+        <option value="3" id="selected-2">Tri par tarif décroissant</option>
+        <option value="4" id="selected-4">Tri du plus récent au plus ancien</option>
+      </select>
+    </form>
+    <%= for categorie <- @categories  do %>
+    <input type="checkbox" id="<%= categorie.id_cat %>" class="input">
+      <label for="<%= categorie.id_cat %>" class="accordion">
+        <a>
+         <%= categorie.nom_cat %>
+          (<%= Bebemayotte.SouscatRequette.get_count_scat_by_id_cat(categorie.nom_cat) %>)
+        </a>
+      </label>
+      <div class="panel">
+        <%= for souscategorie <- @souscategories do %>
+          <%= if souscategorie.id_cat == categorie.id_cat do %>
+            <ul>
+              <li><a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= souscategorie.nom_souscat %></a></li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  </section>
+  <!-- fin aside bar -->
+  <!-- début contenue principale -->
+  <section class="col-sm all">
+      <!--<center>
+        <a phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>"><i class="fas fa-angle-double-left"></i></a>
+          <%= @page %>
+        <a phx-click="next_page" phx-value-finpage="<%= @nb_page %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>"><i class="fas fa-angle-double-right"></i></a>
+      </center>-->
+      <div class="navig">
+        <a href="/">Accueil</a><span>  /  </span>
+        <a href="/produit">Produit</a><span>  /  </span>
+        <%= if @cat != nil do %>
+          <a href="/produit/<%= @cat %>"><%= @cat %></a><span>  /  </span>
+          <%= if @souscat != nil do %>
+            <a href="/produit/<%= @cat %>/<%= @souscat %>"><%= @souscat %></a>
+          <% end %>
+        <% end %>
+      </div>
+      <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
+      <div class="article">
+          <%= for produit <- @produits do %>
+            <div class="produit">
+            <%= for categorie <- @categories do %>
+            <%= for souscategorie <- @souscategories do %>
+            <%= if produit.id_cat == categorie.id_cat && produit.id_souscat == souscategorie.id_souscat do %>
+              <a class="produit_a" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= produit.id_produit %>">
+              <!--<a class="produit_a" href="/show_produit/<%= produit.id_produit %>">-->
+                <%= if produit.photolink == nil do %>
+                  <div class="imge">
+                    <img src="<%= Routes.static_path(@socket, "/images/empty.png") %>" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= produit.id_produit %>">
+                  </div>
+                <% else %>
+                  <div class="imge">
+                    <img src="<%= Routes.static_path(@socket, produit.photolink) %>" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= produit.id_produit %>"/>
+                  </div>
+                <% end %>
+                <div>
+                  <h3 class="detail"><%= produit.title %></h3>
+                </div>
+
+                <div class="column containt">
+                  <%= if produit.stockstatus do %>
+                    <h4 class="prix">€<%= Decimal.round(produit.price,2) %></h4>
+                    <a class="ajout" onclick="add_panier('<%= produit.id_produit %>')">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                  <% else %>
+                    <h3 class="">RUPTURE DE STOCK</h3>
+                  <% end %>
+                </div>
+              </a>
+            </div>
+          <% end %>
+          <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <center>
+      <a phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>"><i class="fas fa-angle-double-left"></i></a>
+        <%= @page %>
+      <a phx-click="next_page" phx-value-finpage="<%= @nb_page %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>"><i class="fas fa-angle-double-right"></i></a>
+    </center>
+    </div>
+  </section>
+
+    <!-- fin contenue principale -->
+    <!--fin contenue  -->
+</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+function add_panier(id) {
+  quantite = 1
+  csrf = document.querySelector("meta[name=csrf]").content
+
+  $.ajax({
+    url: "/add-panier",
+    type: "post",
+    data: {
+      post: {id: id, quantite: quantite}
+    },
+    headers: {
+      "X-CSRF-TOKEN": csrf
+    },
+    success: function() {
+      console.log("success")
+      $("injection").append("<p class= \"alert alert-info\"> <%= live_flash(@flash, :info) %></p>")
+    }
+  })
+}
+
+function change(){
+  if ( document.getElementById("MyElement").classList.contains('MyClass') )
+
+  document.getElementById("MyElement").classList.toggle('MyClass');
+}
+</script>

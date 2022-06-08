@@ -1,0 +1,336 @@
+ <section class="head">
+  <img src="<%= Routes.static_path(@conn, "/images/fond.png") %>" style="visibility: hidden">
+
+    <div class="header">
+      <!--<div class="image">
+        <img src="<%= Routes.static_path(@conn, "/images/shop.png") %>" >
+      </div>-->
+      <!--<div id="slider">
+            <ul id="slideWrap">
+              <li><img src="<%= Routes.static_path(@conn, "/images/article1.png") %>" alt=""></li>
+              <li><img src="<%= Routes.static_path(@conn, "/images/article2.png") %>" alt=""></li>
+              <li><img src="<%= Routes.static_path(@conn, "/images/article3.png") %>" alt=""></li>
+              <li><img src="<%= Routes.static_path(@conn, "/images/article4.png") %>" alt=""></li>
+              <li><img src="<%= Routes.static_path(@conn, "/images/article5.png") %>" alt=""></li>
+            </ul>
+        <a id="prev" href="#">&#8810;</a>
+        <a id="next" href="#">&#8811;</a>-->
+    <!--<div class="slider-ctr">
+      <figure class="slide"><img src="<%= Routes.static_path(@conn, "/images/000000000000000000000000000000001.jpg") %>">
+        <figcaption>
+          <div class="title">Sky</div>
+          <div class="author">Aleksandra</div>
+        </figcaption>
+      </figure>
+      <figure class="slide"><img src="<%= Routes.static_path(@conn, "/images/00000000000000000000000000000001.jpg") %>">
+        <figcaption>
+          <div class="title">River</div>
+          <div class="author">Ales krivec</div>
+        </figcaption>
+      </figure>
+      <figure class="slide"><img src="<%= Routes.static_path(@conn, "/images/0000000000000000000000000000001.jpg") %>">
+        <figcaption>
+          <div class="title">Rain</div>
+          <div class="author">Wilson Lau</div>
+        </figcaption>
+      </figure>
+      <figure class="slide"><img src="<%= Routes.static_path(@conn, "/images/00000000000000000000000000001.jpg") %>">
+        <figcaption>
+          <div class="title">Ocean</div>
+          <div class="author">Rosan Harmens</div>
+        </figcaption>
+      </figure>
+      <div class="slider-control">
+        <div class="control prev disabled">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="control next">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+    <div class="slideshow-container">
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="<%= Routes.static_path(@conn, "/images/000000000000000000000000000000001.jpg") %>" style="width:100%">
+            <div class="text">Caption Text</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="<%= Routes.static_path(@conn, "/images/00000000000000000000000000000001.jpg") %>" style="width:100%">
+            <div class="text">Caption Two</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="<%= Routes.static_path(@conn, "/images/0000000000000000000000000000001.jpg") %>" style="width:100%">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="<%= Routes.static_path(@conn, "/images/00000000000000000000000000001.jpg") %>" style="width:100%">
+            <div class="text">Caption Three</div>
+          </div>
+
+          </div>
+          <br>
+
+          <div class="liste_dot">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+      </div>-->
+      <div id="slider" data-component="slideshow">
+        <div role="list">
+          <div class="slide">
+            <img src="<%= Routes.static_path(@conn, "/images/000000000000000000000000000000001.jpg") %>" alt="">
+          </div>
+          <div class="slide">
+            <img src="<%= Routes.static_path(@conn, "/images/00000000000000000000000000000001.jpg") %>" alt="">
+          </div>
+          <div class="slide">
+            <img src="<%= Routes.static_path(@conn, "/images/0000000000000000000000000000001.jpg") %>" alt="">
+          </div>
+          <div class="slide">
+            <img src="<%= Routes.static_path(@conn, "/images/00000000000000000000000000001.jpg") %>" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="info">
+        <section class="content">
+          <div class="a1">
+            <div class=box>
+              <img src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
+              <div class="box-content">
+                <a href="/produit/ACCESSOIRES" class="title">Voir plus</a>
+              </div>
+            </div>
+            <div class="box">
+              <img src="<%= Routes.static_path(@conn, "/images/article2.png") %>" >
+              <div class="box-content">
+                <a href="/produit/SORTIE" class="title">Voir plus</a>
+              </div>
+            </div>
+          </div>
+          <div class="a1">
+            <div class="box">
+              <img src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
+              <div class="box-content">
+                <a href="/produit/PROMENADE" class="title">Voir plus</a>
+              </div>
+            </div>
+            <div class="box">
+              <img src="<%= Routes.static_path(@conn, "/images/article5.png") %>" >
+              <div class="box-content">
+                <a href="/produit/TEXTILE" class="title">Voir plus</a>
+              </div>
+            </div>
+          </div>
+          <div class="a1">
+            <div class="box">
+              <img src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
+              <div class="box-content">
+                <a href="/produit/SOMMEIL" class="title">Voir plus</a>
+              </div>
+            </div>
+            <div class="box">
+              <img src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
+              <div class="box-content">
+                <a href="/produit/JEU" class="title">Voir plus</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!--<div class="text">
+        <h1>BIENVENUE !</h1>
+        <p>
+          Etes-vous une maman ou bien une future <br>
+          maman?Notre site de vente en ligne est <br>
+          exactement conçu pour vous. Visitez notre <br>
+          site pour trouver ce qui vous convient pour <br>
+          vous ainsi que pour votre bébé.
+        </p>
+      </div>-->
+  </div>
+</section>
+
+  <div class="separation"><span class=></span></div>
+
+<section class="row ph">
+  <article class="column">
+  <div>
+    <h1 class="titre">Bbmay,la boutique en ligne spécialement pour les tout-petits </h1>
+    <h2 class="art">Nos produits?</h2>
+    <p>Chez nous, nous avons sélectionné des articles pour les bébés qui vous
+      permettront de suivre l’évolution de votre enfant au quotidien. Promenade, sommeil, repas,
+      toilette ou encore des jouets d'éveil : vous trouverez tout ce dont vous pouvez avoir besoin sur Bbmay.
+    </p>
+    <h2 class="art">Pourquoi Bbmay?</h2>
+    <p>Parce que notre objectif est de vous satisfaire et que nous sommes fidèles à nos clients.<br>
+    Et parce que votre enfant est notre priorité.</p>
+    <h2 class="art">Les avantages?</h2>
+    <p>Pour ne pas perdre votre temps à vous déplacer ou pour que vous n'auriez
+    plus besoin d'attendre longtemps au milieu d’une longues queues lorsque
+    vous vouliez acheter un de nos produit car notre site vous permet d’acheter de
+    chez vous tous les produits disponibles de la boutique .</p>
+  </div>
+
+  </article>
+  <article class="column">
+    <div class="containeur">
+      <img src="<%= Routes.static_path(@conn, "/images/bb.png") %>" >
+    </div>
+
+  </article>
+</section>
+<!--<section class="content">
+  <div class="a1">
+    <div class=box>
+      <img src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
+      <div class="box-content">
+        <a href="/produit/ACCESSOIRES" class="title">Voir plus</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="<%= Routes.static_path(@conn, "/images/article2.png") %>" >
+      <div class="box-content">
+        <a href="/produit/SORTIE" class="title">Voir plus</a>
+      </div>
+    </div>
+  </div>
+  <div class="a1">
+    <div class="box">
+      <img src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
+      <div class="box-content">
+        <a href="/produit/PROMENADE" class="title">Voir plus</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
+      <div class="box-content">
+        <a href="/produit/TEXTILE" class="title">Voir plus</a>
+      </div>
+    </div>
+  </div>
+  <div class="a1">
+    <div class="box">
+      <img src="<%= Routes.static_path(@conn, "/images/article5.png") %>" >
+      <div class="box-content">
+        <a href="/produit/SOMMEIL" class="title">Voir plus</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
+      <div class="box-content">
+        <a href="/produit/JEU" class="title">Voir plus</a>
+      </div>
+    </div>
+  </div>
+</section>-->
+<script>
+/*let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000);
+}*/
+
+// buttons
+/*var sliderControl = document.querySelector(".slider-control");
+// slides informations
+var slides = document.querySelectorAll(".slide"),
+    slidesLength = slides.length;
+// slides array
+var slidesArr = [].slice.call(slides);
+// reverse array sorting
+slidesArr = slidesArr.reverse();
+// slide current
+var slideCurrent = 0;
+sliderControl.addEventListener("click", function(e){
+  target = e.target;
+
+  // get next button
+  if(target.classList.contains("next")){
+    next = e.target,
+    prev = next.previousElementSibling,
+    nextSlide = slidesArr[slideCurrent + 1],
+    slide = slidesArr[slideCurrent];
+
+    slide.classList.add("slide-on");
+    slide.classList.remove("text-on");
+    nextSlide.classList.add("text-on");
+
+    slideCurrent += 1;
+
+    if(slideCurrent > 0) {
+      prev.classList.remove("disabled");
+    }
+
+    if(slideCurrent === slidesLength - 1){
+      next.classList.add("disabled");
+    }
+  }
+
+  // get prev button
+  if(target.classList.contains("prev")){
+
+    slideCurrent -= 1;
+
+    prev = e.target,
+    next = prev.nextElementSibling,
+    prevSlide = slidesArr[slideCurrent + 1],
+    slide = slidesArr[slideCurrent];
+
+    prevSlide.classList.remove("text-on");
+    slide.classList.remove("slide-on");
+    slide.classList.add("text-on");
+
+    if(slideCurrent === slidesLength - 2){
+      next.classList.remove("disabled");
+    }
+    if(slideCurrent === 0){
+      prev.classList.add("disabled");
+    }
+  }
+});
+balapaCop("Image Slider", "#999");*/
+
+var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+slideshows.forEach(initSlideShow);
+
+function initSlideShow(slideshow) {
+
+	var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`);
+
+	var index = 0, time = 5000;
+	slides[index].classList.add('active');
+
+	setInterval( () => {
+		slides[index].classList.remove('active');
+
+		index++;
+		if (index === slides.length) index = 0;
+
+		slides[index].classList.add('active');
+
+	}, 3000);
+}
+</script>

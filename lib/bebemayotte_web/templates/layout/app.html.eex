@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bbmay -Mayotte</title>
+    <meta name="csrf" content="<%= Plug.CSRFProtection.get_csrf_token() %>">
+    <link rel="icon" href="<%= Routes.static_path(@conn, "/images/b.png") %>"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  </head>
+  <body>
+    <header id="haut">
+    <div class="navigation">
+      <div class="header-nav">
+        <ul class="ul1">
+          <li class="menu-item3"><a href="mailto:focicom@gmail.com"><i class="fab fa-google"></i> focicom@gmail.com</a></li>
+          <li class="menu-item3"><a href="tel:0269613910">0269 61 39 10</a></li>
+        </ul>
+        <ul class="ul3">
+          <li class="menu-item"><a href="/" class="nav-link">Accueil</a></li>
+          <li class="menu-item">
+            <a href="/produit" class="nav-link">Boutique</a>
+            <ul>
+
+            </ul>
+          </li>
+          <li class="menu-item"><a href="/contact" class="nav-link">Contact</a></li>
+          <li class="menu-item"><a href="/question" class="nav-link">Qu'en pensez-vous?</a></li>
+        </ul>
+        <ul class="ul2">
+          <% id = Plug.Conn.get_session(@conn, :user_id) %>
+          <li class="menu-item1">
+            <%= if is_nil(id) do %>
+              <a href="/connexion"><span class="fas fa-user"></span> Se connecter</a>
+            <% else %>
+              <a href="/account"><span class="fas fa-user"></span> Mon compte</a>
+            <% end %>
+          </li>
+          <li class="menu-item1"><a href="/contact"><span class="fas fa-phone"></span> Contact</a></li>
+          <li class="menu-item1"><a href="/panier" class="pan"><i  class='fas fa-shopping-cart'></i></a><a href="/question" class="pan"><i  class='fa question-circle'>&#xf059;</i></a></li>
+        </ul>
+      </div>
+      <div class="header-main">
+        <div class="logo1">
+          <a href="/"><img src="https://bbmay.fr/wp-content/uploads/2019/08/BANNER2.jpg" class="image-ban"></a>
+        </div>
+        <div class="hitady">
+          <div class="div">
+            <form method="post" class="form__search rech" action="<%= Routes.page_path(@conn, :search) %>">
+                <input type="hidden" name="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>">
+                <%= if is_nil(@search) or @search == "" do %>
+                <input type="search" name="search" placeholder="Recherche des produits...">
+                <% else %>
+                <input type="search" name="search" placeholder="Recherche des produits..." value="<%= @search %>">
+                <% end %>
+                <button type="submit" class="loupe"><i class="fas fa-search "></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="header-item" id="main-nav">
+       <a href="/"><img src="https://bbmay.fr/wp-content/uploads/2019/08/BANNER2.jpg" class="nav-logo"></a>
+        <ul class="menu" id="menu">
+          <li class="menu-item cla item" id="hidden" class="hidden">
+            <label class="accord">Categorie</label>
+            <div class="pane">
+              <%= for categorie <- @categories do %>
+                <a href="/produit/<%= categorie.nom_cat %>" class="lis nav-link"><%= categorie.nom_cat %></a>
+              <% end %>
+            </div>
+          </li>
+         </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <main role="main" class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= @inner_content %>
+    </main>
+
+    <footer>
+    <div class="monter">
+      <a href="#haut">Monter en haut de la page</a>
+    </div>
+    <div class="foot">
+     <div class="gauche">
+        <div class="gauche1">
+          <img loading="lazy" class="alignnone" src="https://bbmay.fr/wp-content/uploads/2019/08/LOGO-PETI.jpg" alt="" width="250" height="59">
+          <p><span class="st">Trouvez tout ce qu’il faut pour Bébé et Maman sur bbmay à kaweni – Mamoudzou <br>MAYOTTE : Couches, Poussettes, Berceaux, Crèmes, Laits, Vêtements et tous matériels de puériculture.</span></p>
+        </div>
+        <div class="gauche2">
+          <ul>
+            <li><a href="/produit">Boutique</a></li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/question">Qu'en pensez-vous?</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="droite">
+        <div class="droite1">
+          <img src="https://bbmay.fr/wp-content/uploads/2019/09/logo_ca_desk-1.jpg" alt="bébé mayotte et E-transactions" width="60%">
+        </div>
+        <div class="droite2">
+          <aside>
+            <h3>Adresse de la boutique</h3>
+              <div>
+                <ul>
+                  <li><a title="notre Addresse" href="https://bbmay.fr/localisation/"><i class="fa fa-map-marker"></i> BBMAY Rond Point Kaweni 97600 MAMOUDZOU - MAYOTTE </a></li>
+                  <li><a title="Contacter nous" href="tel:0269613910"><i class="fa fa-phone-square"></i>  0269 61 39 10</a></li>
+                  <li><a title="Notre mail" href="mailto:focicom@gmail.com"><i class="fab fa-google"></i> bbmaymayotte@gmail.com</a></li>
+                </ul>
+              </div>
+          </aside>
+          <aside>
+            <div>
+              <p class="para"><i>Responsable</i> <b>Mr CHERALY</b></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="copyright"><p>bbmay.fr | Designed by MGBI | © 2022 </p></div>
+    </footer>
+  </body>
+   <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".menu");
+      const navLink = document.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", mobileMenu)
+
+      function mobileMenu() {
+        console.log("evenement")
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      }
+
+      navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+      function closeMenu() {
+        console.log("evenement")
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
+    </script>
+  <script>
+    var acc = document.getElementsByClassName("accord");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var pane = this.nextElementSibling;
+        if (pane.style.maxHeight) {
+          pane.style.maxHeight = null;
+        } else {
+          pane.style.maxHeight = pane.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+  <script>
+    function myFunction(id, el) {
+      var x = document.getElementById(id);
+      if (x.type === "password") {
+        x.type = "text";
+        el.className = 'fa fa-eye showpwd fa-2x';
+      } else {
+        x.type = "password";
+        el.className = 'fa fa-eye-slash showpwd fa-2x';
+      }
+    }
+  </script>
+  <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+  <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
+ </html>

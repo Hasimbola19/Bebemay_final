@@ -1,0 +1,146 @@
+<div class="product">
+<%= for categorie <- @categories do %>
+  <%= for souscategorie <- @souscategories do %>
+    <%= if @produit.id_cat == categorie.id_cat && @produit.id_souscat == souscategorie.id_souscat do %>
+      <div class="navigue">
+        <a href="/"> Accueil </a> / <a href="/produit"> Produits </a> / <a href="/produit/<%= categorie.nom_cat %>"> <%= categorie.nom_cat %> </a> / <a  href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a> / <a> <%= @produit.id_produit %> </a>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+    <div class="detail_produit">
+        <div class="sary_produit">
+            <%= if @produit.photolink == "#{@produit.id_produit}-0.JPG" do %>
+                <img src="<%= Routes.static_path(@socket, "/images/empty.png") %>" class="prod">
+            <% else %>
+                <img src="<%= Routes.static_path(@socket, @produit.photolink) %>" class="prod" />
+            <% end %>
+        </div>
+        <div class="title_produit">
+           <br>
+           <h2 class="prix">€ <%= Decimal.round(@produit.price, 2) %></h2>
+           <br>
+           <div class="detail__produit">
+             <%= if @produit.stockstatus do %>
+               <div>
+                 <table>
+                   <tr>
+                     <td><button onclick="sub('<%= @produit.id_produit %>')" class="fa fa-minus-circle"></button></td>
+                     <td id="<%= @produit.id_produit %>"><%= @quantite %></td>
+                     <td><button onclick="add('<%= @produit.id_produit %>', <%= Decimal.to_integer(@produit.stockmax) %>)" class="fa fa-plus-circle"></button></td>
+                   </tr>
+                 </table>
+               </div>
+                <div>
+                <form phx-submit="add_panier">
+                    <input type="hidden" value=<%= @produit.id_produit %> name="id_produit">
+                    <input type="hidden" value=<%= @quantite %> name="quantite">
+                    <button class="ajout" type="submit" onclick="add_panier('<%= @produit.id_produit %>')">
+                        <i class="fas fa-shopping-cart">&#xe057; </i>
+                      </button>
+                <!--<button class="btn_panier" onclick="add_panier('<%= @produit.id_produit %>')" phx-submit="panier" phx-value-idp="<%= @produit.id_produit %>">
+                <i class='fab panier '>&#xe057;</i>
+                </button>-->
+                </form>
+                </div>
+                <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
+              <% else %>
+                <h3 class="detail">RUPTURE DE STOCK</h3>
+              <% end %>
+           </div>
+           <h3> <b>Catégories :</b> <%= @categorie_prod %>,<br> <b> Sous Catégorie :</b> <%= @souscategorie_prod %></h3>
+        </div>
+        <div class="descri_projet">
+          <h2>Description</h2>
+            <h3><%= @produit.title %></h3>
+            <p><%= @produit.id_produit %></p>
+        </div>
+    </div>
+    <div class="apparente">
+        <h2>Produits apparentés</h2>
+        <div class="article" >
+          <%= for apparent <- @apparentes do %>
+            <%= for categorie <- @categories do %>
+              <%= for souscategorie <- @souscategories do %>
+                <%= if apparent.id_cat == categorie.id_cat && apparent.id_souscat == souscategorie.id_souscat do %>
+                  <div class="produit" id="details">
+                    <a class="produit_a" id="details_a" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= apparent.id_produit %>">
+                      <img src="<%= Routes.static_path(@socket, apparent.photolink) %>" href="/show_produit/<%= apparent.id_produit %>">
+                      <h3 class="detail"><%= apparent.title %></h3>
+                    </a>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+</div>
+<script>
+  function add_panier(id) {
+    quantite = parseInt(document.getElementById(""+id+"").innerHTML)
+    csrf = document.querySelector("meta[name=csrf]").content
+    console.log(quantite)
+    $.ajax({
+      url: "/add-panier",
+      type: "post",
+      data: {
+        post: {id: id, quantite: quantite}
+      },
+      headers: {
+        "X-CSRF-TOKEN": csrf
+      },
+      success: function() {
+        console.log("success")
+      }
+    })
+  }
+
+  function add(id, max) {
+    quantite = parseInt(document.getElementById(""+id+"").innerHTML)
+    csrf = document.querySelector("meta[name=csrf]").content
+
+    if (quantite < max) {
+      quantite += 1
+      document.getElementById(""+id+"").innerHTML = quantite
+
+      $.ajax({
+        url: "/add-panier",
+        type: "post",
+        data: {
+          post: {id: id, quantite: quantite}
+        },
+        headers: {
+          "X-CSRF-TOKEN": csrf
+        },
+        success: function() {
+          console.log("success")
+        }
+      })
+    }
+  }
+
+  function sub(id) {
+    quantite = parseInt(document.getElementById(""+id+"").innerHTML)
+    csrf = document.querySelector("meta[name=csrf]").content
+
+    if (quantite > 1) {
+      quantite -= 1
+      document.getElementById(""+id+"").innerHTML = quantite
+
+      $.ajax({
+        url: "/add-panier",
+        type: "post",
+        data: {
+          post: {id: id, quantite: quantite}
+        },
+        headers: {
+          "X-CSRF-TOKEN": csrf
+        },
+        success: function() {
+          console.log("success")
+        }
+      })
+    }
+  }
+</script>
