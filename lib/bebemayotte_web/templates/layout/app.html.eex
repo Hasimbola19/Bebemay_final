@@ -43,7 +43,7 @@
             <% end %>
           </li>
           <li class="menu-item1">
-            <a href="/panier" class="pan" style="background-color:#ffb4f5">
+            <a href="/panier" class="pan" style="background-color:#ffb4f5; color: #0010bb">
               <i class='fas fa-shopping-cart'></i> Achat en ligne
             </a>
             <a href="/question" class="pan">
