@@ -357,9 +357,9 @@
             <h3>Adresse de la boutique</h3>
               <div>
                 <ul>
-                  <li><a title="notre Addresse" href="https://bbmay.fr/localisation/"><i class="fa fa-map-marker"></i> BBMAY Rond Point Kaweni 97600 MAMOUDZOU - MAYOTTE </a></li>
+                  <li><a title="notre Addresse" href="/location"><i class="fa fa-map-marker"></i> BBMAY Rond Point Kaweni 97600 MAMOUDZOU - MAYOTTE </a></li>
                   <li><a title="Contacter nous" href="tel:0269613910"><i class="fa fa-phone-square"></i>  0269 61 39 10</a></li>
-                  <li><a title="Notre mail" href="mailto:focicom@gmail.com"><i class="fas fa-envelope"></i> bbmaymayotte@gmail.com</a></li>
+                  <li><a title="Notre mail" href="mailto:focicom@gmail.com"><i class="fad fa-envelope"></i> bbmaymayotte@gmail.com</a></li>
                 </ul>
               </div>
           </aside>
