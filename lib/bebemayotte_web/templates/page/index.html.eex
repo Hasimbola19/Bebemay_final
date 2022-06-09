@@ -106,7 +106,7 @@
             <div class=box>
               <img src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
               <div class="box-content">
-                <a href="/produit/ACCESSOIRES" class="title">Voir plus</a>
+                <a href="/produit/ACCESSOIRE" class="title">Voir plus</a>
               </div>
             </div>
             <div class="box">
@@ -140,7 +140,7 @@
             <div class="box">
               <img src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
               <div class="box-content">
-                <a href="/produit/JEU" class="title">Voir plus</a>
+                <a href="/produit/JEUX" class="title">Voir plus</a>
               </div>
             </div>
           </div>
