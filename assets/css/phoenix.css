@@ -2215,6 +2215,18 @@ label {
   /* background: url("/show_produit/produit.id_produit") */
 }
 
+.produits{
+  width: 95%;
+  height: auto;
+  position: relative;
+  /*background-color: #fff ;*/
+  /*border: 1px solid rgb(225, 225, 225);*/
+  border-radius: 4px;
+  /* box-shadow:1px 1px 15px 1px  rgba(0, 0, 0, 0.105); */
+  margin: 5% 10% 5% 10% ;
+  /* background: url("/show_produit/produit.id_produit") */
+}
+
 /*.apparente .article .produit .produit_a{
   margin-left: 65px;
   margin-top: 2px;
