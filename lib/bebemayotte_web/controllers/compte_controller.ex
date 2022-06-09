@@ -315,9 +315,9 @@ defmodule BebemayotteWeb.CompteController do
       pbx_retour = "Mt:M;Ref:R;Auto:A;Erreur:E";
 
       # // Paramétrage des urls de redirection navigateur client après paiement :
-      pbx_effectue = "http://localhost:4001"
-      pbx_annule = "http://localhost:4001/produit"
-      pbx_refuse = "http://localhost:4001"
+      pbx_effectue = "http://162.19.74.21:4001"
+      pbx_annule = "http://162.19.74.21:4001/produit"
+      pbx_refuse = "http://162.19.74.21:4001"
 
       # // On récupère la date au format ISO-8601 :
       {erl_date, erl_time} = :calendar.local_time()
