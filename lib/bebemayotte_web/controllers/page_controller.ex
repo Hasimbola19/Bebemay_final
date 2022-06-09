@@ -20,6 +20,15 @@ defmodule BebemayotteWeb.PageController do
     render(conn, "index.html", categories: categories, search: nil)
   end
 
+  def location(conn, _params) do
+    id = Plug.Conn.get_session(conn, :user_id)
+    if id == nil do
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => 1, "user" => nil, "search" => nil})
+    else
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => id, "user" => id, "search" => nil})
+    end
+  end
+
   # rendue des produits
   def produit(conn, _params) do
     id = Plug.Conn.get_session(conn, :user_id)
