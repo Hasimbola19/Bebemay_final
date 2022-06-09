@@ -28,13 +28,19 @@
                       <%= for produit <- @produits do %>
                         <tr>
                             <td>
-                                <%= if produit.photolink == "#{produit.id_produit}-0.JPG" do %>
+                                <%= if produit.photolink == nil do %>
                                     <img src="<%= Routes.static_path(@socket, "/images/empty.png") %>" class="shop">
                                 <% else %>
-                                    <img src="data:image/png;base64, <%= produit.photolink %>" class="shop" />
+                                    <img src="<%= Routes.static_path(@socket, produit.photolink) %>" class="shop" />
                                 <% end %>
                             </td>
-                            <td><p><a href="/show_produit/<%= produit.id_produit %>"><%= produit.title %></a></p></td>
+                            <%= for categorie <- @categories do %>
+                              <%= for souscategorie <- @souscategories do %>
+                                <%= if produit.id_cat == categorie.id_cat && produit.id_souscat == souscategorie.id_souscat do %>
+                                <td><p><a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= produit.id_produit %>"><%= produit.title %></a></p></td>
+                                <% end %>
+                              <% end %>
+                            <% end %>
                             <td><button onclick="sub('<%= produit.id_produit %>')" phx-click="sub" phx-value-idp="<%= produit.id_produit %>" class="quantite_moins"></button></td>
                             <td id="<%= produit.id_produit %>"><%= Enum.fetch!(@list_quantite, Enum.find_index(@list_panier, fn x -> x == produit.id_produit end)) %></td>
                             <td><button onclick="add('<%= produit.id_produit %>', <%= Decimal.to_integer(produit.stockmax) %>)" phx-click="add" phx-value-idp="<%= produit.id_produit %>" class="quantite_plus"></button></td>
