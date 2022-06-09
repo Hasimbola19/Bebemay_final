@@ -102,7 +102,8 @@ defmodule BebemayotteWeb.Router do
     get "/admin/auth", AdminController, :index
     get "/params", AdminController, :parametre
 
-
+      # GET LOCATION
+    get "/location", PageController, :location
 
       #post admin
     post "/admin" , AdminController, :authenticate
