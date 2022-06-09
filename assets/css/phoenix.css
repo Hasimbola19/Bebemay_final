@@ -541,6 +541,21 @@ pre{padding: 1em;}
   display: block;
 }
 
+.location{
+  padding-top: 175px;
+}
+
+.location p{
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+
+.location img{
+  margin-left: 50px;
+}
+
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
