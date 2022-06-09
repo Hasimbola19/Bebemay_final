@@ -228,7 +228,7 @@ pre{padding: 1em;}
 
 .hitady .div form{
   padding-left: 50px;
-  /*padding-right: 300px;*/
+  padding-right: 80px;
   flex: 1 1 auto;
 }
 
@@ -237,9 +237,31 @@ pre{padding: 1em;}
   border-color: #ffb4f5;
 }
 
-.logo-ecommerce{
+.logo-ecommerce {
+  color: #0001b1;
+  /* display: flex; */
   padding-top: 15px;
+  margin-right: 40px;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 200px;
+}
+
+.logo-ecommerce div{
+  margin-top: 20px;
+}
+
+.logo-ecommerce p {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -25px;
+}
+
+.logo-ecommerce img{
+  max-width: 100%;
+  height: 50px;
 }
 
 .hitady .icones{
@@ -2199,8 +2221,7 @@ label {
 }*/
 
 .apparente .article #details #details_a{
-  margin: auto;
-  text-align: center;
+  margin-left: 60px;
 }
 
 .produit .produit_a>img{
