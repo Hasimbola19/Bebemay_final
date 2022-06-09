@@ -1,17 +1,19 @@
 defmodule BebemayotteWeb.Live.PanierLive do
   use Phoenix.LiveView
   alias Bebemayotte.CatRequette
+  alias Bebemayotte.SouscatRequette
   alias Bebemayotte.PanierRequette
   alias Bebemayotte.ProdRequette
 
-  def mount(params, %{"id_session" => id, "user" => user, "paniers" => list_panier, "quantites" => list_quantite}, socket) do
+  def mount(_params, %{"id_session" => id, "user" => user, "paniers" => list_panier, "quantites" => list_quantite}, socket) do
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
     produits = list_panier |> produits_
     somme = list_quantite |> somme_prix(list_panier, produits)
     {
       :ok,
       socket
-       |> assign(categories: categories, search: nil, produits: produits,
+       |> assign(categories: categories,souscategories: souscategories, search: nil, produits: produits,
                  list_quantite: list_quantite, list_panier: list_panier,
                  somme: somme, id_session: id, user: user),
       layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
