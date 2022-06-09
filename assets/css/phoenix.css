@@ -132,6 +132,12 @@ pre{padding: 1em;}
 }
 
 /* CSS ADDITIONNEE */
+
+.navigation{
+  position: fixed;
+  width: inherit;
+}
+
 .header-nav{
   background-color: #0010bb;
   height: 35px;
@@ -622,6 +628,13 @@ img {vertical-align: middle;}
 
 .header-item .nav-logo{
   display: none;
+}
+
+.ajout i{
+  background-color: #0010bb;
+  color: #fff;
+  padding: 3px 8px 3px 5px;
+  /* margin-right: 2px;*/
 }
 
 @keyframes fade {
@@ -1523,6 +1536,7 @@ footer .droite .droite2 ul li a{
 footer .droite .droite1{
   /* margin: auto; */
   padding-left: 25px;
+  padding-top: 25px;
 }
 
 footer .droite .droite2 aside h3{
@@ -2188,12 +2202,12 @@ label {
 }
 
 h4.prix{
-  color: #ffb4f5;
+  color: #0010bb;
   font-size: 15px;
 }
 
 .prix{
-  color: #ffb4f5;
+  color: #0010bb;
   font-size: 25px;
   font-weight: bold;
 }
@@ -3280,6 +3294,10 @@ input[type='radio']{
   height: 250px;
   margin-left: 75px;
 }
+
+/*.sary_produit img:hover{
+  transform: scale(2.0);
+}*/
 
 .title_produit{
   text-align-last: center;
