@@ -40,7 +40,6 @@ defmodule BebemayotteWeb.PageController do
   end
 
   # rendue des 44
-  @spec produit_categorie(Plug.Conn.t(), map) :: Plug.Conn.t()
   def produit_categorie(conn, %{"cat" => cat}) do
     id = Plug.Conn.get_session(conn, :user_id)
     if id == nil do
