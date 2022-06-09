@@ -95,18 +95,22 @@
         <h2>Produits apparentés</h2>
         <div class="article" >
           <%= for apparent <- @apparentes do %>
+            <div class="produit" id="details">
             <%= for categorie <- @categories do %>
               <%= for souscategorie <- @souscategories do %>
                 <%= if apparent.id_cat == categorie.id_cat && apparent.id_souscat == souscategorie.id_souscat do %>
-                  <div class="produit" id="details">
                     <a class="produit_a" id="details_a" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= apparent.id_produit %>">
-                      <img src="<%= Routes.static_path(@socket, apparent.photolink) %>" href="/show_produit/<%= apparent.id_produit %>">
-                      <h3 class="detail"><%= apparent.title %></h3>
+                      <div class="imge">
+                        <img src="<%= Routes.static_path(@socket, apparent.photolink) %>" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= apparent.id_produit %>">
+                      </div>
+                      <div>
+                        <h3 class="detail"><%= apparent.title %></h3>
+                      </div>
                     </a>
-                  </div>
                 <% end %>
               <% end %>
             <% end %>
+            </div>
           <% end %>
         </div>
     </div>
