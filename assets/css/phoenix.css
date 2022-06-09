@@ -138,6 +138,15 @@ pre{padding: 1em;}
   width: inherit;
 }
 
+.navigue{
+  margin-top: 35px;
+  margin-left: 35px;
+}
+
+.navigue a{
+  font-size: 20px;
+}
+
 .header-nav{
   background-color: #0010bb;
   height: 35px;
