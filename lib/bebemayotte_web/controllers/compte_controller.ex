@@ -296,14 +296,12 @@ defmodule BebemayotteWeb.CompteController do
         "date" => date
       }
 
-      pbx_site = "2366513" #"1999888"
-      pbx_rang = "01" #"32"
-      pbx_identifiant = "122909322" #"123456789"
-      # total = "200"
+      pbx_site = "2366513"
+      pbx_rang = "01"
+      pbx_identifiant = "122909322"
       tot = Float.floor(prix_total, 2)
       total = tot |> to_string()
       IO.puts "TOOOOOOOOOOOOTTTTTTTTTTTTAAAAAAAAAAAALLLLLLLLLL"
-      # IO.inspect "#{total}0"
       IO.puts "LLLLOOOOONNNNNNNNNNNNGGGGGGGGG"
       IO.inspect String.length(total)
 
@@ -311,15 +309,15 @@ defmodule BebemayotteWeb.CompteController do
       pbx_porteur = mail
 
       # // Paramétrage de l'url de retour back office site (notification de paiement IPN) :
-      pbx_repondre_a = "http://www.votre-site.extention/page-de-back-office-site";
+      pbx_repondre_a = "https://preprod-guest.e-transaction.fr/Vision/";
 
       # // Paramétrage des données retournées via l'IPN :
       pbx_retour = "Mt:M;Ref:R;Auto:A;Erreur:E";
 
       # // Paramétrage des urls de redirection navigateur client après paiement :
-      pbx_effectue = "http://162.19.74.21:4001"
-      pbx_annule = "http://162.19.74.21:4001/produit"
-      pbx_refuse = "http://162.19.74.21:4001"
+      pbx_effectue = "http://localhost:4001"
+      pbx_annule = "http://localhost:4001/produit"
+      pbx_refuse = "http://localhost:4001"
 
       # // On récupère la date au format ISO-8601 :
       {erl_date, erl_time} = :calendar.local_time()
@@ -348,7 +346,6 @@ defmodule BebemayotteWeb.CompteController do
       # // --------------- SÉLÉCTION DE L'ENVIRRONEMENT ---------------
       # // Recette (paiements de test)  :
           urletrans = "https://recette-tpeweb.e-transactions.fr/php/"
-
       # // Production (paiements réels) :
         # // URL principale :
           # urletrans ="https://tpeweb.e-transactions.fr/php/";
