@@ -1871,10 +1871,10 @@ header nav a {
     transition-delay: 0.25s;
 }
 .box .title{
-    font-size:40px;
+    font-size: 20px;
     font-weight: 600;
     text-transform: capitalize;
-    margin: 0 0 3px;
+   /* margin: 0 0 3px;*/
 }
   /*-----article bébé fin*/
 
