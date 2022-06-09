@@ -74,11 +74,8 @@
                     <input type="hidden" value=<%= @produit.id_produit %> name="id_produit">
                     <input type="hidden" value=<%= @quantite %> name="quantite">
                     <button class="ajout" type="submit" onclick="add_panier('<%= @produit.id_produit %>')">
-                        <i class="fas fa-shopping-cart">&#xe057; </i>
-                      </button>
-                <!--<button class="btn_panier" onclick="add_panier('<%= @produit.id_produit %>')" phx-submit="panier" phx-value-idp="<%= @produit.id_produit %>">
-                <i class='fab panier '>&#xe057;</i>
-                </button>-->
+                      <i class="fas fa-shopping-cart" </i>
+                    </button>
                 </form>
                 </div>
                 <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
