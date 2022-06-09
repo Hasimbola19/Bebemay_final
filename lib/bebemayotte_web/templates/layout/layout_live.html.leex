@@ -41,9 +41,9 @@
               <a href="/account"><span class="fas fa-user"></span> Mon compte</a>
             <% end %>
           </li>
-          <li class="menu-item1">
+          <li class="menu-item1"  style="margin-top: 2px">
             <a href="/panier" class="pan" style="background-color:#ffb4f5; color: #0010bb">
-              <i class='fas fa-shopping-cart'></i> Achat en ligne
+              <i class='fas fa-shopping-cart'></i> Votre panier
             </a>
             <a href="/question" class="pan">
               <i class='fa question-circle'>&#xf059;</i>
@@ -69,7 +69,8 @@
           </div>
         </div>
         <div class="logo-ecommerce">
-          <img src="https://bbmay.fr/wp-content/uploads/2019/09/logo_ca_desk-1.jpg" alt="bébé mayotte et E-transactions" width="60%">
+          <img src = "<%= Routes.static_path(@socket, "/images/logo-cb.jpeg") %> ">
+          <div><p>Achat</p><p> en ligne</p></div>
         </div>
       </div>
       <div class="header-item" id="main-nav">
