@@ -94,9 +94,9 @@
           <div class="slide">
             <img src="<%= Routes.static_path(@conn, "/images/0000000000000000000000000000001.jpg") %>" alt="">
           </div>
-          <div class="slide">
+          <!--<div class="slide">
             <img src="<%= Routes.static_path(@conn, "/images/00000000000000000000000000001.jpg") %>" alt="">
-          </div>
+          </div>-->
         </div>
       </div>
 
