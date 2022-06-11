@@ -2,8 +2,12 @@
 <%= for categorie <- @categories do %>
   <%= for souscategorie <- @souscategories do %>
     <%= if @produit.id_cat == categorie.id_cat && @produit.id_souscat == souscategorie.id_souscat do %>
-      <div class="navigue">
-        <a href="/"> Accueil </a> / <a href="/produit"> Produits </a> / <a href="/produit/<%= categorie.nom_cat %>"> <%= categorie.nom_cat %> </a> / <a  href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a> / <a> <%= @produit.id_produit %> </a>
+      <div class="navig">
+        <a href="/"> Accueil </a><span> / </spam>
+        <a href="/produit"> Produits </a><span> / </spam>
+        <a href="/produit/<%= categorie.nom_cat %>"> <%= categorie.nom_cat %> </a><span> / </spam>
+        <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a><span> / </spam>
+        <a> <%= @produit.id_produit %> </a>
       </div>
     <% end %>
   <% end %>

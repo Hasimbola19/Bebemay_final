@@ -2166,17 +2166,17 @@ label {
   height: auto;
 } 
 
-.all .navig{
+.navig{
   margin-left: 50px;
   margin-top: 20px;
 }
 
-.all .navig a {
+.navig a {
   font-size: 15px;
   color: #000;
 }
 
-.all .navig a:hover{
+.navig a:hover{
   color: #0010bb;
   text-decoration: underline;
   font-weight: bold;
