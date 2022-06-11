@@ -12,14 +12,13 @@ defmodule Bebemayotte.Produit do
     field :stockstatus, :boolean, default: false
     field :title, :string
     field :id_user, :integer
-    field :modif, :boolean
 
   end
 
   @doc false
   def changeset(produit, attrs) do
     produit
-    |> cast(attrs, [:id_produit, :title, :photolink, :id_cat, :id_souscat, :stockstatus, :stockmax, :price, :id_user, :modif])
+    |> cast(attrs, [:id_produit, :title, :photolink, :id_cat, :id_souscat, :stockstatus, :stockmax, :price, :id_user])
     |> validate_required([:id_produit])
   end
 end

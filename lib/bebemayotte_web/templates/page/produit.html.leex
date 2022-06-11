@@ -54,8 +54,8 @@
       </div>
       <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
       <div class="article">
-        <%= for produit <- @produits do %>
-          <div class="produit">
+          <%= for produit <- @produits do %>
+            <div class="produit">
             <%= for categorie <- @categories do %>
             <%= for souscategorie <- @souscategories do %>
             <%= if produit.id_cat == categorie.id_cat && produit.id_souscat == souscategorie.id_souscat do %>
@@ -85,10 +85,10 @@
                   <% end %>
                 </div>
               </a>
+            </div>
           <% end %>
           <% end %>
           <% end %>
-          </div>
         <% end %>
       </div>
     <center>

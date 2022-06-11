@@ -34,7 +34,6 @@ defmodule BebemayotteWeb.Router do
 
       # SEARCH
     post "/search", PageController, :search
-    get "/search", PageController, :produit
 
       # SESSION
     get "/connexion", PageController, :connexion
