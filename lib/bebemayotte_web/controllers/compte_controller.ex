@@ -162,6 +162,21 @@ defmodule BebemayotteWeb.CompteController do
     render(conn,"politique.html", categories: categories, search: nil)
   end
 
+  def annule(conn, _params) do
+    categories = CatRequette.get_all_categorie()
+    render(conn,"annule.html", categories: categories, search: nil)
+  end
+
+  def accepte(conn, _params) do
+    categories = CatRequette.get_all_categorie()
+    render(conn,"accepte.html", categories: categories, search: nil)
+  end
+
+  def refuse(conn, _params) do
+    categories = CatRequette.get_all_categorie()
+    render(conn,"refuse.html", categories: categories, search: nil)
+  end
+
   # GET PAGE FACTURATION
   def update_facturation(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
@@ -289,7 +304,11 @@ defmodule BebemayotteWeb.CompteController do
       num_commande = id |> Fonction.fn_2()
       date = NaiveDateTime.local_now() |> NaiveDateTime.to_date()
       mail = UserRequette.get_user_email_by_id(id)
-
+      nom = UserRequette.get_user_name_by_id(id)
+      prenom = UserRequette.get_user_prename_by_id(id)
+      codep = UserRequette.get_user_prename_by_id(id)
+      pays = UserRequette.get_user_pays_by_id(id)
+      ville = UserRequette.get_user_ville_by_id(id)
       commande = %{
         "numero" => num_commande,
         "total" => prix_total,
@@ -312,9 +331,9 @@ defmodule BebemayotteWeb.CompteController do
       pbx_retour = "Mt:M;Ref:R;Auto:A;Erreur:E";
 
       # // Paramétrage des urls de redirection navigateur client après paiement :
-      pbx_effectue = "http://162.19.74.21:4001"
-      pbx_annule = "http://162.19.74.21:4001/produit"
-      pbx_refuse = "http://162.19.74.21:4001"
+      pbx_effectue = "http://localhost:4001/accepte"
+      pbx_annule = "http://localhost:4001/annule"
+      pbx_refuse = "http://localhost:4001/refuse"
 
       # // On récupère la date au format ISO-8601 :
       {erl_date, erl_time} = :calendar.local_time()
@@ -337,23 +356,23 @@ defmodule BebemayotteWeb.CompteController do
       pbx_shoppingcart =
          "<?xml version=\"1.0\" encoding=\"utf-8\"?><shoppingcart><total><totalQuantity>#{pbx_nb_produit}</totalQuantity></total></shoppingcart>"
       # // Valeurs envoyées dans PBX_BILLING :
-      pbx_prenom_fact = "Jean-Marie"						#	//variable de test Jean-Marie
-      pbx_nom_fact = "Thomson"
+      pbx_prenom_fact = prenom						#	//variable de test Jean-Marie
+      pbx_nom_fact = nom
       pbx_hash = "sha512"
       # // --------------- SÉLÉCTION DE L'ENVIRRONEMENT ---------------
       # // Recette (paiements de test)  :
-          urletrans = "https://recette-tpeweb.e-transactions.fr/php/"
+        #  urletrans = "https://recette-tpeweb.e-transactions.fr/php/"
       # // Production (paiements réels) :
         # // URL principale :
-          # urletrans ="https://tpeweb.e-transactions.fr/php/";
+           urletrans ="https://tpeweb.e-transactions.fr/php/";
         # // URL secondaire :
           #urletrans ="https://tpeweb1.e-transactions.fr/php/";
 
-      pbx_adresse1_fact = "1 rue de Paris";								#//variable de test 1 rue de Paris
+      pbx_adresse1_fact = ville;								#//variable de test 1 rue de Paris
       pbx_adresse2_fact = "";								#//variable de test <vide>
-      pbx_zipcode_fact = "75001";						#	//variable de test 75001
-      pbx_city_fact = "Paris";									#//variable de test Paris
-      pbx_country_fact = "250";		#//variable de test 250 (pour la France)
+      pbx_zipcode_fact = "";						#	//variable de test 75001
+      pbx_city_fact = pays;									#//variable de test Paris
+      pbx_country_fact = codep;		#//variable de test 250 (pour la France)
 
       pbx_billing =
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><Billing><Address><FirstName>#{pbx_prenom_fact}</FirstName>"<>""<>
@@ -363,6 +382,7 @@ defmodule BebemayotteWeb.CompteController do
           "</Address></Billing>"
 
       hmackey = "56A05997B9149BFDE3B07BEAFC2BD55FE50321CF3CF5A6623E727A4124CB0999D9590C6D02E036365363E746FE34C3F04F80EF110ABE294A9CD3877F36B38BAE"
+        #"56A05997B9149BFDE3B07BEAFC2BD55FE50321CF3CF5A6623E727A4124CB0999D9590C6D02E036365363E746FE34C3F04F80EF110ABE294A9CD3877F36B38BAE"
         # "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
 
       binkey = hmackey |> Base.decode16!()
