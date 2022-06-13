@@ -2110,7 +2110,7 @@ header nav a {
 }
 label:hover{
   cursor: pointer;
-  background-color: #0010bb;
+  /*background-color: #0010bb;*/
   transition: width 2s;
 }
 label {
