@@ -108,7 +108,7 @@
     <div class="foot">
      <div class="gauche">
         <div class="gauche1">
-          <img src="<%= Routes.static_path(@conn, "/images/bbmayimg/LOGO-PETI.JPG")  %>" width="250" height="59">
+          <img src="<%= Routes.static_path(@conn, "/images/bbmayimg/LOGO-PETI.jpg")  %>" width="250" height="59">
           <p><span class="st">Trouvez tout ce qu’il faut pour Bébé et Maman sur bbmay à kaweni – Mamoudzou <br>MAYOTTE : Couches, Poussettes, Berceaux, Crèmes, Laits, Vêtements et tous matériels de puériculture.</span></p>
           <p style="font-size:large; color:white ; font-weight:bold; text-decoration:underline">Image : fournit par le fabricant</p>
           <p><a class="link" href="#popup1" style="font-size:large; color:#0010bb ; font-weight:bold">Conditions générales de vente</a></p>
@@ -360,7 +360,7 @@
                 <ul>
                   <li><a title="notre Addresse" href="/location"><i class="fa fa-map-marker"></i> BBMAY Rond Point Kaweni 97600 MAMOUDZOU - MAYOTTE </a></li>
                   <li><a title="Contacter nous" href="tel:0269613910"><i class="fa fa-phone-square"></i>  0269 61 39 10</a></li>
-                  <li><a title="Notre mail" href="mailto:focicom@gmail.com"><i class="fad fa-envelope"></i> bbmaymayotte@gmail.com</a></li>
+                  <li><a title="Notre mail" href="mailto:bebemaymayotte@gmail.com"><i class="fad fa-envelope"></i> bbmaymayotte@gmail.com</a></li>
                 </ul>
               </div>
           </aside>
