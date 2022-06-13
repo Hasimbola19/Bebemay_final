@@ -106,7 +106,6 @@ defmodule Bebemayotte.SyncDb do
           {:ok, afficher} = Enum.fetch(c, 6)
           {:ok, stock_max} = Enum.fetch(c, 7)
           # {:ok, stock_reel} = Enum.fetch(c, 7)
-          # IO.inspect(stock_max)
 
           if photo != nil do
           File.write(Path.expand("assets/static/images/uploads/#{prod_id}.jpeg"), photo, [:binary])
