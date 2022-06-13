@@ -26,6 +26,46 @@ defmodule Bebemayotte.UserRequette do
     Repo.one(query)
   end
 
+  def get_user_name_by_id(id) do
+    query =
+      from co in User,
+        where: co.id_user == ^id,
+        select: co.nom
+    Repo.one(query)
+  end
+
+  def get_user_prename_by_id(id) do
+    query =
+      from co in User,
+        where: co.id_user == ^id,
+        select: co.prenom
+    Repo.one(query)
+  end
+
+  def get_user_pays_by_id(id) do
+    query =
+      from co in User,
+        where: co.id_user == ^id,
+        select: co.pays
+    Repo.one(query)
+  end
+
+  def get_user_codepostal_by_id(id) do
+    query =
+      from co in User,
+        where: co.id_user == ^id,
+        select: co.codepostal
+    Repo.one(query)
+  end
+
+  def get_user_ville_by_id(id) do
+    query =
+      from co in User,
+        where: co.id_user == ^id,
+        select: co.ville
+    Repo.one(query)
+  end
+
   def get_user_adresse_message(adrMess) do
     query =
       from u in User,
