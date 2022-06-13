@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
     <title>Bbmay -Mayotte</title>
-    <link rel="icon" href="<%= Routes.static_path(@socket, "/images/b.png") %>"/>
+    <link rel="icon" href="<%= Routes.static_path(@socket, "/images/bbmayimg/favicon.jpg") %>"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
@@ -53,7 +53,7 @@
       </div>
       <div class="header-main">
         <div class="logo1">
-          <a href="/"><img src="https://bbmay.fr/wp-content/uploads/2019/08/BANNER2.jpg" class="image-ban"></a>
+          <a href="/"><img src="<%= Routes.static_path(@socket, "/images/bbmayimg/BANNER2.jpg") %>" class="image-ban"></a>
         </div>
         <div class="hitady">
           <div class="div">
@@ -74,7 +74,7 @@
         </div>
       </div>
       <div class="header-item" id="main-nav">
-      <a href="/"><img src="https://bbmay.fr/wp-content/uploads/2019/08/BANNER2.jpg" class="nav-logo"></a>
+      <a href="/"><img src="<%= Routes.static_path(@socket, "/images/bbmayimg/BANNER2.jpg") %>" class="nav-logo"></a>
         <ul class="menu">
           <li class="menu-item item">
             <label class="accord">Categorie</label>
