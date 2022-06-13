@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Bbmay -Mayotte</title>
     <meta name="csrf" content="<%= Plug.CSRFProtection.get_csrf_token() %>">
-    <link rel="icon" href="<%= Routes.static_path(@conn, "/images/b.png") %>"/>
+    <link rel="icon" href="<%= Routes.static_path(@conn, "/images/bbmayimg/favicon.jpg") %>"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <div class="navigation">
       <div class="header-nav">
         <ul class="ul1">
-          <li class="menu-item3"><a href="mailto:focicom@gmail.com"><i class="fab fa-envelop"></i> focicom@gmail.com</a></li>
+          <li class="menu-item3"><a href="mailto:bebemaymayotte@gmail.com"><i class="fab fa-envelop"></i> bebemaymayotte@gmail.com</a></li>
           <li class="menu-item3"><a href="tel:0269613910">0269 61 39 10</a></li>
         </ul>
         <ul class="ul3">
@@ -54,7 +54,7 @@
       </div>
       <div class="header-main">
         <div class="logo1">
-          <a href="/"><img src="https://bbmay.fr/wp-content/uploads/2019/08/BANNER2.jpg" class="image-ban"></a>
+          <a href="/"><img src="<%= Routes.static_path(@conn, "/images/bbmayimg/BANNER2.jpg") %>" class="image-ban"></a>
         </div>
         <div class="hitady">
           <div class="div">
@@ -70,12 +70,12 @@
           </div>
         </div>
         <div class="logo-ecommerce">
-          <img src = "<%= Routes.static_path(@conn, "/images/logo-cb.jpeg") %> ">
+          <img src = "<%= Routes.static_path(@conn, "/images/logo-cb.jpeg") %>">
           <div><p>Achat</p><p> en ligne</p></div>
         </div>
       </div>
       <div class="header-item" id="main-nav">
-       <a href="/"><img src="https://bbmay.fr/wp-content/uploads/2019/08/BANNER2.jpg" class="nav-logo"></a>
+       <a href="/"><img src="<%= Routes.static_path(@conn, "/images/bbmayimg/BANNER2.jpg") %>" class="nav-logo"></a>
         <ul class="menu" id="menu">
           <li class="menu-item cla item" id="hidden" class="hidden">
             <label class="accord">Categorie</label>
@@ -108,7 +108,7 @@
     <div class="foot">
      <div class="gauche">
         <div class="gauche1">
-          <img loading="lazy" class="alignnone" src="https://bbmay.fr/wp-content/uploads/2019/08/LOGO-PETI.jpg" alt="" width="250" height="59">
+          <img src="<%= Routes.static_path(@conn, "/images/bbmayimg/LOGO-PETI.JPG")  %>" width="250" height="59">
           <p><span class="st">Trouvez tout ce qu’il faut pour Bébé et Maman sur bbmay à kaweni – Mamoudzou <br>MAYOTTE : Couches, Poussettes, Berceaux, Crèmes, Laits, Vêtements et tous matériels de puériculture.</span></p>
           <p style="font-size:large; color:white ; font-weight:bold; text-decoration:underline">Image : fournit par le fabricant</p>
           <p><a class="link" href="#popup1" style="font-size:large; color:#0010bb ; font-weight:bold">Conditions générales de vente</a></p>
@@ -351,7 +351,7 @@
       </div>
       <div class="droite">
         <div class="droite1">
-          <img src="https://bbmay.fr/wp-content/uploads/2019/09/logo_ca_desk-1.jpg" alt="bébé mayotte et E-transactions" width="75%">
+          <img src="<%= Routes.static_path(@conn, "/images/bbmayimg/logo_ca_desk-1-400x81.jpg") %>" alt="bébé mayotte et E-transactions" width="75%">
         </div>
         <div class="droite2">
           <aside>
