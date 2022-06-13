@@ -260,13 +260,15 @@ defmodule Bebemayotte.SyncDb do
       }
         Repo.update(obj_origin.changeset(obj, params))
         File.write(Path.expand("assets/static/images/uploads/#{prod_id}.jpeg"), photo, [:binary])
-        :ok
+        IO.puts("Photo non null")
+       # :ok
       else
         params = %{
           "photolink" => "/images/empty.png",
           "image_version" => imageVer
         }
-        Repo.update!(obj_origin.changeset(obj, params))
+        Repo.update(obj_origin.changeset(obj, params))
+        IO.puts("Photo null")
       end
     else
       IO.puts("Valeurs egaux")
