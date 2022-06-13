@@ -301,9 +301,6 @@ defmodule BebemayotteWeb.CompteController do
       pbx_identifiant = "122909322"
       tot = Float.floor(prix_total, 2)
       total = tot |> to_string()
-      IO.puts "TOOOOOOOOOOOOTTTTTTTTTTTTAAAAAAAAAAAALLLLLLLLLL"
-      IO.puts "LLLLOOOOONNNNNNNNNNNNGGGGGGGGG"
-      IO.inspect String.length(total)
 
       pbx_cmd = num_commande
       pbx_porteur = mail
