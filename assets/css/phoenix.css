@@ -1039,6 +1039,10 @@ img {vertical-align: middle;}
   .ajout i{
     font-size: 30px;
   }
+
+  .product .detail__produit{
+    display: inline;
+  }
 }
 
 @media only screen and (max-width: 750px){
