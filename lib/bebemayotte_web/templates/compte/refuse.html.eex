@@ -12,8 +12,8 @@
             erreur = @conn.params["Erreur"]
         %>
         <h2>Votre transaction a été refusée</h2>
-        <p>Montant : </p><span><%= montant %></span>
-        <p>Reference : </p><span><%= ref %></span>
-        <p>Retour : </p><span><%= erreur %></span>
+        <p>Montant : </p><%= montant %>
+        <p>Reference : </p><%= ref %>
+        <p>Retour : </p><%= erreur %>
     </div>
 </div>
