@@ -10,11 +10,13 @@
     <div class="information">
         <% montant = @conn.params["Mt"]
             ref = @conn.params["Ref"]
+            auto = @conn.params["Auto"]
             erreur = @conn.params["Erreur"]
         %>
         <h2>Votre transaction a été annulé</h2>
         <p>Montant : </p><span><%= montant %></span>
         <p>Reference : </p><span><%= ref %></span>
+        <p>Auto : </p><span><%= auto %></span>
         <p>Retour : </p><span><%= erreur %></span>
     </div>
 </div>
