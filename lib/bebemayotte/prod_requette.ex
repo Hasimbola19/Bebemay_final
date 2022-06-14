@@ -13,6 +13,22 @@ defmodule Bebemayotte.ProdRequette do
         Repo.one(query)
     end
 
+    def get_count_cat_by_id(id) do
+      query =
+        from a in Produit,
+          where: a.id_cat == ^id,
+          select: count(a.id_produit)
+      Repo.one(query)
+    end
+
+    def get_count_scat_by_id(id) do
+      query =
+        from a in Produit,
+          where: a.id_souscat == ^id,
+          select: count(a.id_produit)
+      Repo.one(query)
+    end
+
     # GET ALL PRODUIT
     def get_all_produit() do
       query =
