@@ -100,7 +100,7 @@ defmodule Bebemayotte.SyncDb do
       queri = Repo.all(from a in Produit,
       select: a.id_produit)
       if queri == [] do
-        {:ok, quer} = EBPRepo.query("SELECT Item.FamilyId,Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.SubFamilyId,Item.Caption, Item.ImageVersion,StockItem.RealStock FROM Item INNER JOIN StockItem ON Item.Id = StockItem.ItemId WHERE Item.AllowPublishOnWeb = 1")
+        {:ok, quer} = EBPRepo.query("SELECT Item.FamilyId,Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.SubFamilyId,Item.Caption, Item.ImageVersion,Item.RealStock FROM Item WHERE Item.AllowPublishOnWeb = 1")
         for c <- quer.rows do
           {:ok, cat_id} = Enum.fetch(c, 0)
           {:ok, prod_id} = Enum.fetch(c, 1)
@@ -156,7 +156,7 @@ defmodule Bebemayotte.SyncDb do
         end
       else
         liste1 = Enum.join(queri, "','")
-        {:ok, quer} = EBPRepo.query("SELECT Item.FamilyId,Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.SubFamilyId,Item.Caption,Item.ImageVersion,StockItem.RealStock FROM Item INNER JOIN StockItem ON Item.Id = StockItem.ItemId WHERE Item.Id NOT IN ('#{liste1}') AND Item.AllowPublishOnWeb = 1")
+        {:ok, quer} = EBPRepo.query("SELECT Item.FamilyId,Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.SubFamilyId,Item.Caption,Item.ImageVersion,Item.RealStock FROM Item WHERE Item.Id NOT IN ('#{liste1}') AND Item.AllowPublishOnWeb = 1")
         for c <- quer.rows do
           {:ok, cat_id} = Enum.fetch(c, 0)
           {:ok, prod_id} = Enum.fetch(c, 1)
@@ -304,7 +304,7 @@ defmodule Bebemayotte.SyncDb do
   end
 
   def mod_prod do
-      {:ok, queri} = EBPRepo.query("SELECT Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.Caption,Item.ImageVersion,Item.AllowPublishOnWeb,StockItem.RealStock FROM Item LEFT JOIN StockItem ON Item.Id = StockItem.ItemId")
+      {:ok, queri} = EBPRepo.query("SELECT Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.Caption,Item.ImageVersion,Item.AllowPublishOnWeb,Item.RealStock FROM Item")
       for c <- queri.rows do
         # {:ok, cat_id} = Enum.fetch(c, 0)
         {:ok, prod_id} = Enum.fetch(c, 0)
