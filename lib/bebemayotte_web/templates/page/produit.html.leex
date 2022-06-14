@@ -19,14 +19,19 @@
       <label for="<%= categorie.id_cat %>" class="accordion">
         <a>
          <%= categorie.nom_cat %>
-          (<%= Bebemayotte.SouscatRequette.get_count_scat_by_id_cat(categorie.nom_cat) %>)
+          (<%= Bebemayotte.ProdRequette.get_count_cat_by_id(categorie.id_cat) %>)
         </a>
       </label>
       <div class="panel">
         <%= for souscategorie <- @souscategories do %>
           <%= if souscategorie.id_cat == categorie.id_cat do %>
             <ul>
-              <li><a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= souscategorie.nom_souscat %></a></li>
+              <li>
+                <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>">
+                  <%= souscategorie.nom_souscat %>
+                  (<%= Bebemayotte.ProdRequette.get_count_scat_by_id(souscategorie.id_souscat) %>)
+                </a>
+              </li>
             </ul>
           <% end %>
         <% end %>
