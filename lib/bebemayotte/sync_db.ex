@@ -87,8 +87,13 @@ defmodule Bebemayotte.SyncDb do
         end
       end
   end
-  def get_imageversion do
-    EBPRepo.query("SELECT ImageVersion FROM Item")
+
+  def del do
+    Repo.delete_all(Produit)
+    Repo.delete_all(Categorie)
+    Repo.delete_all(Souscategorie)
+    File.rm_rf(Path.expand("assets/static/images/uploads"))
+    File.mkdir(Path.expand("assets/static/images/uploads"))
   end
 
   def updt_prod do
