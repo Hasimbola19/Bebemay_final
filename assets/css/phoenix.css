@@ -1233,6 +1233,11 @@ img {vertical-align: middle;}
   .row.ph{
     margin-top: 0px;
   }
+
+  .box .box-content .title{
+    font-size: 9px;
+    line-height: 65px;
+  }
 }
 
 @media only screen and (max-width: 376px){
