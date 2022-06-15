@@ -2674,10 +2674,10 @@ caption {
 }
 /* == */
 
-.mcd-menu li a strong {
+/*.mcd-menu li a strong {
   display: block;
   text-transform: uppercase;
-}
+}*/
 
 .mcd-menu li:hover > a {
   color: #e67e22;
