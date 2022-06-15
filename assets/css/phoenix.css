@@ -1217,6 +1217,11 @@ img {vertical-align: middle;}
     font-size: 14px;
   }
 
+  .product .detail_produit{
+    display: block;
+    margin: auto;
+  }
+
   .ajout i{
     font-size: 16px;
   }
