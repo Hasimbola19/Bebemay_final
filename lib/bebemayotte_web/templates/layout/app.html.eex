@@ -110,7 +110,7 @@
         <div class="gauche1">
           <img src="<%= Routes.static_path(@conn, "/images/bbmayimg/LOGO-PETI.jpg")  %>" width="250" height="59">
           <p><span class="st">Trouvez tout ce qu’il faut pour Bébé et Maman sur bbmay à kaweni – Mamoudzou <br>MAYOTTE : Couches, Poussettes, Berceaux, Crèmes, Laits, Vêtements et tous matériels de puériculture.</span></p>
-          <p style="font-size:large; color:white ; font-weight:bold; text-decoration:underline">Image : fournit par le fabricant</p>
+          <p style="font-size:large; color:white ; font-weight:bold; text-decoration:underline">Image : fournis par le fabricant</p>
           <p><a class="link" href="#popup1" style="font-size:large; color:#0010bb ; font-weight:bold">Conditions générales de vente</a></p>
             <div id="popup1" class="overlay">
                 <div class="popup">
