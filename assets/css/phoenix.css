@@ -939,10 +939,6 @@ img {vertical-align: middle;}
     font-size: 15px;
   }
 
-  /* .side{
-    display: none;
-  } */
-
   .rech{
     padding-right: 15px;
   }
@@ -970,7 +966,7 @@ img {vertical-align: middle;}
   }
 
   #hidden{
-    display: none;
+    display: block;
     /* position: absolute; */
   }
 
@@ -980,7 +976,7 @@ img {vertical-align: middle;}
   }
 
   .hamburger {
-      display: block;
+      display: none;
       cursor: pointer;
       padding-top: 5px;
   }
@@ -1051,6 +1047,14 @@ img {vertical-align: middle;}
     margin-top: 75px;
   }
 
+  #menu{
+    margin-top: 80px;
+  }
+
+  #hidden .accord{
+    width: auto;
+  }
+
   .produit_a .detail{
     font-size: 15px;
   }
@@ -1065,6 +1069,18 @@ img {vertical-align: middle;}
 
   .product .detail__produit{
     display: inline;
+  }
+
+  .separation{
+    margin-top: 275px;
+  }
+
+  .row.ph{
+    margin-top: 0px;
+  }
+
+  .containeur img{
+    margin-top: 115px;
   }
 }
 
@@ -1203,6 +1219,10 @@ img {vertical-align: middle;}
 
   .ajout i{
     font-size: 16px;
+  }
+
+  .row.ph{
+    margin-top: 0px;
   }
 }
 
@@ -1906,19 +1926,23 @@ header nav a {
     height: auto;
     transition: all 0.4s ease;
 }
-.box:hover img{ opacity: 0.2; }
-.box .box-content{
+/*.box:hover img{ opacity: 0.2; }*/
+/*.box .box-content{
     position: absolute;
     top: 40%;
     left: 25%;
     opacity: 0;
     transition: all 0.4s ease;
-
 }
 .box:hover .box-content{
     opacity: 1;
     transition-delay: 0.25s;
+}*/
+
+.box-content a{
+  text-align: center;
 }
+
 .box .title{
     font-size: 20px;
     font-weight: 600;
