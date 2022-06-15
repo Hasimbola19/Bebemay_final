@@ -11,11 +11,11 @@
         <%= form_for @conn, Routes.page_path(@conn, :submit_connexion), [method: :post, class: "form"],  fn f -> %>
             <div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/email-icon.png") %>">
-                <%= text_input f, :identifiant, placeholder: "Entrer votre Adresse e-mail ou votre identifiant", required: true %>
+                <%= text_input f, :identifiant, placeholder: "Entrez votre Adresse e-mail ou votre identifiant", required: true %>
             </div>
             <div class="mdp">
                 <img src="<%= Routes.static_path(@conn, "/images/unlock-icon.png") %>">
-                <%= password_input f, :motdepasse, placeholder: "Entrer votre mot de passe", required: true, id: "myInput" %>
+                <%= password_input f, :motdepasse, placeholder: "Entrez votre mot de passe", required: true, id: "myInput" %>
                 <i class="fa fa-eye-slash showpwd fa-2x" onClick="myFunction('myInput', this)"></i>
             </div>
             <div class="row block">
