@@ -966,7 +966,7 @@ img {vertical-align: middle;}
   }
 
   #hidden{
-    display: block;
+    display: none;
     /* position: absolute; */
   }
 
@@ -976,7 +976,7 @@ img {vertical-align: middle;}
   }
 
   .hamburger {
-      display: none;
+      display: block;
       cursor: pointer;
       padding-top: 5px;
   }
@@ -1202,7 +1202,7 @@ img {vertical-align: middle;}
   }
 
   .product .side {
-    margin: auto;
+    display: none;
   }
 
   .all .article{
