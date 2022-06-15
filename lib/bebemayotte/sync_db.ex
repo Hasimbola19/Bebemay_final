@@ -218,7 +218,7 @@ defmodule Bebemayotte.SyncDb do
     queri = Repo.all(from a in Souscategorie,
     select: a.id_souscat)
     if queri == [] do
-        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily")
+        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE AllowPublishOnWeb = 1")
 
       for sc <- souscategorie.rows do
           {:ok, subfamilyid} = Enum.fetch(sc, 0)
@@ -236,7 +236,7 @@ defmodule Bebemayotte.SyncDb do
       end
     else
         liste = Enum.join(queri, "','")
-        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE Id NOT IN ('#{liste}')")
+        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE Id NOT IN ('#{liste}') AND AllowPublishOnWeb = 1")
 
       for sc <- souscategorie.rows do
           {:ok, subfamilyid} = Enum.fetch(sc, 0)
@@ -357,31 +357,53 @@ defmodule Bebemayotte.SyncDb do
     #end
   #end
 
-  def mod_sccat do
-    {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily")
+  def mod_scat do
+    {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId, AllowPublishOnWeb FROM ItemSubFamily")
 
     for sc <- souscategorie.rows do
         {:ok, subfamilyid} = Enum.fetch(sc, 0)
         {:ok, nom} = Enum.fetch(sc, 1)
         {:ok, familyid} = Enum.fetch(sc, 2)
+        {:ok, afficher} = Enum.fetch(sc, 3)
 
         souscategories = Repo.one(from p in Souscategorie, where: p.id_souscat == ^subfamilyid, select: p)
-        # si_pareil(Souscategorie, "id_souscat", subfamilyid, souscategories.id_souscat, souscategories)
-        si_pareils(Souscategorie, "nom_souscat", nom, souscategories.nom_souscat, souscategories)
-        # si_pareil(Souscategorie, "id_cat", familyid, souscategories.id_cat, souscategories)
+        if afficher == true do
+          if souscategories != nil do
+          si_pareils(Souscategorie, "nom_souscat", nom, souscategories.nom_souscat, souscategories)
+          else
+            IO.puts("VALEUR NULLE")
+          end
+        else
+          if souscategories != nil do
+            compare_allow(Souscategorie, "nom_souscat", nom, souscategories.nom_souscat, souscategories)
+          end
+        end
     end
   end
 
   def mod_cat do
-    {:ok, queri} = EBPRepo.query("SELECT ItemFamily.Id,ItemFamily.Caption FROM ItemFamily")
+    {:ok, queri} = EBPRepo.query("SELECT ItemFamily.Id,ItemFamily.Caption, ItemFamily.AllowPublishOnWeb FROM ItemFamily")
     for c <- queri.rows do
       {:ok, cat_id} = Enum.fetch(c,0)
       {:ok, cat_nom} = Enum.fetch(c,1)
+      {:ok, afficher} = Enum.fetch(c, 2)
 
       categories = Repo.one(from p in Categorie, where: p.id_cat == ^cat_id, select: p)
-      # si_pareil(Categorie, "id_cat", cat_id, categories.id_cat, categories)
-      si_pareils(Categorie, "nom_cat", cat_nom, categories.nom_cat, categories)
-
+      if afficher == true do
+        if categories != nil do
+          # si_pareil(Categorie, "id_cat", cat_id, categories.id_cat, categories)
+          si_pareils(Categorie, "nom_cat", cat_nom, categories.nom_cat, categories)
+        else
+          IO.puts("VALEUR NULLE")
+        end
+      else
+        if categories != nil do
+          # si_pareil(Categorie, "id_cat", cat_id, categories.id_cat, categories)
+          compare_allow(Categorie, "nom_cat", cat_nom, categories.nom_cat, categories)
+        else
+          IO.puts("VALEUR NULLE")
+        end
+      end
     end
   end
 
@@ -399,7 +421,7 @@ defmodule Bebemayotte.SyncDb do
   end
 
   defp delete(obj, eleme) do
-    {:ok, querie} = EBPRepo.query("SELECT Id FROM #{obj}")
+    {:ok, querie} = EBPRepo.query("SELECT Id FROM #{obj} WHERE AllowPublishOnWeb = 1")
     list = querie.rows
     liste = Enum.join(list, ",")
     lis = String.split(liste, ",")
@@ -421,7 +443,7 @@ defmodule Bebemayotte.SyncDb do
         updt_scat()
         mod_prod()
         mod_cat()
-        mod_sccat()
+        mod_scat()
         del_prod()
         delete("ItemFamily" , Categorie)
         delete("ItemSubFamily" , Souscategorie)
