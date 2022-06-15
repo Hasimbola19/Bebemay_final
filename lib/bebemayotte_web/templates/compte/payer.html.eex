@@ -14,7 +14,7 @@
                   <tr>
                       <td class="commande"><%= detail["nom_produit"] %></td>
                       <td class="commande"><%= detail["quantite"] %></td>
-                      <td class="commande"><%= Float.round(Decimal.to_float(detail["prix"]), 2) * detail["quantite"] %></td>
+                      <td class="commande"><%= Float.floor(Decimal.to_float(detail["prix"]), 2) * detail["quantite"] %></td>
                   </tr>
               <% end %>
             </tbody>
