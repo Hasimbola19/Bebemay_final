@@ -28,7 +28,7 @@
             <ul>
               <li>
                 <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>">
-                  <%= souscategorie.id_souscat %>
+                  <%= souscategorie.nom_souscat %>
                   (<%= Bebemayotte.ProdRequette.get_count_scat_by_id(souscategorie.id_souscat) %>)
                 </a>
               </li>
