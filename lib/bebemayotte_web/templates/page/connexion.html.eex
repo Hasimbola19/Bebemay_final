@@ -20,7 +20,7 @@
             </div>
             <div class="row block">
                 <div class="column lien">
-                    <a class="link">Mot de passe oublier?</a>
+                    <a class="link">Mot de passe oublié?</a>
                 </div>
                 <div class="column check">
                     <input type="checkbox" name="remember">
