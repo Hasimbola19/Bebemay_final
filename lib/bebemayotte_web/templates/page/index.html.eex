@@ -25,10 +25,10 @@
             <div class=box>
             <a href="/produit/ACCESSOIRES">
               <img src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
-              <div class="box-content">
+              <div class= "box-content">
                 <a href="/produit/ACCESSOIRES" class="title">Accessoires</a>
               </div>
-            <a/>
+            </a>
             </div>
             <div class="box">
             <a href="/produit/SORTIE">
