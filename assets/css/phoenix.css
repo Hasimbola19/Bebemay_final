@@ -736,9 +736,9 @@ img {vertical-align: middle;}
     display: none;
   }
 
-  .separation{
+  /*.separation{
     margin-top: 250px;
-  }
+  }*/
 
   .row.product{
     padding-top: 175px;
@@ -768,9 +768,9 @@ img {vertical-align: middle;}
     padding-right: 5px;  
   }
 
-  .separation{
+  /*.separation{
     margin-top: 300px;
-  }
+  }*/
 }
 
 @media only screen and (max-width: 1080px){
@@ -790,9 +790,9 @@ img {vertical-align: middle;}
     margin-right: 302px;
   }
 
-  .separation{
+  /*.separation{
     margin-top: 350px;
-  }
+  }*/
 
   .article .produit .produit_a img{
     max-width: 100%;
