@@ -490,6 +490,10 @@ pre{padding: 1em;}
     height: 170px;
 }
 
+.all .page_navig{
+  margin-top: 35px;
+}
+
 .all .page_navig a{
   margin-left: 20px;
   margin-right: 20px;
