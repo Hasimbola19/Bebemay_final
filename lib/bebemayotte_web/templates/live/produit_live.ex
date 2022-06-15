@@ -126,7 +126,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
         end
       end
     else
-      produits = search |> get_list_id_produit() |> ProdRequette.get_produit_from_list_id_produit( tri)
+      produits = search |> get_list_id_produit() |> ProdRequette.get_produit_from_list_id_produit(tri)
       nb_ligne = search |> get_list_id_produit() |> ProdRequette.count_ligne_produit_search()
       {produits, nb_ligne}
     end
