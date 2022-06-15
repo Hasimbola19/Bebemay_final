@@ -1204,6 +1204,10 @@ img {vertical-align: middle;}
     display: block;
   }
 
+  .article .produit{
+    height: 200px;
+  }
+
   .article .produit .produit_a img{
     max-width: 100%;
     height: 110px;
@@ -1235,7 +1239,7 @@ img {vertical-align: middle;}
   }
 
   .box .box-content .title{
-    font-size: 9px;
+    font-size: 9px !important;
     line-height: 65px;
   }
 }
