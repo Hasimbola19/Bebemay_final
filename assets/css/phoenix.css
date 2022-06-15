@@ -2638,10 +2638,12 @@ caption {
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-
   /* == */
   width: 250px;
   /* == */
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px,
+  rgb(0 0 0 / 5%) 0px 28px 23px -7px,
+  rgb(0 0 0 / 4%) 0px 12px 12px -7px;
 }
 .mcd-menu li {
   position: relative;
@@ -3068,10 +3070,25 @@ caption {
   /* text-align-last: center; */
   background-color: white;
   width: 750px;
-  margin: auto;
-  padding: 15px 0px 15px 0px;
+  margin: 0 auto;
+  padding: 15px 0px 15px 15px;
   border-radius: 15px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px,
+  rgb(0 0 0 / 5%) 0px 28px 23px -7px,
+  rgb(0 0 0 / 4%) 0px 12px 12px -7px;
 }
+
+.contenue-compte h2{
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.contenue-compte p{
+  font-weight: bolder;
+  margin: 30px;
+  font-size: large;
+}
+
  /* compte fin */
 /* =qu'en pensez vous= */
 input[type='radio']{
