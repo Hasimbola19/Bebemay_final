@@ -1192,6 +1192,14 @@ img {vertical-align: middle;}
     display: none;
   }
 
+  .header-main .hitady{
+    width: inherit;
+  }
+
+  .logo-ecommerce{
+    margin-right: 0;
+  }
+
   .header-item .nav-logo{
     display: block;
   }
@@ -1206,11 +1214,11 @@ img {vertical-align: middle;}
   }
 
   .produit_a .detail{
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .produit_a .prix{
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .product .detail_produit{
@@ -1219,7 +1227,7 @@ img {vertical-align: middle;}
   }
 
   .ajout i{
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .row.ph{
@@ -1932,7 +1940,7 @@ header nav a {
     position: absolute;
     top: 40%;
     left: 25%;
-    opacity: 0;
+    opacity: 1;
     transition: all 0.4s ease;
 }
 .box:hover .box-content{
