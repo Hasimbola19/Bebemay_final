@@ -490,6 +490,21 @@ pre{padding: 1em;}
     height: 170px;
 }
 
+.all .page_navig a{
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid rgba(155, 155, 155, 0.382);
+  padding: 10px 15px;
+  font-weight: bolder;
+  background-color: rgba(155, 155, 155, 0.382);
+  border-radius: 50%;
+}
+
+.all .page_navig a:hover{
+  background-color: #0010bb;
+  color: #fff;
+}
+
 [data-component="slideshow"] .slide {
 	display: none;
   text-align: center;
@@ -846,6 +861,10 @@ img {vertical-align: middle;}
   .article .produit .produit_a img{
     max-width: 100%;
     height: 200px;
+  }
+
+  .row.ph{
+    margin-top: 320px;
   }
 }
 
@@ -1304,12 +1323,12 @@ img {vertical-align: middle;}
     list-style: none;
     /* position: relative; */
     /* cursor: pointer; */
-    margin-top: 9px;
-    font-size: 15px;
+    margin-top: 7px;
+    /*font-size: 15px;*/
     text-align: center;
     margin-bottom: auto;
     text-transform: uppercase;
-    font-weight: bold;
+    /*font-weight: bold;*/
     /* width: auto; */
   }
 
