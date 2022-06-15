@@ -56,7 +56,7 @@ defmodule Bebemayotte.SyncDb do
     query = Repo.all(from a in Categorie,
       select: a.id_cat)
       if query == [] do
-        {:ok, queri} = EBPRepo.query("SELECT Id,Caption FROM ItemFamily")
+        {:ok, queri} = EBPRepo.query("SELECT Id,Caption FROM ItemFamily WHERE AllowPublishOnWeb = 1")
         for c <- queri.rows do
           {:ok, cat_id} = Enum.fetch(c,0)
           {:ok, cat_nom} = Enum.fetch(c,1)
@@ -73,7 +73,7 @@ defmodule Bebemayotte.SyncDb do
         end
       else
         liste = Enum.join(query,"','")
-       {:ok, queri}  = EBPRepo.query("SELECT Id,Caption FROM ItemFamily WHERE Id NOT IN ('#{liste}')")
+       {:ok, queri}  = EBPRepo.query("SELECT Id,Caption FROM ItemFamily WHERE Id NOT IN ('#{liste}') AND AllowPublishOnWeb = 1")
         for c <- queri.rows do
           {:ok, cat_id} = Enum.fetch(c,0)
           {:ok, cat_nom} = Enum.fetch(c,1)
@@ -218,7 +218,7 @@ defmodule Bebemayotte.SyncDb do
     queri = Repo.all(from a in Souscategorie,
     select: a.id_souscat)
     if queri == [] do
-        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE AllowPublishOnWeb = 1")
+        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily")
 
       for sc <- souscategorie.rows do
           {:ok, subfamilyid} = Enum.fetch(sc, 0)
