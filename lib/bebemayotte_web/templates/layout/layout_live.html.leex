@@ -80,7 +80,9 @@
             <label class="accord">Categorie</label>
             <div class="pane">
               <%= for categorie <- @categories do %>
+              <%= if categorie.id_cat != "FAR00009" do %>
                 <a href="/produit/<%= categorie.nom_cat %>" class="lis nav-link"><%= categorie.nom_cat %></a>
+              <% end %>
               <% end %>
             </div>
           </li>
