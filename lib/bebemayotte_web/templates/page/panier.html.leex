@@ -21,6 +21,7 @@
                             <th>QUANTITES</th>
                             <th></th>
                             <th>PRIX</th>
+                            <th>PRIX UNITAIRE</th>
                             <th>SUPPRIMER</th>
                         </tr>
                     </thead>
@@ -45,11 +46,11 @@
                             <td id="<%= produit.id_produit %>"><%= Enum.fetch!(@list_quantite, Enum.find_index(@list_panier, fn x -> x == produit.id_produit end)) %></td>
                             <td><button onclick="add('<%= produit.id_produit %>', <%= Decimal.to_integer(produit.stockmax) %>)" phx-click="add" phx-value-idp="<%= produit.id_produit %>" class="quantite_plus"></button></td>
                             <td>€<%= Float.round(Decimal.to_float(produit.price) * Enum.fetch!(@list_quantite, Enum.find_index(@list_panier, fn x -> x == produit.id_produit end)), 2) %></td>
+                            <td>€<%= Float.round(Decimal.to_float(produit.price), 2) %>
                             <td><button class="effacer" phx-click="sup" phx-value-idp="<%= produit.id_produit %>" onclick="remove_panier('<%= produit.id_produit %>')"><i class="fas fa-trash fa-3x"></i> </button></td>
                         </tr>
                       <% end %>
                     </tbody>
-
                 </table>
             </div>
             <div id="item3">
@@ -60,7 +61,7 @@
                     <tbody>
                         <tr class="total">
                             <td class="title-left">SOUS-TOTAL</td>
-                            <td>€<%= Float.floor(@somme, 2) %></td>
+                            <td>€<%= Float.round(@somme, 2) %></td>
                         </tr>
                         <!--<tr class="total">
                             <td class="title-left">REMISE DE 5%</td>
