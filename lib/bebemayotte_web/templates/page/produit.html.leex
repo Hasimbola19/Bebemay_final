@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="column containt">
-                  <%= if produit.stockstatus do %>
+                  <%= if produit.stockstatus == true do %>
                     <h4 class="prix">€<%= Decimal.round(produit.price,2) %></h4>
                     <a class="ajout" onclick="add_panier('<%= produit.id_produit %>')">
                       <i class="fas fa-shopping-cart"></i>
