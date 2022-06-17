@@ -44,7 +44,7 @@
           </li>
           <li class="menu-item1" style="margin-top: 2px">
             <a href="/panier" class="pan" style="background-color:#ffb4f5; color: #0010bb">
-              <i class='fas fa-shopping-cart'></i> Votre panier
+              <i class='fas fa-shopping-cart'></i> (<%=# Plug.Conn.get_session(@conn, 'paniers') %>) Votre panier
             </a>
             <a href="/question" class="pan">
               <i class='fa question-circle'>&#xf059;</i>
@@ -75,7 +75,10 @@
         </div>
       </div>
       <div class="header-item" id="main-nav">
-       <a href="/"><img src="<%= Routes.static_path(@conn, "/images/bbmayimg/BANNER2.jpg") %>" class="nav-logo"></a>
+        <div class="left">
+          <a href="/"><img src="<%= Routes.static_path(@conn, "/images/bbmayimg/BANNER2.jpg") %>" class="nav-logo"></a>
+          <a href="/panier" class= "cart-panier"><i class="fas fa-shopping-cart"></i> Votre panier</a>
+        </div>
         <ul class="menu" id="menu">
           <li class="menu-item cla item" id="hidden" class="hidden">
             <label class="accord">Categorie</label>
