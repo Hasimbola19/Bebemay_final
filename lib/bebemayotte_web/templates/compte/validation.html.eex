@@ -16,7 +16,7 @@
                   </li>
                     <li class="total_commande">
                       total :
-                      <strong><%= Float.floor(Decimal.to_float(@commande["total"])) %></strong>
+                      <strong><%= Float.round(@commande["total"], 2) %></strong>
                   </li>
                     <li class="mode_payement">
                       moyen de payement :
