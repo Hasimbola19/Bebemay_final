@@ -721,10 +721,11 @@ img {vertical-align: middle;}
   text-align: center;*/
   display: none;
   width: 150px;
+  color: #0010bb;
+  font-weight: bold;
 }
 
 .cart-panier i{
-  color: #000000;
   font-size: large;
   margin: 9px auto;
   margin-left: 10px;
