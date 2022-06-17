@@ -28,16 +28,24 @@ defmodule Bebemayotte.SyncDb do
   end
 
   defp condition_stock(x) do
-    if x <= 0, do: false, else: true
+    if x > 0 do
+      true
+    else
+      false
+    end
   end
 
   defp stock_condition(x) do
-    if x > 0 , do: Decimal.to_integer(x), else: 0
+    if x <= 0 do
+      0
+    else
+      Decimal.to_integer(x)
+    end
   end
 
-  defp condition_image(x, x_id) do
-    if x == nil, do: "#{x_id}-0.JPG", else:  Base.encode64(x)
-  end
+  # defp condition_image(x, x_id) do
+  #   if x == nil, do: "#{x_id}-0.JPG", else:  Base.encode64(x)
+  # end
 
   def del_pro do
     Repo.delete_all(Produit)
