@@ -62,6 +62,7 @@
       <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
       <div class="article">
           <%= for produit <- @produits do %>
+            <%= if Decimal.to_integer(produit.stockmax) > 0 do %>
             <div class="produit">
             <%= for categorie <- @categories do %>
             <%= for souscategorie <- @souscategories do %>
@@ -82,20 +83,17 @@
                 </div>
 
                 <div class="column containt">
-                  <%= if produit.stockstatus == true do %>
                     <h4 class="prix">€<%= Decimal.round(produit.price,2) %></h4>
                     <a class="ajout" onclick="add_panier('<%= produit.id_produit %>')">
                       <i class="fas fa-shopping-cart"></i>
                     </a>
-                  <% else %>
-                    <h3 class="">RUPTURE DE STOCK</h3>
-                  <% end %>
                 </div>
               </a>
             </div>
           <% end %>
           <% end %>
           <% end %>
+        <% end %>
         <% end %>
       </div>
     <center>
