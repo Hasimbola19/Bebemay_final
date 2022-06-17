@@ -28,7 +28,7 @@ defmodule Bebemayotte.SyncDb do
   end
 
   defp condition_stock(x) do
-    if x > 0 do
+    if Decimal.to_integer(x) > 0 do
       true
     else
       false
