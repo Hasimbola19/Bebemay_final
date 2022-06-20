@@ -1,5 +1,5 @@
 <div class="product">
-  <%= @statut_commande %>
+  <% @statut_commande %>
   <%= if @statut_commande == 1 do %>
       <div class="validation_commande">
           <h2>Validation de la commande</h2>
