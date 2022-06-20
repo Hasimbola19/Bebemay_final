@@ -6,7 +6,10 @@ defmodule Bebemayotte.SouscatRequette do
 
   # GET SOUSCATEGORIE
   def get_all_souscategorie() do
-    Repo.all(Souscategorie)
+    query = from sc in Souscategorie,
+      order_by: [asc: sc.nom_souscat],
+      select: sc
+    Repo.all(query)
   end
 
   # GET SOUSCATEGORIE BY NOM SOUSCAT
