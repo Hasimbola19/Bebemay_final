@@ -357,7 +357,7 @@ pre{padding: 1em;}
   color: #0010bb;
 }
 
-.active::before {
+.active::after {
   content: "\2212";
 }
 
@@ -387,13 +387,14 @@ pre{padding: 1em;}
   font-size: 15px;
   transition: 0.4s;
   margin-top: -15px;
+  text-transform: capitalize;
 }
 
 /* .active, .accordion:hover {
   background-color: #ccc;
 } */
 
-.accord:after {
+.accord:before {
   content: '\002B';
   color: #fff;
   font-weight: bold;
@@ -420,6 +421,7 @@ pre{padding: 1em;}
 
 .pane .lis{
   color: #000;
+  text-transform: capitalize;
   /*padding: 10px 15px 10px 15px;*/
 }
 
