@@ -76,11 +76,13 @@
       <div class="header-item" id="main-nav">
         <div class="left">
           <a href="/"><img src="<%= Routes.static_path(@socket, "/images/bbmayimg/BANNER2.jpg") %>" class="nav-logo"></a>
-          <a href="/panier" class= "cart-panier"><i class="fas fa-shopping-cart"></i> votre panier</a>
+          <a href="/panier" class= "cart-panier">
+            <i class="fas fa-shopping-cart"></i>Votre panier ()
+          </a>
         </div>
         <ul class="menu">
           <li class="menu-item item">
-            <label class="accord">Categorie</label>
+            <label class="accord">Categories</label>
             <div class="pane">
               <%= for categorie <- @categories do %>
               <%= if categorie.id_cat != "FAR00009" do %>
