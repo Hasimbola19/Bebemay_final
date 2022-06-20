@@ -14,14 +14,14 @@
                   <tr>
                       <td class="commande"><%= detail["nom_produit"] %></td>
                       <td class="commande"><%= detail["quantite"] %></td>
-                      <td class="commande"><%= Float.floor(Decimal.to_float(detail["prix"]), 2) * detail["quantite"] %></td>
+                      <td class="commande"><%= Float.floor(Decimal.to_float(detail["prix"]), 2) * detail["quantite"] %>0</td>
                   </tr>
               <% end %>
             </tbody>
             <tfoot>
                 <tr>
                     <th scope="row" colspan="2" >SOUS TOTAL:</th>
-                    <td class="commande"><%= @prix_total %></td>
+                    <td class="commande"><%= @prix_total %>0</td>
                 </tr>
                 <!--<tr>
                     <th scope="row" colspan="2">REMISE:</th>
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <th scope="row" colspan="2">TOTAL :</th>
-                    <th><%= @prix_total %></th>
+                    <th><%= @prix_total %>0</th>
                 </tr>
             </tfoot>
         </table>
