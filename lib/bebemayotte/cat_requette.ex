@@ -5,7 +5,10 @@ defmodule Bebemayotte.CatRequette do
 
   # GET CATEGORIE
   def get_all_categorie() do
-    Repo.all(Categorie)
+    query = (from c in Categorie,
+      order_by: [asc: c.nom_cat],
+      select: c)
+    Repo.all(query)
   end
 
   # GET ID CATEGORIE BY NOM CAT
