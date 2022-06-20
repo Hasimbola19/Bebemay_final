@@ -37,10 +37,10 @@
                 <img src="<%= Routes.static_path(@conn, "/images/phone-icon.png") %>">
                 <%= text_input f, :telephone, placeholder: "Entrer votre telephone", required: true %>
             </div>
-            <div class="email">
+            <!--<div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/user-icon.png") %>">
                 <%= text_input f, :identifiant, placeholder: "Entrer votre identifiant", required: true %>
-            </div>
+            </div>-->
             <div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/email-icon.png") %>">
                 <%= email_input f, :adresseMessage, placeholder: "Entrer votre adresse e-mail", required: true %>
