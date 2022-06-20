@@ -80,7 +80,7 @@ defmodule BebemayotteWeb.Router do
     get "/see_command", CompteController, :see_command
     get "/pay_command", CompteController, :pay_command
     get "/politique", CompteController, :politique
-    get "/validation", CompteController, :validation
+    get "/validate", CompteController, :validation
     post "/validate_command", CompteController, :validate_command
     # get "/pay_command/validation", CompteController, :valid_pay_command
     get "/accepte", CompteController, :accepte
