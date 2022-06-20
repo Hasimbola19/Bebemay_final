@@ -546,7 +546,7 @@ defmodule BebemayotteWeb.CompteController do
 
   def to_stripe(conn, %{"_csrf_token" => _csrf_token}) do
     conn
-      |> redirect(to: "/validation")
+      |> redirect(to: "/validate")
   end
 
   def validate_command(conn, %{"_csrf_token" => _csrf_token}) do
