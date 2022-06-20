@@ -306,7 +306,6 @@ defmodule BebemayotteWeb.CompteController do
       mail = UserRequette.get_user_email_by_id(id)
       nom = UserRequette.get_user_name_by_id(id)
       prenom = UserRequette.get_user_prename_by_id(id)
-      codep = UserRequette.get_user_prename_by_id(id)
       pays = UserRequette.get_user_pays_by_id(id)
       ville = UserRequette.get_user_ville_by_id(id)
       commande = %{
