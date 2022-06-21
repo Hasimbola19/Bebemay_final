@@ -119,8 +119,6 @@ defmodule BebemayotteWeb.PageController do
     "pays" => pays,
     "ville" => ville,
     "telephone" => telephone,
-    "codepostal" => codepostal,
-    "identifiant" => identifiant,
     "adresseMessage" => adresseMessage,
     "motdepasse" => motdepasse
   }}) do
@@ -136,35 +134,37 @@ defmodule BebemayotteWeb.PageController do
       "batiment" => "null",
       "pays" => pays,
       "ville" => ville,
-      "identifiant" => identifiant,
+      "identifiant" => "null",
       "adresseMessage" => adresseMessage,
-      "codepostal" => codepostal,
+      "codepostal" => "null",
       "telephone" => telephone,
       "motdepasse" => motdepasse,
       "nom_entreprise" => "null"
     }
 
-    recup_id = UserRequette.get_user_identifiant(identifiant)
+    IO.inspect(user)
+
+    #recup_id = UserRequette.get_user_identifiant(identifiant)
     recup_adr = UserRequette.get_user_adresse_message(adresseMessage)
 
     cond do
-      recup_id == true and recup_adr == true ->
-        conn
-        |> put_flash(:error_id_adrMess, "Identifiant et Adresse de Message déja éxistants!")
-        |> redirect(to: Routes.page_path(conn, :inscription))
+      # recup_id == true and recup_adr == true ->
+      #   conn
+      #   |> put_flash(:error_id_adrMess, "Identifiant et Adresse de Message déja éxistants!")
+      #   |> redirect(to: Routes.page_path(conn, :inscription))
 
-      recup_id == true ->
-        conn
-        |> put_flash(:error_id, "Identifiant déja éxistant!")
-        |> redirect(to: Routes.page_path(conn, :inscription))
+      # recup_id == true ->
+      #   conn
+      #   |> put_flash(:error_id, "Identifiant déja éxistant!")
+      #   |> redirect(to: Routes.page_path(conn, :inscription))
 
       recup_adr == true ->
         conn
         |> put_flash(:error_adrMess, "Adresse de Message déja éxistant!")
         |> redirect(to: Routes.page_path(conn, :inscription))
 
-      recup_adr == false and recup_id == false ->
-        UserRequette.insert_user(user)
+      recup_adr == false -> #and recup_id == false ->
+        IO.inspect UserRequette.insert_user(user)
         conn
         |> put_flash(:info_reussi, "Création de compte terminé! Veuillez vous connectez maitenant!!")
         |> redirect(to: Routes.page_path(conn, :connexion))
