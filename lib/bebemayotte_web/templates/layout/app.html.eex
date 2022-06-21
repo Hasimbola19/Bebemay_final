@@ -30,7 +30,7 @@
 
             </ul>
           </li>
-          <li class="menu-item"><a href="/contact" class="nav-link">Contact</a></li>
+          <li class="menu-item"><a href="/contact" class="nav-link">Formulaire de contact</a></li>
           <li class="menu-item"><a href="/question" class="nav-link">Qu'en pensez-vous?</a></li>
         </ul>
         <ul class="ul2">
@@ -44,7 +44,11 @@
           </li>
           <li class="menu-item1" style="margin-top: 2px">
             <a href="/panier" class="pan" style="background-color:#ffb4f5; color: #0010bb">
-              <i class='fas fa-shopping-cart'></i> (<%=# Plug.Conn.get_session(@conn, 'paniers') %>) Votre panier
+            <%= if(is_nil(id)) do %>
+              <i class='fas fa-shopping-cart'></i>Votre panier
+            <% else %>
+              <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(Plug.Conn.get_session(@conn, :paniers)) %>)
+            <% end %>
             </a>
             <a href="/question" class="pan">
               <i class='fa question-circle'>&#xf059;</i>
@@ -81,7 +85,7 @@
         </div>
         <ul class="menu" id="menu">
           <li class="menu-item cla item" id="hidden" class="hidden">
-            <label class="accord">Categorie</label>
+            <label class="accord">Categories</label>
             <div class="pane">
               <%= for categorie <- @categories do %>
                 <%= if categorie.id_cat != "FAR00009" do %>
