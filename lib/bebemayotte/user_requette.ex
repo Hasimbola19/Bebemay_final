@@ -112,7 +112,7 @@ defmodule Bebemayotte.UserRequette do
   def get_user_connexion(ident, mdp) do
     query =
       from u in User,
-        where: (u.identifiant == ^ident or u.adresseMessage == ^ident) and u.motdepasse == ^mdp,
+        where: (u.adresseMessage == ^ident) and u.motdepasse == ^mdp,
         select: u
 
     user = Repo.one(query)
