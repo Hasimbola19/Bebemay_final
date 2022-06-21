@@ -1374,7 +1374,7 @@ img {vertical-align: middle;}
     height: 110px;
   }
 
-  .navigation-bar{
+  .navigation-bar a{
     display: none;
   }
 
