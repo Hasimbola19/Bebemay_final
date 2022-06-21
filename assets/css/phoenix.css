@@ -1374,6 +1374,10 @@ img {vertical-align: middle;}
     height: 110px;
   }
 
+  .navigation-bar{
+    display: none;
+  }
+
   .product .side {
     display: none;
   }
