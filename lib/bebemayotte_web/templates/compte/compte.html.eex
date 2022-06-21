@@ -38,7 +38,7 @@
 			</nav>
 		</div>
 		<div class="contenue-compte">
-			<h2>Bonjour <%=@user.adresseMessage%></h2>
+			<h2>Bonjour <%=@user.nom%></h2>
 			<p>À partir du <a class="link" href="/account">tableau de bord</a> de votre compte, vous pouvez visualiser vos <a class="link" href="/commandes">commandes <br> récentes</a>, gérer vos
 			<a class="link" href="/adresse">adresses de livraison et de facturation</a> ainsi que <a class="link" href="/detail">changer <br>
 			votre mot de passe et les détails de votre compte</a> .</p>
