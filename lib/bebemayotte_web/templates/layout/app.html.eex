@@ -47,7 +47,11 @@
             <%= if(is_nil(id)) do %>
               <i class='fas fa-shopping-cart'></i>Votre panier
             <% else %>
-              <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(Plug.Conn.get_session(@conn, :paniers)) %>)
+              <%= if is_nil(Plug.Conn.get_session(@conn, :paniers)) do %>
+                <i class='fas fa-shopping-cart'></i>Votre panier (0)
+              <% else %>
+                <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(Plug.Conn.get_session(@conn, :paniers)) %>)
+              <% end %>
             <% end %>
             </a>
             <a href="/question" class="pan">
