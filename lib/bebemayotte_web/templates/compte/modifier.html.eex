@@ -13,6 +13,10 @@
 // limitations under the License.
 
 <div class="product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Modifier</a>
+  </div>
     <div class="compte">
 		<div class="containe">
 			<nav>

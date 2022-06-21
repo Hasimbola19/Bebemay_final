@@ -2,10 +2,10 @@
     <div class="card_add">
     <form action="/ajout_admin" method="post">
     <input type="hidden" name="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>">
-        <label>Identifiant 
+        <label>Identifiant
             <input type="text" name="username">
         </label>
-        <label>E-mail 
+        <label>E-mail
             <input type="text" name="email_admin">
         </label>
         <label>Mot de passe

@@ -1,4 +1,8 @@
 <div class="product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Inscription</a>
+  </div>
     <div class="top">
         <img src="<%= Routes.static_path(@conn, "/images/top.png") %>" >
     </div>

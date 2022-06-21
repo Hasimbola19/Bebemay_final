@@ -43,7 +43,15 @@
           </li>
           <li class="menu-item1"  style="margin-top: 2px">
             <a href="/panier" class="pan" style="background-color:#ffb4f5; color: #0010bb">
-              <i class='fas fa-shopping-cart'></i> Votre panier
+            <%= if(is_nil(@user)) do %>
+              <i class='fas fa-shopping-cart'></i>Votre panier
+            <% else %>
+              <%= if is_nil(@paniers) do %>
+                <i class='fas fa-shopping-cart'></i>Votre panier (0)
+              <% else %>
+                <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(@paniers) %>)
+              <% end %>
+            <% end %>
             </a>
             <a href="/question" class="pan">
               <i class='fa question-circle'>&#xf059;</i>
@@ -103,7 +111,7 @@
       <%= @inner_content %>
     </main>
   </body>
-   <script>
+ <!--  <script>
       const hamburger = document.getElementById('hum');
       const navMenu = document.querySelector(".menu");
       const navLink = document.querySelectorAll(".nav-link");
@@ -129,7 +137,7 @@
       var i;
       for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
-          this.classList.toggle("active");
+          this.classList.toggle("activer");
           var pane = document.getElementsByClassName("pane")
           if (pane.style.maxHeight) {
             pane.style.maxHeight = null;
@@ -158,7 +166,7 @@
           categorie.classList.remove('marge');
         }
       });
-    </script>
+    </script>-->
     <script defer type="text/javascript" src="<%= Routes.static_path(@socket, "/js/app.js") %>"></script>
     <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
 </html>

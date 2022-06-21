@@ -1,4 +1,8 @@
 <div class="product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Validation</a>
+  </div>
   <% @statut_commande %>
   <%= if @statut_commande == 1 do %>
       <div class="validation_commande">

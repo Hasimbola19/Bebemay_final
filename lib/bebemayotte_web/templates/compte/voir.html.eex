@@ -1,7 +1,11 @@
 <div class="product">
-    <div class="voir">   
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Voir</a>
+  </div>
+    <div class="voir">
         <p>La commande n°27989835 a été passée le 4 mai 2021 et est actuellement Attente paiement.</p>
-        <h2>Détails de la commande</h2> 
+        <h2>Détails de la commande</h2>
         <table class="tablevoir" >
             <thead>
                 <tr>
@@ -25,7 +29,7 @@
                 <tr>
                     <th>EXPÉDITION:</th>
                     <th>Récupérer en boutique ( 0€ de frais).
-                        Vous allez être contacté par l'équipe Web pour organiser 
+                        Vous allez être contacté par l'équipe Web pour organiser
                         l'enlèvement de votre commande.
                     </th>
                 </tr>
@@ -39,7 +43,7 @@
                 </tr>
             </tbody>
         </table>
-        <h2>Adresse de facturation</h2> 
+        <h2>Adresse de facturation</h2>
         <div class="facture">
             <h4>Nom+ prénom</h4>
             <h4>Rue du quartier</h4>

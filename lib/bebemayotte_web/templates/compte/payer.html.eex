@@ -1,4 +1,8 @@
 <div class="product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Payer</a>
+  </div>
     <div class="voir">
         <h2>Validaton de la commande</h2>
         <table class="tablevoir" >

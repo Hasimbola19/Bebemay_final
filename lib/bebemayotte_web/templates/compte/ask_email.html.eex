@@ -1,7 +1,11 @@
 <div class="product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Ask_mail</a>
+  </div>
     <div class="motdepasse">
         <h1 id="title">Mon Compte</h1>
-        <p>Mot de passe perdu ? Veuillez saisir votre identifiant ou votre adresse e-mail.<br> 
+        <p>Mot de passe perdu ? Veuillez saisir votre identifiant ou votre adresse e-mail.<br>
         Vous recevrez un lien par e-mail pour créer un nouveau mot de passe.</p>
         <div class="detail">
             <label>Identifiant ou e-mail

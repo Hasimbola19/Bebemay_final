@@ -1,4 +1,8 @@
 <div class="product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+	<a>Download</a>
+  </div>
 	<div class="compte">
 		<div class="containe">
 			<nav>

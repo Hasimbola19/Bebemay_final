@@ -6,7 +6,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
   alias Bebemayotte.SyncDb
   alias Bebemayotte.PanierRequette
 
-  def mount(_params, %{"id_session" => session,"user" => user,"cat" => cat, "souscat" => souscat, "search" => search}, socket) do
+  def mount(_params, %{"id_session" => session,"user" => user,"cat" => cat, "souscat" => souscat, "search" => search, "paniers" => paniers}, socket) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
     {produits, nb_ligne} = filtre(cat, souscat, search, "1")
@@ -20,7 +20,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
       |> assign(categories: categories, souscategories: souscategories)
       |> assign(produits: produits,last_row_id: last_row_id, first_row_id: first_row_id,
                       search: search, user: user, session: session, nb_page: nb_page,
-                      page: 1, cat: cat, souscat: souscat, tri_select: "1"),
+                      page: 1, cat: cat, souscat: souscat, tri_select: "1", paniers: paniers),
      layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }
   end
@@ -29,13 +29,22 @@ defmodule BebemayotteWeb.Live.ProduitLive do
     id = params["id_produit"]
     session = socket.assigns.session
     panier = id |> PanierRequette.find_double_in_panier(session)
+    paniers = socket.assigns.paniers
     IO.inspect panier
     if panier == nil do
       message = "#{ProdRequette.get_nom_produit_by_id(id)} est parfaitement ajouté au panier."
-      {:noreply, socket |> put_flash(:info, message)}
+      {:noreply,
+        socket
+          |> put_flash(:info, message)
+          #|> assign(paniers)
+        }
     else
       message = "#{ProdRequette.get_nom_produit_by_id(id)} est déja dans le panier!!!"
-      {:noreply, socket |> put_flash(:info, message)}
+      {:noreply,
+        socket
+          |> put_flash(:info, message)
+          #|> assign(paniers)
+        }
     end
   end
 

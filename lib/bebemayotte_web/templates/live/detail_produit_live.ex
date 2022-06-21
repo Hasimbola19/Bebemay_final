@@ -19,7 +19,7 @@ defmodule BebemayotteWeb.Live.DetailProduitLive do
         socket |> assign(categories: categories, search: nil, id_session: id_session,
                          produit: produit, categorie_prod: categorie_prod,
                          souscategorie_prod: souscategorie_prod,souscategories: souscategories, apparentes: produits_apparentes,
-                         quantite: quantite,user: user),
+                         quantite: quantite,user: user, paniers: list_panier),
         layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }
   end

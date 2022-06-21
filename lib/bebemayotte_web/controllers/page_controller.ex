@@ -22,40 +22,44 @@ defmodule BebemayotteWeb.PageController do
 
   def location(conn, _params) do
     id = Plug.Conn.get_session(conn, :user_id)
+    paniers = Plug.Conn.get_session(conn, :paniers)
     if id == nil do
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => 1, "user" => nil, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => 1, "user" => nil, "search" => nil, "paniers" => paniers})
     else
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => id, "user" => id, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => id, "user" => id, "search" => nil, "paniers" => paniers})
     end
   end
 
   # rendue des produits
   def produit(conn, _params) do
     id = Plug.Conn.get_session(conn, :user_id)
+    paniers = Plug.Conn.get_session(conn, :paniers)
     if id == nil do
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => nil, "souscat" => nil, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => nil, "souscat" => nil, "search" => nil, "paniers" => paniers})
     else
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => nil, "souscat" => nil, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => nil, "souscat" => nil, "search" => nil, "paniers" => paniers})
     end
   end
 
   # rendue des 44
   def produit_categorie(conn, %{"cat" => cat}) do
     id = Plug.Conn.get_session(conn, :user_id)
+    paniers = Plug.Conn.get_session(conn, :paniers)
     if id == nil do
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => cat, "souscat" => nil, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => cat, "souscat" => nil, "search" => nil, "paniers" => paniers})
     else
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => cat, "souscat" => nil, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => cat, "souscat" => nil, "search" => nil, "paniers" => paniers})
     end
   end
 
   # GET PAGE PRODUIT WITH SOUS CATEGORIE
   def produit_souscategorie(conn, %{"cat" => cat, "souscat" => souscat}) do
     id = Plug.Conn.get_session(conn, :user_id)
+    paniers = Plug.Conn.get_session(conn, :paniers)
     if id == nil do
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => cat, "souscat" => souscat, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => cat, "souscat" => souscat, "search" => nil, "paniers" => paniers})
     else
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => cat, "souscat" => souscat, "search" => nil})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => cat, "souscat" => souscat, "search" => nil, "paniers" => paniers})
     end
   end
 
@@ -260,10 +264,11 @@ defmodule BebemayotteWeb.PageController do
   # SEARCH ALGORITHM
   def search(conn, %{"_csrf_token" => _csrf_token, "search" => search}) do
     id = Plug.Conn.get_session(conn, :user_id)
+    paniers = Plug.Conn.get_session(conn, :paniers)
     if id == nil do
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => nil, "souscat" => nil, "search" => search})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => nil, "souscat" => nil, "search" => search, "paniers" => paniers})
     else
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => nil, "souscat" => nil, "search" => search})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => id, "user" => id, "cat" => nil, "souscat" => nil, "search" => search, "paniers" => paniers})
     end
   end
 
@@ -299,10 +304,11 @@ defmodule BebemayotteWeb.PageController do
   def contact(conn, _params) do
     # categories = CatRequette.get_all_categorie()
     id = Plug.Conn.get_session(conn, :user_id)
+    paniers = Plug.Conn.get_session(conn, :paniers)
     if id == nil do
-      LiveView.Controller.live_render(conn,  BebemayotteWeb.Live.ContactLive, session: %{"user" => nil})
+      LiveView.Controller.live_render(conn,  BebemayotteWeb.Live.ContactLive, session: %{"user" => nil, "paniers" => paniers})
     else
-      LiveView.Controller.live_render(conn,  BebemayotteWeb.Live.ContactLive, session: %{"user" => id})
+      LiveView.Controller.live_render(conn,  BebemayotteWeb.Live.ContactLive, session: %{"user" => id, "paniers" => paniers})
     end
     # render(conn, "contact.html", categories: categories, search: nil)
   end

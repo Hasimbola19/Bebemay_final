@@ -1,4 +1,8 @@
 <div class="product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Paiment</a>
+  </div>
   <%= if @checkout && @checkout.status == "succeeded" do %>
     <div class="alert alert-solid-success" role="alert">Your payment went successfully through!</div>
   <% else %>
