@@ -412,8 +412,9 @@ pre{padding: 1em;}
   outline: none;
   font-size: 15px;
   transition: 0.4s;
-  margin-top: -15px;
+  /*margin-top: -15px;*/
   text-transform: capitalize;
+  height: 41px;
 }
 
 /* .active, .accordion:hover {
@@ -640,6 +641,26 @@ pre{padding: 1em;}
   margin-left: 50px;
 }
 
+.menu-item.cla.item{
+  overflow-y: scroll;
+  max-height: 500px;
+  width: 250px;
+  margin-top: -8px;
+}
+
+#list-items{
+  display: block;
+  width: 225px;
+ /* position: absolute;
+  background-color: #000;*/
+}
+
+#list-items a{
+  display: block;
+  /*color: #0010bb;*/
+  background-color: #0010bb;
+}
+
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
@@ -741,6 +762,10 @@ img {vertical-align: middle;}
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: #101010;
+}
+
+.nav-link{
+  font-weight: bold;
 }
 
 .cart-panier{
@@ -1349,8 +1374,17 @@ img {vertical-align: middle;}
 }
 
 @media only screen and (max-width: 426px){
-  .header-main .logo1{
+  .header-main .logo1{margin-left: -150px;
     display: none;
+  }
+
+  #list-items{
+    width: auto;
+  }
+
+  .nav-link{
+    /* color: #0010bb; */
+    margin-right: 275px;
   }
 
   .header-main .hitady{
@@ -1549,7 +1583,7 @@ img {vertical-align: middle;}
 
   /* menu deb */
   .menu{
-    padding-top: 7px;
+    /*padding-top: 7px;*/
     display: flex;
     list-style: none;
     /* position: relative; */
@@ -1557,7 +1591,7 @@ img {vertical-align: middle;}
     margin-top: 7px;
     /*font-size: 15px;*/
     text-align: center;
-    margin-bottom: auto;
+    /*margin-bottom: auto;*/
     text-transform: uppercase;
     /*font-weight: bold;*/
     /* width: auto; */
