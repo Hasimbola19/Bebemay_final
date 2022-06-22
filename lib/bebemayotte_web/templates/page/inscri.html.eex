@@ -1,4 +1,4 @@
-<div class="product">
+<div id="inscription_body" class="product">
   <div class="navigation-bar">
     <a>Accueil</a> /
     <a>Inscription</a>

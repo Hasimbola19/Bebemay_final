@@ -1298,6 +1298,10 @@ img {vertical-align: middle;}
     padding-top: 0px;
   }
 
+  #inscription_body{
+    padding-top: 0px;
+  }
+
   .header-nav .ul2{
     float: left;
   }
@@ -2804,6 +2808,35 @@ h4.prix{
   #myInput{
     font-size: 16px;
   }
+
+  #user_prenom{
+    font-size: 16px;
+  }
+
+  #user_nom{
+    font-size: 16px;
+  }
+
+  #user_pays{
+    font-size: 16px;
+  }
+
+  #user_ville{
+    font-size: 16px;
+  }
+
+  #user_telephone{
+    font-size: 16px;
+  }
+
+  #user_adresseMessage{
+    font-size: 16px;
+  }
+
+  #user_ville{
+    font-size: 16px;
+  }
+
  .menu li.menu-item:nth-child(1) {
    margin-left:10px ;
  }
