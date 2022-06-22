@@ -35,3 +35,6 @@ npm-debug.log
 
 # Ignore uploads directory
 /assets/static/images/uploads
+
+#config
+/config/
