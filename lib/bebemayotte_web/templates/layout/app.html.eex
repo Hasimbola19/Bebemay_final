@@ -101,10 +101,19 @@
         <ul class="menu" id="menu">
           <li class="menu-item cla item" id="hidden" class="hidden">
             <label class="accord">Categories</label>
-            <div class="pane">
+            <div class="pane" id="nomcat">
               <%= for categorie <- @categories do %>
                 <%= if categorie.id_cat != "FAR00009" do %>
-                  <a href="/produit/<%= categorie.nom_cat %>" class="lis nav-link"><%= categorie.nom_cat %></a>
+                <div class="dropdown">
+                  <a href="/produit/<%= categorie.nom_cat %>" class="lis nav-link" onclick="show_hide()"><%= categorie.nom_cat %></a>
+                  <div id="list-items">
+                    <%= for souscategorie <- @souscategories do %>
+                      <%= if souscategorie.id_cat == categorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= souscategorie.nom_souscat %></a>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
                 <% end %>
               <% end %>
             </div>
@@ -399,6 +408,18 @@
     <div class="copyright"><a href="http://www.phidia.fr">bbmay.fr | Designed by PHIDIA | © 2022 </a></div>
     </footer>
   </body>
+  <script>
+    function show_hide(){
+      var click = document.getElementById("list-items");
+      if(click.style.display === "none"){
+        click.style.display = "block";
+        console.log("block")
+      }else{
+        click.style.display = "none";
+        console.log("none")
+      }
+    }
+  </script>
    <script>
       const hamburger = document.querySelector(".hamburger");
       const navMenu = document.querySelector(".menu");
@@ -407,7 +428,6 @@
       hamburger.addEventListener("click", mobileMenu)
 
       function mobileMenu() {
-        console.log("evenement")
         hamburger.classList.toggle("active");
         navMenu.classList.toggle("active");
       }
@@ -415,7 +435,6 @@
       navLink.forEach(n => n.addEventListener("click", closeMenu));
 
       function closeMenu() {
-        console.log("evenement")
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
       }
