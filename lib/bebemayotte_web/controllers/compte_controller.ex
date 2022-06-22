@@ -3,6 +3,7 @@ defmodule BebemayotteWeb.CompteController do
 
   alias Phoenix.LiveView
   alias Bebemayotte.CatRequette
+  alias Bebemayotte.SouscatRequette
   alias Bebemayotte.UserRequette
   alias Bebemayotte.PanierRequette
   alias Bebemayotte.ProdRequette
@@ -14,12 +15,13 @@ defmodule BebemayotteWeb.CompteController do
   def compte(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"compte.html", user: user, categories: categories, search: nil)
+      render(conn,"compte.html", user: user, categories: categories,souscategories: souscategories, search: nil)
     end
   end
 
@@ -27,12 +29,13 @@ defmodule BebemayotteWeb.CompteController do
   def commandes(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"commandes.html", user: user, categories: categories, search: nil)
+      render(conn,"commandes.html", user: user, categories: categories,souscategories: souscategories, search: nil)
     end
   end
 
@@ -40,12 +43,13 @@ defmodule BebemayotteWeb.CompteController do
   def down(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"down.html", user: user, categories: categories, search: nil)
+      render(conn,"down.html", user: user, categories: categories,souscategories: souscategories, search: nil)
     end
   end
 
@@ -53,12 +57,13 @@ defmodule BebemayotteWeb.CompteController do
   def detail(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"detail.html", categories: categories, user: user, search: nil)
+      render(conn,"detail.html", categories: categories,souscategories: souscategories, user: user, search: nil)
     end
   end
 
@@ -66,12 +71,13 @@ defmodule BebemayotteWeb.CompteController do
   def adresse(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"adresse.html", user: user, categories: categories, search: nil)
+      render(conn,"adresse.html", user: user, categories: categories, souscategories: souscategories, search: nil)
     end
   end
 
@@ -146,47 +152,53 @@ defmodule BebemayotteWeb.CompteController do
   def see_command(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"voir.html", user: user, categories: categories, search: nil)
+      render(conn,"voir.html", user: user, categories: categories, souscategories: souscategories, search: nil)
     end
   end
 
   # CONFIDENTIALITY POLITIC
   def politique(conn,_params) do
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
-    render(conn,"politique.html", categories: categories, search: nil)
+    render(conn,"politique.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   def annule(conn, _params) do
     categories = CatRequette.get_all_categorie()
-    render(conn,"annule.html", categories: categories, search: nil)
+    souscategories = SouscatRequette.get_all_souscategorie()
+    render(conn,"annule.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   def accepte(conn, _params) do
     categories = CatRequette.get_all_categorie()
-    render(conn,"accepte.html", categories: categories, search: nil)
+    souscategories = SouscatRequette.get_all_souscategorie()
+    render(conn,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   def refuse(conn, _params) do
     categories = CatRequette.get_all_categorie()
-    render(conn,"refuse.html", categories: categories, search: nil)
+    souscategories = SouscatRequette.get_all_souscategorie()
+    render(conn,"refuse.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   # GET PAGE FACTURATION
   def update_facturation(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"modifier.html", user: user, categories: categories, search: nil)
+      render(conn,"modifier.html", user: user, categories: categories, souscategories: souscategories, search: nil)
     end
   end
 
@@ -225,12 +237,13 @@ defmodule BebemayotteWeb.CompteController do
   def update_livraison(conn,_params) do
     id = Plug.Conn.get_session(conn, :user_id)
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       redirect(conn, to: "/connexion")
     else
       user = UserRequette.get_user_by_id(id)
-      render(conn,"modification.html", user: user, categories: categories, search: nil)
+      render(conn,"modification.html", user: user, categories: categories, souscategories: souscategories, search: nil)
     end
   end
 
@@ -263,8 +276,8 @@ defmodule BebemayotteWeb.CompteController do
   # ASK EMAIL OR IDENTIFIANT
   def ask_email(conn,_params) do
     categories = CatRequette.get_all_categorie()
-
-    render(conn,"ask_email.html", categories: categories, search: nil)
+    souscategories = SouscatRequette.get_all_souscategorie()
+    render(conn,"ask_email.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   # PAY COMMAND
@@ -274,6 +287,7 @@ defmodule BebemayotteWeb.CompteController do
     quantites = Plug.Conn.get_session(conn, :quantites)
 
     categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
 
     if is_nil(id) do
       conn
@@ -286,7 +300,7 @@ defmodule BebemayotteWeb.CompteController do
       prix_total = details |> Fonction.get_prix_total()
       remise = Float.round((prix_total * 5)/100, 2)
       prix_remise = prix_total - remise
-      render(conn,"payer.html", user: user, categories: categories, search: nil, details: details, prix_total: prix_total, remise: remise, prix_remise: prix_remise)
+      render(conn,"payer.html", user: user, categories: categories, souscategories: souscategories, search: nil, details: details, prix_total: prix_total, remise: remise, prix_remise: prix_remise)
     end
   end
 
@@ -294,6 +308,7 @@ defmodule BebemayotteWeb.CompteController do
     # VALIDER ET PAYER COMMANDE
     def validation(conn,_params) do
       categories = CatRequette.get_all_categorie()
+      souscategories = SouscatRequette.get_all_souscategorie()
       id = Plug.Conn.get_session(conn, :user_id)
       paniers = Plug.Conn.get_session(conn, :paniers)
       quantites = Plug.Conn.get_session(conn, :quantites)
@@ -413,6 +428,7 @@ defmodule BebemayotteWeb.CompteController do
         if prix_total == nil do
           render(conn,"validation.html",
             categories: categories,
+            souscategories: souscategories,
             commande: commande,
             search: nil,
             statut_commande: 0,
@@ -438,6 +454,7 @@ defmodule BebemayotteWeb.CompteController do
         else
           render(conn,"validation.html",
           categories: categories,
+          souscategories: souscategories,
           commande: commande,
           search: nil,
           statut_commande: 1,
@@ -487,6 +504,7 @@ defmodule BebemayotteWeb.CompteController do
         if prix_total == nil do
           render(conn,"validation.html",
             categories: categories,
+            souscategories: souscategories,
             commande: commande,
             search: nil,
             statut_commande: 0,
@@ -512,6 +530,7 @@ defmodule BebemayotteWeb.CompteController do
         else
           render(conn,"validation.html",
           categories: categories,
+          souscategories: souscategories,
           commande: commande,
           search: nil,
           statut_commande: 1,
