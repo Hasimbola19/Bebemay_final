@@ -101,19 +101,19 @@
         <ul class="menu" id="menu">
           <li class="menu-item cla item" id="hidden" class="hidden">
             <label class="accord">Categories</label>
-            <div class="pane" id="nomcat">
+            <div class="pan" id="nomcat">
               <%= for categorie <- @categories do %>
                 <%= if categorie.id_cat != "FAR00009" do %>
-                <div class="dropdown">
-                  <a href="/produit/<%= categorie.nom_cat %>" class="lis nav-link" onclick="show_hide()"><%= categorie.nom_cat %></a>
-                  <div id="list-items">
+                  <label  class="lis accordi">
+                  <a class="nav-link" href="/produit/<%= categorie.nom_cat %>"><%= categorie.nom_cat %></a>
+                  </label>
+                  <div id="list-items" class="panel">
                     <%= for souscategorie <- @souscategories do %>
                       <%= if souscategorie.id_cat == categorie.id_cat do %>
                       <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= souscategorie.nom_souscat %></a>
                       <% end %>
                     <% end %>
                   </div>
-                </div>
                 <% end %>
               <% end %>
             </div>
@@ -409,16 +409,20 @@
     </footer>
   </body>
   <script>
-    function show_hide(){
-      var click = document.getElementById("list-items");
-      if(click.style.display === "none"){
-        click.style.display = "block";
-        console.log("block")
-      }else{
-        click.style.display = "none";
-        console.log("none")
+  var acc = document.getElementsByClassName("accordi");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("actif");
+      var pane = this.nextElementSibling;
+      if (pane.style.maxHeight) {
+        pane.style.maxHeight = null;
+      } else {
+        pane.style.maxHeight = pane.scrollHeight + "px";
       }
-    }
+    });
+  }
   </script>
    <script>
       const hamburger = document.querySelector(".hamburger");
@@ -428,6 +432,7 @@
       hamburger.addEventListener("click", mobileMenu)
 
       function mobileMenu() {
+        alert("EVENEMENT")
         hamburger.classList.toggle("active");
         navMenu.classList.toggle("active");
       }
@@ -435,6 +440,7 @@
       navLink.forEach(n => n.addEventListener("click", closeMenu));
 
       function closeMenu() {
+        alert("EVENT")
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
       }
