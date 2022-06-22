@@ -485,6 +485,16 @@ pre{padding: 1em;}
   display: grid;
 }
 
+#panier_header{
+  display: inline;
+  margin-top: 10px !important;
+  margin-right: 5px;
+}
+
+#question_header{
+  display: contents;
+}
+
 .pan .lis{
   color: #000;
   text-transform: capitalize;
@@ -2362,7 +2372,8 @@ header nav a {
   }
   .btn{
     background-color: #0010bb;
-    color:#121b2c;
+    color: #fff;
+    /* color:#121b2c; */
     border: none;
     width: auto;
     margin:0 auto;
@@ -2370,8 +2381,9 @@ header nav a {
     font-size: 1.5rem;
   }
   .btn:hover{
-    background-color: #121b2c;
-    color:#fff;
+    background-color: #0010bb;
+    /* color:#fff; */
+    color:#121b2c;
     border: none;
     width: auto;
   }

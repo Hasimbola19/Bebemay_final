@@ -43,7 +43,7 @@
             <% end %>
           </li>
           <li class="menu-item1" style="margin-top: 2px">
-            <a href="/panier" class="pan" style="background-color:#ffb4f5; color: #0010bb">
+            <a href="/panier" id="panier_header" class="pan" style="background-color:#ffb4f5; color: #0010bb">
             <%= if(is_nil(id)) do %>
               <i class='fas fa-shopping-cart'></i>Votre panier
             <% else %>
@@ -54,7 +54,7 @@
               <% end %>
             <% end %>
             </a>
-            <a href="/question" class="pan">
+            <a href="/question" id="question_header" class="pan">
               <i class='fa question-circle'>&#xf059;</i>
             </a>
           </li>

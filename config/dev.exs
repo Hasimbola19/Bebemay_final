@@ -3,11 +3,11 @@ use Mix.Config
 # Configure your database
 config :bebemayotte, Bebemayotte.Repo,
   adapter: Ecto.Adapters.Postgres,
-  #username: "odoo",
-  #password: "Mgbi@261!",
-  username: "postgres",
-  password: "postgres",
-  database: "bebemayotte",
+  username: "odoo",
+  password: "Mgbi@261!",
+  #username: "postgres",
+  #password: "postgres",
+  database: "bebemayotte_dev",
   hostname: "localhost",
   port: 5432,
   show_sensitive_data_on_connection_error: true,
@@ -37,6 +37,13 @@ config :Bebemayotte, Bebemayotte.Mailer,
 # with webpack to recompile .js and .css sources.
 config :bebemayotte, BebemayotteWeb.Endpoint,
   http: [port: 4001],
+  # https: [
+  #   port: 4001,
+  #   cipher_suite: :strong,
+  #   certfile: "priv/cert/selfsigned.pem",
+  #   keyfile: "priv/cert/selfsigned_key.pem"
+  # ],
+  url: [host: "localhost", port: 4001],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -50,7 +57,8 @@ config :bebemayotte, BebemayotteWeb.Endpoint,
     ],
   live_view: [
     signing_salt: "XUKQkfgb/a6YBHB5QqHwettiPnz/A7JX"
-  ]
+  ],
+  # force_ssl: [hsts: false, rewrite_on: [:x_forwarded_proto], exlude: [], host: "localhost:4001"]
 ]
 
 # ## SSL Support
