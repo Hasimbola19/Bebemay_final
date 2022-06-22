@@ -1429,6 +1429,17 @@ img {vertical-align: middle;}
     margin: auto;
   }
 
+  .product #grid #item1 table{
+    transform: scale(0.6);
+    margin-left: -90px;
+    margin-top: -50px;
+  }
+
+  .product #grid #item3{
+    margin: -50px;
+    margin-left: 55px;
+  }
+
   .ajout i{
     font-size: 12px;
   }
@@ -1458,6 +1469,16 @@ img {vertical-align: middle;}
 
   #slider{
     margin-left: 70px;
+  }
+
+  .product #grid #item1 table{
+    margin-left: -110px;
+    margin-top: -75px;
+  }
+
+  .product #grid #item3{
+    margin: -50px;
+    margin-left: 55px;
   }
 
   .head .header{
@@ -1560,6 +1581,18 @@ img {vertical-align: middle;}
   
   .hitady .div form input{
     font-size: 20px;
+  }
+
+  .product #grid #item1 table{
+    transform: scale(0.5);
+    position: relative;
+    margin-top: -100px;
+    margin-left: -145px;
+  }
+
+  .product #grid #item3{
+    margin-top: -75px;
+    margin-left: 40px;
   }
 }
 /*RESPONSIVE FIN*/
