@@ -96,8 +96,8 @@
             <% end %>
             </a>
         </div>
-        <ul class="menu">
-          <li class="menu-item item">
+        <ul class="menu" id="menu">
+          <li class="menu-item cla item" id="hidden" class="hidden">
             <label class="accord">Categories</label>
             <div class="pane" id="nomcat">
               <%= for categorie <- @categories do %>
@@ -116,7 +116,7 @@
               <% end %>
             </div>
           </li>
-          </ul>
+         </ul>
         <div class="hamburger" id="hum">
           <span class="bar"></span>
           <span class="bar"></span>
