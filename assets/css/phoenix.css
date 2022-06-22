@@ -1294,6 +1294,10 @@ img {vertical-align: middle;}
     display: none;
   }
 
+  #connexion_body{
+    padding-top: 0px;
+  }
+
   .header-nav .ul2{
     float: left;
   }
