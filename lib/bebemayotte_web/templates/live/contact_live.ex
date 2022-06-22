@@ -2,10 +2,10 @@ defmodule  BebemayotteWeb.Live.ContactLive do
   use Phoenix.LiveView
   alias Bebemayotte.CatRequette
 
-  def mount(_params, %{"user" => id, "paniers" => paniers}, socket) do
+  def mount(_params, %{"user" => id, "list_panier" => list_panier}, socket) do
     categories = CatRequette.get_all_categorie()
 
-    {:ok, socket |> assign(categories: categories, search: nil, user: id, paniers: paniers), layout: {BebemayotteWeb.LayoutView, "layout_live.html"}}
+    {:ok, socket |> assign(categories: categories, search: nil, user: id, list_panier: list_panier), layout: {BebemayotteWeb.LayoutView, "layout_live.html"}}
   end
 
   def handle_event("add", _params, socket) do

@@ -13,8 +13,9 @@ defmodule BebemayotteWeb.Live.PanierLive do
     {
       :ok,
       socket
-       |> assign(categories: categories,souscategories: souscategories, search: nil, produits: produits,
-                 list_quantite: list_quantite, paniers: list_panier,
+       |> assign(categories: categories, souscategories: souscategories,
+                 search: nil, produits: produits,
+                 list_quantite: list_quantite, list_panier: list_panier,
                  somme: somme, id_session: id, user: user),
       layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }

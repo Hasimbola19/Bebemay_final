@@ -6,7 +6,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
   alias Bebemayotte.SyncDb
   alias Bebemayotte.PanierRequette
 
-  def mount(_params, %{"id_session" => session,"user" => user,"cat" => cat, "souscat" => souscat, "search" => search, "paniers" => paniers}, socket) do
+  def mount(_params, %{"id_session" => session,"user" => user,"cat" => cat, "souscat" => souscat,"list_panier" => list_panier, "search" => search}, socket) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
     {produits, nb_ligne} = filtre(cat, souscat, search, "1")
@@ -20,7 +20,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
       |> assign(categories: categories, souscategories: souscategories)
       |> assign(produits: produits,last_row_id: last_row_id, first_row_id: first_row_id,
                       search: search, user: user, session: session, nb_page: nb_page,
-                      page: 1, cat: cat, souscat: souscat, tri_select: "1", paniers: paniers),
+                      page: 1, cat: cat, souscat: souscat, tri_select: "1"),
      layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }
   end

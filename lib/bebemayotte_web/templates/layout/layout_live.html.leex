@@ -46,10 +46,10 @@
             <%= if(is_nil(@user)) do %>
               <i class='fas fa-shopping-cart'></i>Votre panier
             <% else %>
-              <%= if is_nil(@paniers) do %>
+              <%= if is_nil(@list_panier) do %>
                 <i class='fas fa-shopping-cart'></i>Votre panier (0)
               <% else %>
-                <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(@paniers) %>)
+                <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(@list_panier) %>)
               <% end %>
             <% end %>
             </a>
@@ -88,10 +88,10 @@
             <%= if(is_nil(@user)) do %>
               <i class='fas fa-shopping-cart'></i>Votre panier
             <% else %>
-              <%= if is_nil(@paniers) do %>
+              <%= if is_nil(@list_panier) do %>
                 <i class='fas fa-shopping-cart'></i>Votre panier(0)
               <% else %>
-                <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(@paniers) %>)
+                <i class='fas fa-shopping-cart'></i>Votre panier (<%= Enum.count(@list_panier) %>)
               <% end %>
             <% end %>
             </a>
