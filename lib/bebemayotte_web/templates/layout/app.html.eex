@@ -432,7 +432,6 @@
       hamburger.addEventListener("click", mobileMenu)
 
       function mobileMenu() {
-        alert("EVENEMENT")
         hamburger.classList.toggle("active");
         navMenu.classList.toggle("active");
       }
@@ -440,7 +439,6 @@
       navLink.forEach(n => n.addEventListener("click", closeMenu));
 
       function closeMenu() {
-        alert("EVENT")
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
       }
