@@ -99,11 +99,20 @@
         <ul class="menu">
           <li class="menu-item item">
             <label class="accord">Categories</label>
-            <div class="pane">
+            <div class="pane" id="nomcat">
               <%= for categorie <- @categories do %>
-              <%= if categorie.id_cat != "FAR00009" do %>
-                <a href="/produit/<%= categorie.nom_cat %>" class="lis nav-link"><%= categorie.nom_cat %></a>
-              <% end %>
+                <%= if categorie.id_cat != "FAR00009" do %>
+                <div class="dropdown">
+                  <a href="/produit/<%= categorie.nom_cat %>" class="lis nav-link" onclick="show_hide()"><%= categorie.nom_cat %></a>
+                  <div id="list-items">
+                    <%= for souscategorie <- @souscategories do %>
+                      <%= if souscategorie.id_cat == categorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= souscategorie.nom_souscat %></a>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+                <% end %>
               <% end %>
             </div>
           </li>
