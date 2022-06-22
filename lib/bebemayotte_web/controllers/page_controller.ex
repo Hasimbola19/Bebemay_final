@@ -18,7 +18,7 @@ defmodule BebemayotteWeb.PageController do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
 
-    render(conn, "index.html", categories: categories,souscategories: souscategories, search: nil)
+    render(conn, "index.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   def location(conn, _params) do
