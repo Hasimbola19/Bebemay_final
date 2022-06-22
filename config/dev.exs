@@ -3,11 +3,11 @@ use Mix.Config
 # Configure your database
 config :bebemayotte, Bebemayotte.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "odoo",
-  password: "Mgbi@261!",
-  #username: "postgres",
-  #password: "postgres",
-  database: "bebemayotte_dev",
+  #username: "odoo",
+  #password: "Mgbi@261!",
+  username: "postgres",
+  password: "postgres",
+  database: "bbmay_prod_env",
   hostname: "localhost",
   port: 5432,
   show_sensitive_data_on_connection_error: true,
@@ -18,11 +18,13 @@ config :bebemayotte, Bebemayotte.EBPRepo,
   username: "sa",
   password: "@ebp78EBP",
   database: "BB_MAY_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4",
-  hostname: "NS3072398",
+  #hostname: "NS3072398",
+  hostname: "37.59.57.29",
   instance: "EBP_2019",
   port: 53735,
   odbc_driver: "{SQL Server Native Client 11.0}",
-  pool_size: 10
+  timeout: 45_000,
+  pool_size: 20
 
 # Configure mail
 config :Bebemayotte, Bebemayotte.Mailer,
@@ -37,13 +39,6 @@ config :Bebemayotte, Bebemayotte.Mailer,
 # with webpack to recompile .js and .css sources.
 config :bebemayotte, BebemayotteWeb.Endpoint,
   http: [port: 4001],
-  # https: [
-  #   port: 4001,
-  #   cipher_suite: :strong,
-  #   certfile: "priv/cert/selfsigned.pem",
-  #   keyfile: "priv/cert/selfsigned_key.pem"
-  # ],
-  url: [host: "localhost", port: 4001],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -57,8 +52,7 @@ config :bebemayotte, BebemayotteWeb.Endpoint,
     ],
   live_view: [
     signing_salt: "XUKQkfgb/a6YBHB5QqHwettiPnz/A7JX"
-  ],
-  # force_ssl: [hsts: false, rewrite_on: [:x_forwarded_proto], exlude: [], host: "localhost:4001"]
+  ]
 ]
 
 # ## SSL Support
