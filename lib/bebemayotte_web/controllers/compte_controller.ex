@@ -392,7 +392,7 @@ defmodule BebemayotteWeb.CompteController do
       pbx_billing =
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><Billing><Address><FirstName>#{pbx_prenom_fact}</FirstName>"<>""<>
           "<LastName>#{pbx_nom_fact}</LastName><Address1>#{pbx_adresse1_fact}</Address1>"<>""<>
-          "<Addresse2>#{pbx_adresse2_fact}</Addresse2><ZipCode>#{pbx_zipcode_fact}</ZipCode>"<>""<>
+          "<Address2>#{pbx_adresse2_fact}</Address2><ZipCode>#{pbx_zipcode_fact}</ZipCode>"<>""<>
           "<City>#{pbx_city_fact}</City><CountryCode>#{pbx_country_fact}</CountryCode>"<>""<>
           "</Address></Billing>"
 
