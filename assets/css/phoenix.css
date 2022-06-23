@@ -1302,9 +1302,9 @@ img {vertical-align: middle;}
     display: none;
   }
 
-  #recovery_form_id{
+  /* #recovery_form_id{
     margin-top: 200px;
-  }
+  } */
 
   /* #connexion_body_verif{
     margin-top: 200px;
@@ -1319,7 +1319,7 @@ img {vertical-align: middle;}
   }
 
   #inscription_body{
-    padding-top: 0px;
+    /* padding-top: 0px; */
   }
 
   .header-nav .ul2{
