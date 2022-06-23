@@ -24,7 +24,7 @@
             </div>
             <div class="row block">
                 <div class="column lien">
-                    <a class="link" phx-click="reset-password" href="/ask_email">Mot de passe oublié?</a>
+                    <a class="link" phx-click="reset-password" href="/restauration">Mot de passe oublié?</a>
                 </div>
                 <div class="column check">
                     <input type="checkbox" name="remember">

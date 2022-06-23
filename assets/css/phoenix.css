@@ -1302,6 +1302,10 @@ img {vertical-align: middle;}
     display: none;
   }
 
+  #recovery_form_id{
+    margin-top: 200px;
+  }
+
   #connexion_body{
     padding-top: 0px;
   }
@@ -2782,6 +2786,7 @@ h4.prix{
   font-size: 10px;
 }
 }
+
 @media (min-width: 976px) and (max-width:1050px) {
   .menu li,article p{
     font-size: 14px;
