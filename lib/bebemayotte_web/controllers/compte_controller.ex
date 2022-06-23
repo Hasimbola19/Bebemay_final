@@ -607,7 +607,7 @@ defmodule BebemayotteWeb.CompteController do
             end
          )
     conn
-      |> redirect(external: "http://localhost:4001/produit")#"http://localhost:4010/ito/ito")
+      |> redirect(external: "https://bbmay.fr/produit")#"http://localhost:4010/ito/ito")
   end
 
   def payement_en_ligne(conn, _) do
