@@ -9,6 +9,7 @@ defmodule BebemayotteWeb.PageController do
   alias Bebemayotte.UserRequette
   alias Bebemayotte.Details
   alias Bebemayotte.Fonction
+  alias Bebemayotte.User
 
   alias Bebemayotte.Mailer
   alias Bebemayotte.SyncDb
@@ -72,6 +73,48 @@ defmodule BebemayotteWeb.PageController do
     souscategories = SouscatRequette.get_all_souscategorie()
 
     render(conn, "connexion.html", categories: categories,souscategories: souscategories, search: nil)
+  end
+
+  def mod_password(conn, %{"password" => password}) do
+    categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
+    identifiant = get_session(conn, :identifiant)
+    user = UserRequette.get_user_by_identifiant(identifiant)
+    IO.inspect identifiant
+    IO.inspect Bebemayotte.UserRequette.update_password(user, %{"motdepasse" => password})
+    IO.puts"UPDT MOT DE PASSE"
+    render(conn, "connexion.html", categories: categories, souscategories: souscategories, search: nil)
+  end
+
+  def user_url(conn, _, _) do
+    {:ok, conn}
+  end
+
+  def send_token(conn, %{"identifiant" => identifiant}) do
+    categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
+    user = UserRequette.get_user_identifiant(identifiant)
+    token = Bebemayotte.Token.generate_new_account_token(user)
+    # verification_url = user_url(conn, :verify_email, token: token)
+    verification_url = "https://bbmay.fr/verify_email?token=#{token}"
+    Bebemayotte.Email.new_mail_message(identifiant, verification_url) |> Mailer.deliver_now()
+    render(conn |> put_session(:identifiant , identifiant), "verifier.html", categories: categories, souscategories: souscategories, search: nil)
+  end
+
+  def verify_email(conn, %{"token" => token}) do
+    categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
+    with  {:ok, id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
+      render(conn, "update_password.html", categories: categories,souscategories: souscategories, search: nil)
+    else
+      _ -> render(conn, "index.html")
+    end
+  end
+
+  def verify_email(conn, _) do
+    conn
+      |> put_flash(:error, "Erreur lors de la validation de l'email")
+      |> redirect(to: "/")
   end
 
   #  session sur chaque page
@@ -146,7 +189,8 @@ defmodule BebemayotteWeb.PageController do
       "codepostal" => "null",
       "telephone" => telephone,
       "motdepasse" => motdepasse,
-      "nom_entreprise" => "null"
+      "nom_entreprise" => "null",
+      "verified" => false
     }
 
     IO.inspect(user)
@@ -204,6 +248,12 @@ defmodule BebemayotteWeb.PageController do
     souscategories = SouscatRequette.get_all_souscategorie()
 
     render(conn,"question.html", categories: categories, souscategories: souscategories, search: nil)
+  end
+
+  def restore_password(conn, _params) do
+    categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
+    render(conn, "password_recovery.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   #-------------------------------------------------PAGE PANIER--------------------------------------------------------------------------------------------------------------------------

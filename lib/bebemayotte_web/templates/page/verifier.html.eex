@@ -1,0 +1,11 @@
+<div id="connexion_body" class=" product">
+  <div class="navigation-bar">
+    <a>Accueil</a> /
+    <a>Connexion</a> /
+  </div>
+  <div class="page_verif">
+    <p>
+    Veuillez verifier vos mails
+    </p>
+  </div>
+</div>

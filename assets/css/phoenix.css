@@ -573,6 +573,10 @@ pre{padding: 1em;}
   overflow: hidden;
 }
 
+.page_verif{
+  margin-top: 35px;
+}
+
 .imge img {
     max-width: 100%;
     height: 170px;

@@ -3,6 +3,13 @@ defmodule Bebemayotte.UserRequette do
   alias Bebemayotte.Repo
   alias Bebemayotte.User
 
+  def get_user_by_identifiant(identifiant) do
+    query = from u in User,
+    where: u.adresseMessage == ^identifiant,
+    select: u
+    Repo.one(query)
+  end
+
   # GET USER
   def get_user_identifiant(identif) do
     query =
@@ -16,6 +23,12 @@ defmodule Bebemayotte.UserRequette do
       nil -> false
       _ -> true
     end
+  end
+
+  def update_password(user, params) do
+    user
+      |> User.update_password_changeset(params)
+      |> Repo.update()
   end
 
   def get_user_email_by_id(id) do

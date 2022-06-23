@@ -31,4 +31,10 @@ defmodule Bebemayotte.User do
     |> unique_constraint(:id_user)
     |> unique_constraint(:telephone)
   end
+
+  def update_password_changeset(user, attrs) do
+   user
+   |> cast(attrs, [:motdepasse])
+  end
+
 end

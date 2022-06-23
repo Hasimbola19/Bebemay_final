@@ -27,10 +27,10 @@ config :logger, :console,
 
 config :bebemayotte, Bebemayotte.Mailer,
   adapter: Bamboo.SMTPAdapter,
-  server: "smtp.gmail.com",
+  server: "smtp.office365.com",
   port: 587,
-  username: "kev.irinah@gmail.com",
-  password: "31203204",
+  username: "bbmayotte@outlook.fr",
+  password: "Mgbi@261!",
   tls: :if_available,
   retries: 1
 
