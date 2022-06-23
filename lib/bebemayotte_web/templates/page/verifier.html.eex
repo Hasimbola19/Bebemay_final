@@ -4,8 +4,8 @@
     <a>Connexion</a> /
   </div>
   <div class="page_verif">
-    <p>
-    Veuillez verifier vos mails
-    </p>
+    <h1>
+    <b>Un mail a été envoyé à votre adresse.</b>
+    </h1>
   </div>
 </div>
