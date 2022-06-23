@@ -107,7 +107,7 @@ defmodule BebemayotteWeb.PageController do
     with  {:ok, id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
       render(conn, "update_password.html", categories: categories,souscategories: souscategories, search: nil)
     else
-      _ -> render(conn, "index.html")
+      _ -> render(conn, "index.html", categories: categories,souscategories: souscategories, search: nil)
     end
   end
 
