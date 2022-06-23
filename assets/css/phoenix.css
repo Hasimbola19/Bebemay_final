@@ -485,6 +485,10 @@ pre{padding: 1em;}
   display: grid;
 }
 
+#askemail_detail{
+  margin-bottom: auto;
+}
+
 #panier_header{
   display: inline;
   margin-top: 10px !important;
@@ -2802,6 +2806,10 @@ h4.prix{
 }
 }
 
+#askemail_input{
+ font-weight: bold;
+}
+
 #identifiant{
   margin-left: 15px;
   font-weight: bold;
@@ -2849,6 +2857,10 @@ h4.prix{
 @media (max-width: 976px)  {
   .menu li, article p{
     font-size: 13px;
+  }
+
+  #askemail_input{
+    font-size: 16px;
   }
 
   #identifiant{
