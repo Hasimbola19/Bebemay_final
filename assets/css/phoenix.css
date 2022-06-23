@@ -2797,6 +2797,51 @@ h4.prix{
   font-size: 10px;
 }
 }
+
+#identifiant{
+  margin-left: 15px;
+  font-weight: bold;
+}
+#myInput{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#user_prenom{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#user_nom{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#user_pays{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#user_ville{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#user_telephone{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#user_adresseMessage{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#user_ville{
+  margin-left: 15px;
+  font-weight: bold;
+}
+
 @media (max-width: 976px)  {
   .menu li, article p{
     font-size: 13px;
