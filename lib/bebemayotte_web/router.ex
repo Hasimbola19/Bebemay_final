@@ -91,20 +91,20 @@ defmodule BebemayotteWeb.Router do
     get "/ask_email", CompteController, :ask_email
 
       #admin
-    get "/admin", AdminController, :admin
-    get "/admin_compte", AdminController, :admin_compte
-    get "/admin_produit", AdminController, :admin_produit
-    get "/add", AdminController, :add_admin
-    get "/edit", AdminController, :edit_admin
-    get "/delete", AdminController, :delete_admin
-    get "/ajout_admin", AdminController, :ajout_admin
-    get "/afficher", AdminController, :afficher
-    get "/show", AdminController, :show
-    get "/show_users", AdminController, :show_users
-    get "/cat", AdminController, :categorie
-    get "/sous_cat", AdminController, :sous_categorie
-    get "/admin/auth", AdminController, :index
-    get "/params", AdminController, :parametre
+    # get "/admin", AdminController, :admin
+    # get "/admin_compte", AdminController, :admin_compte
+    # get "/admin_produit", AdminController, :admin_produit
+    # get "/add", AdminController, :add_admin
+    # get "/edit", AdminController, :edit_admin
+    # get "/delete", AdminController, :delete_admin
+    # get "/ajout_admin", AdminController, :ajout_admin
+    # get "/afficher", AdminController, :afficher
+    # get "/show", AdminController, :show
+    # get "/show_users", AdminController, :show_users
+    # get "/cat", AdminController, :categorie
+    # get "/sous_cat", AdminController, :sous_categorie
+    # get "/admin/auth", AdminController, :index
+    # get "/params", AdminController, :parametre
 
       # GET LOCATION
     get "/location", PageController, :location
