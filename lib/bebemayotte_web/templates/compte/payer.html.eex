@@ -57,8 +57,6 @@
                 <h4>Vos données personnelles seront utilisées pour le traitement de votre commande,
                 vous accompagner au cours de votre visite du site web, et pour d’autres raisons décrites dans notre
                 <a class="link" href="/politique">politique de confidentialité</a> </h4>
-                <h4> <input type="checkbox" required>J’ai lu et j’accepte les <a class="link" href="#popup1">conditions générales </a>*</h4>
-
             </div>
             <div id="popup1" class="overlay">
                 <div class="popup">
@@ -288,7 +286,8 @@
                 </div>
             </div>
         </div>
-        <form method="post" action="/to_stripe">
+        <form method="post" action="/to_stripe" class="condition_checkbox">
+        <h4> <input type="checkbox" required>J’ai lu et j’accepte les <a class="link" href="#popup1">conditions générales </a>*</h4>
           <input type="hidden" name="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>">
           <button class="btn" type="submit">Payer la commande</button>
         </form>
