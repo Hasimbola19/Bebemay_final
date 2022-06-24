@@ -8,7 +8,7 @@
     </div>
     <div class="box-connexion">
         <h1>CONNEXION</h1>
-        <p> Vous n’avez pas de compte? <a href="/inscription" class="link">Inscrivez- vous</a></p>
+        <p>Vous n’avez pas de compte? <a href="/inscription" class="link">Inscrivez- vous</a></p>
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error_id_mdp) %></p>
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info_reussi) %></p>
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :notif) %></p>
