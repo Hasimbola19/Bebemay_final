@@ -146,6 +146,12 @@ defmodule BebemayotteWeb.CompteController do
       |>redirect(to: "/connexion")
   end
 
+  def logout(conn, _params) do
+    conn
+      |>configure_session(drop: true)
+      |>redirect(to: "/connexion")
+  end
+
   #------------------------------------------------------------------------------COMMAND-----------------------------------------------------------------------------------
 
   # SEE MY COMMAND

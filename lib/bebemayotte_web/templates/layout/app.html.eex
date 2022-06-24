@@ -23,6 +23,12 @@
           <li class="menu-item3"><a href="tel:0269613910">0269 61 39 10</a></li>
         </ul>
         <ul class="ul3">
+          <% id = Plug.Conn.get_session(@conn, :user_id) %>
+          <%= if is_nil(id) do %>
+            <li class="menu-item"><a href="/connexion"><i class="fad fa-user"></i></a></li>
+          <% else %>
+            <li class="menu-item"><a href="/deconnexions"><i class="fad fa-sign-out-alt"></i></a></li>
+          <% end %>
           <li class="menu-item"><a href="/" class="nav-link">Accueil</a></li>
           <li class="menu-item">
             <a href="/produit" class="nav-link">Boutique</a>

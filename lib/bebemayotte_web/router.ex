@@ -75,6 +75,7 @@ defmodule BebemayotteWeb.Router do
     get "/detail", CompteController, :detail
     post "/update-account", CompteController, :update_account
     delete "/deconnexion", CompteController, :deconnexion
+    get "/deconnexions", CompteController, :logout
     get "/update_address/facturation", CompteController, :update_facturation
     post "/update_address/facturation/submit", CompteController, :submit_update_facturation
     get "/update_address/livraison", CompteController, :update_livraison

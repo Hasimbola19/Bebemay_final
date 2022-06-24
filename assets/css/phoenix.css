@@ -1560,7 +1560,7 @@ img {vertical-align: middle;}
   }
 
   .header-nav .ul3 .menu-item{
-    width: 170px;
+    width: 110px;
   }
 }
 
@@ -1633,6 +1633,10 @@ img {vertical-align: middle;}
   
   .hitady .div form input{
     font-size: 20px;
+  }
+
+  .header-nav .ul3 .menu-item{
+    width: 95px;
   }
 }
 
