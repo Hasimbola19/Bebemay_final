@@ -67,6 +67,6 @@ defmodule Bebemayotte.Fonction do
           end
          )
       |> Enum.sum()
-      |> Float.round(2)
+      # |> Float.round(2)
   end
 end

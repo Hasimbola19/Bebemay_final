@@ -86,7 +86,7 @@
                             <input type="hidden" name="statut" value="<%= @user %>">
                             <input type="hidden" name="prix_remise" value="<%= Float.round(@somme - ((@somme * 5)/100), 2) %>">
                             <input type="hidden" name="prix_total" value="<%= @somme %>">
-                            <button type="submit" value="" class="btn" disabled>Valider la commande</button>
+                            <button type="submit" value="" class="btn">Valider la commande</button>
                         </form>
                     </caption>
                 </table>

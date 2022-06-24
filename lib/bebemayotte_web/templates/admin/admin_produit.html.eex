@@ -3,14 +3,13 @@
         <div class="column"><h3 id="admin_row">Photo</h3></h3></div>
         <div class="column"><h3 id="admin_row">Titre</h3></div>
         <div class="column"><h3 id="admin_row">Stocks maximum</h3></div>
-        
+
     </div>
-    <%=for produit <- @produits do %>    
+    <%= for produit <- @produits do %>
     <div class="row content__admin">
-        <div class="column"> <img src="<%= Routes.static_path(@conn, "/images/produits/#{produit.photolink}") %>"> </div>
-        <div class="column" id="title"> <%= produit.title %> </div> 
-        <div class="column"> <%= produit.stockmax %> </div>    
-       
+        <div class="column"> <img src="<%= Routes.static_path(@conn, produit.photolink) %>"> </div>
+        <div class="column" id="title"> <%= produit.title %> </div>
+        <div class="column"> <%= produit.stockmax %> </div>
     </div>
     <% end %>
 </div>

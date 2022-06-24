@@ -33,6 +33,7 @@
             <input type="hidden" name="PBX_RANG" value="<%= @pbx_rang %>">
             <input type="hidden" name="PBX_IDENTIFIANT" value="<%= @pbx_identifiant %>">
             <input type="hidden" name="PBX_TOTAL" value="<%= @pbx_total %>">
+            <input type="hidden" name="PBX_TOTAL" value="<%= @pbx_total %>">
             <input type="hidden" name="PBX_DEVISE" value="978">
             <input type="hidden" name="PBX_CMD" value="<%= @pbx_cmd %>">
             <input type="hidden" name="PBX_PORTEUR" value="<%= @pbx_porteur %>">

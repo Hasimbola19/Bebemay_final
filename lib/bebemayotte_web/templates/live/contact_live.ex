@@ -6,7 +6,11 @@ defmodule  BebemayotteWeb.Live.ContactLive do
   def mount(_params, %{"user" => id, "list_panier" => list_panier}, socket) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
-    {:ok, socket |> assign(categories: categories, souscategories: souscategories, search: nil, user: id, list_panier: list_panier), layout: {BebemayotteWeb.LayoutView, "layout_live.html"}}
+    {:ok, socket
+      |> assign(categories: categories,
+      souscategories: souscategories,
+      search: nil, user: id, list_panier: list_panier),
+    layout: {BebemayotteWeb.LayoutView, "layout_live.html"}}
   end
 
   def handle_event("add", _params, socket) do
