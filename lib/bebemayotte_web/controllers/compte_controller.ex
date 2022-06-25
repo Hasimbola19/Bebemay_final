@@ -338,7 +338,8 @@ defmodule BebemayotteWeb.CompteController do
       pbx_site = "2366513"
       pbx_rang = "01"
       pbx_identifiant = "122909322"
-      tot = Float.floor(prix_total, 2)
+      # tot = Float.floor(prix_total, 2)
+      tot = :erlang.float_to_binary(prix_total, [decimals: 2])
       total = tot |> to_string()
 
       pbx_cmd = num_commande
