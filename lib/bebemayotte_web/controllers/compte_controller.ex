@@ -328,6 +328,7 @@ defmodule BebemayotteWeb.CompteController do
       nom = UserRequette.get_user_name_by_id(id)
       prenom = UserRequette.get_user_prename_by_id(id)
       pays = UserRequette.get_user_pays_by_id(id)
+      nom_rue = UserRequette.get_user_rue_by_id(id)
       ville = UserRequette.get_user_ville_by_id(id)
       codepostal = UserRequette.get_user_codepostal_by_id(id)
       commande = %{
@@ -395,11 +396,12 @@ defmodule BebemayotteWeb.CompteController do
         # // URL secondaire :
           #urletrans ="https://tpeweb1.e-transactions.fr/php/";
 
-      pbx_adresse1_fact = ville;								#//variable de test 1 rue de Paris
+      pbx_adresse1_fact = nom_rue;								#//variable de test 1 rue de Paris
       pbx_adresse2_fact = "";								#//variable de test <vide>
       pbx_zipcode_fact = codepostal;						#	//variable de test 75001
-      pbx_city_fact = pays;									#//variable de test Paris
-      pbx_country_fact = "YT";		#//variable de test 250 (pour la France)
+      #pbx_city_fact = pays;									#//variable de test Paris
+      pbx_city_fact = ville;									#//variable de test Paris
+      pbx_country_fact = "FR";		#//variable de test 250 (pour la France)
 
       pbx_billing =
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><Billing><Address><FirstName>#{pbx_prenom_fact}</FirstName>"<>""<>
