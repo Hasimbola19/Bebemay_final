@@ -43,6 +43,14 @@ defmodule Bebemayotte.UserRequette do
     Repo.one(query)
   end
 
+  def get_user_rue_by_id(id)do
+    query =
+      from co in User,
+        where: co.id_user == ^id,
+        select: co.nom_rue
+    Repo.one(query)
+  end
+
   def get_user_name_by_id(id) do
     query =
       from co in User,
