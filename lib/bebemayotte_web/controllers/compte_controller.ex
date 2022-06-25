@@ -329,6 +329,8 @@ defmodule BebemayotteWeb.CompteController do
       prenom = UserRequette.get_user_prename_by_id(id)
       pays = UserRequette.get_user_pays_by_id(id)
       ville = UserRequette.get_user_ville_by_id(id)
+      codepostal = UserRequette.get_user_codepostal_by_id(id)
+
       commande = %{
         "numero" => num_commande,
         "total" => prix_total,
@@ -396,9 +398,9 @@ defmodule BebemayotteWeb.CompteController do
 
       pbx_adresse1_fact = ville;								#//variable de test 1 rue de Paris
       pbx_adresse2_fact = "";								#//variable de test <vide>
-      pbx_zipcode_fact = "";						#	//variable de test 75001
+      pbx_zipcode_fact = codepostal;						#	//variable de test 75001
       pbx_city_fact = pays;									#//variable de test Paris
-      pbx_country_fact = "";		#//variable de test 250 (pour la France)
+      pbx_country_fact = "FR";		#//variable de test 250 (pour la France)
 
       pbx_billing =
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><Billing><Address><FirstName>#{pbx_prenom_fact}</FirstName>"<>""<>
