@@ -7,7 +7,11 @@ defmodule Bebemayotte.UserRequette do
     query = from u in User,
     where: u.adresseMessage == ^identifiant,
     select: u
-    Repo.one(query)
+     user = Repo.one(query)
+    case user do
+      nil -> false
+      _ -> true
+    end
   end
 
   # GET USER

@@ -12,6 +12,7 @@
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error_id_mdp) %></p>
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info_reussi) %></p>
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :notif) %></p>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
         <%= form_for @conn, Routes.page_path(@conn, :submit_connexion), [method: :post, class: "form"],  fn f -> %>
             <div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/email-icon.png") %>">

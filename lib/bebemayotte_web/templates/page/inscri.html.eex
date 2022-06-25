@@ -25,18 +25,18 @@
             </div>
             <div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/flag-icon.png") %>">
-                <%= select f, :pays , ["Séléctionnez votre département ici","MAYOTTE"], placeholder: "Entrer votre pays", required: true %>
+                <%= select f, :pays , ["MAYOTTE"], placeholder: "Entrer votre pays", required: true %>
                 <label for="pays"></label>
             </div>
             <div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/place-icon.png") %>">
-                <%= select f, :ville, ["ACOUA (97601)", "BANDRABOUA (97602)", "BANDRELE (97603)", "BOUENI (97604)", "CHICONI (97605)", "CHIRONGUI (97606)", "DEMBENI (97607)", "DZAOUDZI (97608)", "KANI-KELI (97609)", "KOUNGOU (97610)", "MAMOUDZOU (97611)", "MTSAMBORO (97612)", "M'TSANGAMOUJI (97613)", "OUANGANI (97614)", "PAMANDZI (97615)", "SADA (97616)", "TSINGONI (97617)"], placeholder: "Entrez votre ville", required: true %>
+                <%= select f, :ville, ["ACOUA", "BANDRABOUA", "BANDRELE", "BOUENI", "CHICONI", "CHIRONGUI", "DEMBENI", "DZAOUDZI", "KANI-KELI", "KOUNGOU", "MAMOUDZOU", "MTSAMBORO", "M'TSANGAMOUJI", "OUANGANI", "PAMANDZI", "SADA", "TSINGONI"], placeholder: "Entrez votre ville", required: true %>
                 <label for="ville"></label>
             </div>
-            <!--<div class="email">
+            <div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/user-icon.png") %>">
                 <%= text_input f, :codepostal, placeholder: "Entrer votre code postal", required: true %>
-            </div>-->
+            </div>
             <div class="email">
                 <img src="<%= Routes.static_path(@conn, "/images/phone-icon.png") %>">
                 <%= text_input f, :telephone, placeholder: "Entrer votre telephone", required: true %>

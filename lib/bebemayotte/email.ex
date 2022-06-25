@@ -4,7 +4,7 @@ defmodule Bebemayotte.Email do
   # CREATE NEW MAIL MESSAGE
   def new_mail_message(email, message) do
     new_email()
-    |>from("bbmayotte@outlook.fr")
+    |>from("noreply@bbmay.fr")
     |>to(email)
     |>subject("Objet: VERIFICATION POUR MOT DE PASSE OUBLIÉ")
     |>html_body("<h1><b>BBMAY</b></h1><br/><p>Veuillez suivre le lien ci-dessous pour modifier votre mot de passe:</p><br/> #{message}")
@@ -12,7 +12,7 @@ defmodule Bebemayotte.Email do
 
   @spec send :: Bamboo.Email.t()
   def send do
-    new_mail_message("bbmayotte@outlook.fr", "Nasolo a, tonga ve le mail") |> Mailer.deliver_now()
+    new_mail_message("razafintsalama.rmh@gmail.com", "Nasolo a, tonga ve le mail") |> Mailer.deliver_now()
   end
 
 end

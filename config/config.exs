@@ -27,11 +27,15 @@ config :logger, :console,
 
 config :bebemayotte, Bebemayotte.Mailer,
   adapter: Bamboo.SMTPAdapter,
-  server: "smtp.office365.com",
+  server: "ssl0.ovh.net",
+  hostname: "bbmay.fr",
+  # server: "smtp.office365.com",
+  # tls_verify: :verify_peer,
   port: 587,
-  username: "bbmayotte@outlook.fr",
+  username: "noreply@bbmay.fr",
+  # username: "bbmayotte@outlook.fr",
   password: "Mgbi@261!",
-  tls: :if_available,
+  # tls: :always,
   retries: 1
 
 

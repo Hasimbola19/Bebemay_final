@@ -80,9 +80,7 @@ defmodule BebemayotteWeb.PageController do
     souscategories = SouscatRequette.get_all_souscategorie()
     identifiant = get_session(conn, :identifiant)
     user = UserRequette.get_user_by_identifiant(identifiant)
-    IO.inspect identifiant
     IO.inspect Bebemayotte.UserRequette.update_password(user, %{"motdepasse" => password})
-    IO.puts"UPDT MOT DE PASSE"
     render(conn, "connexion.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
@@ -94,11 +92,16 @@ defmodule BebemayotteWeb.PageController do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
     user = UserRequette.get_user_identifiant(identifiant)
+    user_detail = UserRequette.get_user_by_identifiant(identifiant)
     token = Bebemayotte.Token.generate_new_account_token(user)
     # verification_url = user_url(conn, :verify_email, token: token)
     verification_url = "https://bbmay.fr/verify_email?token=#{token}"
-    Bebemayotte.Email.new_mail_message(identifiant, verification_url) |> Mailer.deliver_now()
-    render(conn |> put_session(:identifiant , identifiant), "verifier.html", categories: categories, souscategories: souscategories, search: nil)
+    if user_detail do
+      Bebemayotte.Email.new_mail_message(identifiant, verification_url) |> Mailer.deliver_now()
+      render(conn |> put_session(:identifiant , identifiant), "verifier.html", categories: categories, souscategories: souscategories, search: nil)
+    else
+      render(conn |> put_flash(:error, "Vous n'êtes pas encore inscrit") , "connexion.html", categories: categories, souscategories: souscategories, search: nil)
+    end
   end
 
   def verify_email(conn, %{"token" => token}) do
@@ -169,6 +172,7 @@ defmodule BebemayotteWeb.PageController do
     "pays" => pays,
     "ville" => ville,
     "telephone" => telephone,
+    "codepostal" => codepostal,
     "adresseMessage" => adresseMessage,
     "motdepasse" => motdepasse
   }}) do
@@ -186,7 +190,7 @@ defmodule BebemayotteWeb.PageController do
       "ville" => ville,
       "identifiant" => "null",
       "adresseMessage" => adresseMessage,
-      "codepostal" => "null",
+      "codepostal" => codepostal,
       "telephone" => telephone,
       "motdepasse" => motdepasse,
       "nom_entreprise" => "null",
@@ -195,20 +199,9 @@ defmodule BebemayotteWeb.PageController do
 
     IO.inspect(user)
 
-    #recup_id = UserRequette.get_user_identifiant(identifiant)
     recup_adr = UserRequette.get_user_adresse_message(adresseMessage)
 
     cond do
-      # recup_id == true and recup_adr == true ->
-      #   conn
-      #   |> put_flash(:error_id_adrMess, "Identifiant et Adresse de Message déja éxistants!")
-      #   |> redirect(to: Routes.page_path(conn, :inscription))
-
-      # recup_id == true ->
-      #   conn
-      #   |> put_flash(:error_id, "Identifiant déja éxistant!")
-      #   |> redirect(to: Routes.page_path(conn, :inscription))
-
       recup_adr == true ->
         conn
         |> put_flash(:error_adrMess, "Adresse de Message déja éxistant!")
