@@ -19,22 +19,42 @@ defmodule Bebemayotte.Fonction do
         |> Date.to_string()
         |> String.split("-")
         |> List.to_string()
-    case numero do
-      nil -> date <> "#{NaiveDateTime.local_now().hour}#{NaiveDateTime.local_now().minute}#{NaiveDateTime.local_now().second}" <> id <> ""
-      numero ->
-        date <> "#{NaiveDateTime.local_now().hour}#{NaiveDateTime.local_now().minute}#{NaiveDateTime.local_now().second}" <> id <> (
-         (
-          (
-            numero
-              |> String.split_at(8 + length_id)
-              |> Tuple.to_list()
-              |>  Enum.fetch!(1)
-              |> String.to_integer()
-          ) + 1
-         )
-            |> Integer.to_string()
-        )
-    end
+    # case numero do
+    #   nil -> date <> id <> "1"
+    #   numero ->
+    #     date <> id <> (
+    #      (
+    #       (
+    #         numero
+    #           |> String.split_at(8 + length_id)
+    #           |> Tuple.to_list()
+    #           |>  Enum.fetch!(1)
+    #           |> String.to_integer()
+    #       ) + 1
+    #      )
+    #         |> Integer.to_string()
+    #     )
+    # end
+
+    # case numero do
+    #   nil -> date <> "#{NaiveDateTime.local_now().hour}#{NaiveDateTime.local_now().minute}#{NaiveDateTime.local_now().second}" <> id <> ""
+    #   numero ->
+    #     date <> "#{NaiveDateTime.local_now().hour}#{NaiveDateTime.local_now().minute}#{NaiveDateTime.local_now().second}" <> id <> (
+    #      (
+    #       (
+    #         numero
+    #           |> String.split_at(8 + length_id)
+    #           |> Tuple.to_list()
+    #           |>  Enum.fetch!(1)
+    #           |> String.to_integer()
+    #       ) + 1
+    #      )
+    #         |> Integer.to_string()
+    #     )
+    # end
+
+    # date<>"#{NaiveDateTime.local_now().hour|>Integer.digits|>Enum.at(-1)}#{NaiveDateTime.local_now().minute|>Integer.digits|>Enum.at(-1)}#{NaiveDateTime.local_now().second|>Integer.digits|>Enum.at(-1)}"
+    date<>"#{Enum.random(100..999)}"
   end
 
   def attribution_session(session) do
