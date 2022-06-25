@@ -400,7 +400,7 @@ defmodule BebemayotteWeb.CompteController do
       pbx_adresse2_fact = "";								#//variable de test <vide>
       pbx_zipcode_fact = codepostal;						#	//variable de test 75001
       pbx_city_fact = pays;									#//variable de test Paris
-      pbx_country_fact = "FR";		#//variable de test 250 (pour la France)
+      pbx_country_fact = "YT";		#//variable de test 250 (pour la France)
 
       pbx_billing =
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><Billing><Address><FirstName>#{pbx_prenom_fact}</FirstName>"<>""<>

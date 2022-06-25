@@ -20,9 +20,9 @@ defmodule Bebemayotte.Fonction do
         |> String.split("-")
         |> List.to_string()
     case numero do
-      nil -> date <> id <> "1"
+      nil -> date <> "#{NaiveDateTime.local_now().hour}#{NaiveDateTime.local_now().minute}#{NaiveDateTime.local_now().second}" <> id <> ""
       numero ->
-        date <> id <> (
+        date <> "#{NaiveDateTime.local_now().hour}#{NaiveDateTime.local_now().minute}#{NaiveDateTime.local_now().second}" <> id <> (
          (
           (
             numero
