@@ -10,6 +10,9 @@ defmodule BebemayotteWeb.CompteController do
   alias Bebemayotte.Details
   alias Bebemayotte.Commandes
   alias Bebemayotte.Fonction
+  alias Bebemayotte.Test
+  alias Bebemayotte.Client
+  alias Bebemayotte.Reglement
 
   # Session clients
   def compte(conn,_params) do
@@ -176,15 +179,38 @@ defmodule BebemayotteWeb.CompteController do
     render(conn,"politique.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
-  def annule(conn, _params) do
+  def annule(conn, params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
     render(conn,"annule.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
-  def accepte(conn, _params) do
+  def accepte(conn, params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+    id = Plug.Conn.get_session(conn, :user_id)
+    IO.inspect id
+    panier = Plug.Conn.get_session(conn, :paniers)
+    quantite = Plug.Conn.get_session(conn, :quantites)
+    details = id |> Fonction.detail_commande_show(panier, quantite)
+    prix_total = details |> Fonction.get_prix_total()
+    date = NaiveDateTime.local_now() |> to_string
+    num_commande = params["Ref"]
+    for {pn,qn} <- Enum.zip(panier, quantite) do
+      nom = UserRequette.get_user_name_by_id(id)
+      adresse1 = UserRequette.get_user_nom_rue_by_id(id)
+      prenom = UserRequette.get_user_prename_by_id(id)
+      codep = UserRequette.get_user_codepostal_by_id(id)
+      ville = UserRequette.get_user_ville_by_id(id)
+      tel = UserRequette.get_user_telephone_by_id(id)
+      email = UserRequette.get_user_email_by_id(id)
+      paniers = pn
+      quantites = qn
+      prix = ProdRequette.get_price_in_produit(pn)
+      Test.exec(date, id, nom, adresse1, prenom, codep, ville, tel, email, paniers, quantites, prix, num_commande)
+    end
+    Reglement.exec(id, date, prix_total, num_commande)
+    Client.exec()
     render(conn,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
@@ -276,7 +302,7 @@ defmodule BebemayotteWeb.CompteController do
 
     conn
       |>put_flash(:info_update, "Mise à jour réussi!")
-      |>redirect(to: "/update_address/livraison")
+      |>redirect(to: "/panier")
   end
 
   # ASK EMAIL OR IDENTIFIANT
@@ -327,9 +353,9 @@ defmodule BebemayotteWeb.CompteController do
       mail = UserRequette.get_user_email_by_id(id)
       nom = UserRequette.get_user_name_by_id(id)
       prenom = UserRequette.get_user_prename_by_id(id)
-      pays = UserRequette.get_user_pays_by_id(id)
       ville = UserRequette.get_user_ville_by_id(id)
       codepostal = UserRequette.get_user_codepostal_by_id(id)
+      nom_rue = UserRequette.get_user!(id).nom_rue
 
       commande = %{
         "numero" => num_commande,
@@ -396,10 +422,10 @@ defmodule BebemayotteWeb.CompteController do
         # // URL secondaire :
           #urletrans ="https://tpeweb1.e-transactions.fr/php/";
 
-      pbx_adresse1_fact = ville;								#//variable de test 1 rue de Paris
+      pbx_adresse1_fact = nom_rue;								#//variable de test 1 rue de Paris
       pbx_adresse2_fact = "";								#//variable de test <vide>
       pbx_zipcode_fact = codepostal;						#	//variable de test 75001
-      pbx_city_fact = pays;									#//variable de test Paris
+      pbx_city_fact = ville;									#//variable de test Paris
       pbx_country_fact = "175";		#//variable de test 250 (pour la France)
 
       pbx_billing =
@@ -440,7 +466,7 @@ defmodule BebemayotteWeb.CompteController do
         |> String.upcase()
 
         if prix_total == nil do
-          render(conn,"validation.html",
+          render(conn ,"validation.html",
             categories: categories,
             souscategories: souscategories,
             commande: commande,
@@ -466,7 +492,7 @@ defmodule BebemayotteWeb.CompteController do
             urletrans: urletrans
           )
         else
-          render(conn,"validation.html",
+          render(conn ,"validation.html",
           categories: categories,
           souscategories: souscategories,
           commande: commande,

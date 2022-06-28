@@ -3,6 +3,17 @@ defmodule Bebemayotte.UserRequette do
   alias Bebemayotte.Repo
   alias Bebemayotte.User
 
+  def get_all_user do
+    Repo.all(User)
+  end
+
+  def get_user!(id) do
+    query = from us in User,
+      where: us.id_user == ^id,
+      select: us
+    Repo.one(query)
+  end
+
   def get_user_by_identifiant(identifiant) do
     query = from u in User,
     where: u.adresseMessage == ^identifiant,
@@ -89,6 +100,26 @@ defmodule Bebemayotte.UserRequette do
         where: co.id_user == ^id,
         select: co.ville
     Repo.one(query)
+  end
+
+  def get_user_nom_rue_by_id(id) do
+    query =
+      from us in User,
+        where: us.id_user == ^id,
+        select: us.nom_rue
+    Repo.one(query)
+  end
+
+  def get_user_telephone_by_id(id) do
+    query =
+      from u in User,
+      where: u.id_user == ^id,
+      select: u.telephone
+    nom_rue = Repo.one(query)
+      case nom_rue do
+        nil -> false
+        _ -> true
+      end
   end
 
   def get_user_adresse_message(adrMess) do

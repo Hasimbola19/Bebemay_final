@@ -4,7 +4,8 @@
     <a>Modification</a>
   </div>
 	<div class="compte">
-		<div class="containe">
+        <div class="containe">
+            <p class="alert alert-info" role="alert"><%= get_flash(@conn, :error) %></p>
 			<nav>
 				<ul class="mcd-menu">
 					<li>
@@ -62,7 +63,7 @@
                     </label>
                     <label>Pays/région * </label>
                     <label><strong><%= @user.pays %><strong></label>
-                    <label>Numéro et nom de rue *
+                    <label>Adresse 1 *
                         <%= if @user.nom_rue == "null" do %>
                             <%= text_input f, :nom_rue %>
                         <% else %>

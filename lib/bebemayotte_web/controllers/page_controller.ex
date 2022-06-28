@@ -370,8 +370,21 @@ defmodule BebemayotteWeb.PageController do
         |> put_session(:statut, "to_payer")
         |> redirect(to: Routes.page_path(conn, :connexion))
     else
-      conn
-        |> redirect(to: Routes.compte_path(conn, :pay_command))
+      id = Plug.Conn.get_session(conn, :user_id)
+      IO.puts "ID"
+      IO.inspect id
+      user = UserRequette.get_user!(id)
+      IO.puts "USER"
+      IO.inspect user
+      cond do
+        user.nom_rue == "null" ->
+          conn
+          |> put_flash(:error, "Veuillez remplir l'adresse 1")
+          |> redirect(to: Routes.compte_path(conn, :update_facturation))
+        true ->
+          conn
+            |> redirect(to: Routes.compte_path(conn, :pay_command))
+      end
     end
   end
 end

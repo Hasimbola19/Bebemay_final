@@ -709,7 +709,7 @@ pre{padding: 1em;}
 }
 
 .menu-item.cla.item{
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 500px;
   width: 250px;
   margin-top: -8px;
