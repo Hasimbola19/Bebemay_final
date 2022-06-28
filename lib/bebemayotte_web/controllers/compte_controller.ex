@@ -239,7 +239,7 @@ defmodule BebemayotteWeb.CompteController do
       prix = ProdRequette.get_price_in_produit(pn)
       Test.exec(date, id, nom, adresse1, prenom, codep, ville, tel, email, paniers, quantites, prix, num_commande)
     end
-    Client.exec(id, nom, nom_rue, codep, vile, prenom, tel, email)
+    Client.exec(id, nom, adresse1, codep, ville, prenom, tel, email)
     Reglement.exec(id, date, prix_total, num_commande)
     mail(panier, quantite, prix_total, num_commande)
     render(conn,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
