@@ -13,6 +13,9 @@ defmodule BebemayotteWeb.CompteController do
   alias Bebemayotte.Test
   alias Bebemayotte.Client
   alias Bebemayotte.Reglement
+  alias Bebemayotte.Mailer
+  alias Bebemayotte.Email
+
 
   # Session clients
   def compte(conn,_params) do
@@ -179,9 +182,34 @@ defmodule BebemayotteWeb.CompteController do
     render(conn,"politique.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
+  def mail(panier, quantite, prix_total, ref) do
+    for {pn,qn} <- Enum.zip(panier, quantite) do
+      paniers = pn
+      quantites = qn
+      prix = ProdRequette.get_price_in_produit(pn)
+      produit = ProdRequette.get_name_produit(pn)
+      message = "Article = #{produit} Prix = #{prix} Quantite = #{quantite} Prix total = #{prix_total}"
+    end
+    # IO.inspect mail(panier, quantite, prix_total, "0050058")
+  end
+
   def annule(conn, params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+    id = Plug.Conn.get_session(conn, :user_id)
+    panier = Plug.Conn.get_session(conn, :paniers)
+    quantite = Plug.Conn.get_session(conn, :quantites)
+    details = id |> Fonction.detail_commande_show(panier, quantite)
+    prix_total = details |> Fonction.get_prix_total()
+    for {pn,qn} <- Enum.zip(panier, quantite) do
+      paniers = pn
+      quantites = qn
+      prix = ProdRequette.get_price_in_produit(pn)
+      produit = ProdRequette.get_name_produit(pn)
+      message = "#{produit prix quantite prix_total}"
+      IO.puts "MESSAGE"
+      IO.inspect message
+    end
     render(conn,"annule.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
@@ -195,22 +223,25 @@ defmodule BebemayotteWeb.CompteController do
     details = id |> Fonction.detail_commande_show(panier, quantite)
     prix_total = details |> Fonction.get_prix_total()
     date = NaiveDateTime.local_now() |> to_string
+    identifiant = UserRequette.get_user_email_by_id(id)
     num_commande = params["Ref"]
+    nom = UserRequette.get_user_name_by_id(id)
+    adresse1 = UserRequette.get_user_nom_rue_by_id(id)
+    prenom = UserRequette.get_user_prename_by_id(id)
+    codep = UserRequette.get_user_codepostal_by_id(id)
+    ville = UserRequette.get_user_ville_by_id(id)
+    tel = UserRequette.get_user_telephone_by_id(id)
+    email = UserRequette.get_user_email_by_id(id)
+    nom_rue = UserRequette.get_user_nom_rue_by_id(id)
     for {pn,qn} <- Enum.zip(panier, quantite) do
-      nom = UserRequette.get_user_name_by_id(id)
-      adresse1 = UserRequette.get_user_nom_rue_by_id(id)
-      prenom = UserRequette.get_user_prename_by_id(id)
-      codep = UserRequette.get_user_codepostal_by_id(id)
-      ville = UserRequette.get_user_ville_by_id(id)
-      tel = UserRequette.get_user_telephone_by_id(id)
-      email = UserRequette.get_user_email_by_id(id)
       paniers = pn
       quantites = qn
       prix = ProdRequette.get_price_in_produit(pn)
       Test.exec(date, id, nom, adresse1, prenom, codep, ville, tel, email, paniers, quantites, prix, num_commande)
     end
+    Client.exec(id, nom, nom_rue, codep, vile, prenom, telephone, email)
     Reglement.exec(id, date, prix_total, num_commande)
-    Client.exec()
+    mail(panier, quantite, prix_total, num_commande)
     render(conn,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
