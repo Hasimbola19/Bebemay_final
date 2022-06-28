@@ -21,7 +21,7 @@ defmodule Bebemayotte.UserRequette do
      user = Repo.one(query)
     case user do
       nil -> false
-      _ -> true
+      _ -> user
     end
   end
 
@@ -36,7 +36,7 @@ defmodule Bebemayotte.UserRequette do
 
     case id do
       nil -> false
-      _ -> true
+      _ -> id
     end
   end
 
@@ -115,10 +115,10 @@ defmodule Bebemayotte.UserRequette do
       from u in User,
       where: u.id_user == ^id,
       select: u.telephone
-    nom_rue = Repo.one(query)
-      case nom_rue do
-        nil -> false
-        _ -> true
+    tel = Repo.one(query)
+      case tel do
+        nil -> ""
+        _ -> tel
       end
   end
 
@@ -132,7 +132,7 @@ defmodule Bebemayotte.UserRequette do
 
     case id do
       nil -> false
-      _ -> true
+      _ -> id
     end
   end
 
