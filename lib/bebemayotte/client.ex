@@ -5,27 +5,27 @@
     {:ok, chemin} = File.cwd
     {:ok, file} = File.open("#{chemin}/current-clientv2.csv", [:append])
       client = %{
-        "Code (tiers)" => user.id_user,
-        "Nom" => user.nom,
-        "Adresse 1 (facturation)" => user.nom_rue,
+        "Code (tiers)" => id,
+        "Nom" => nom,
+        "Adresse 1 (facturation)" => nom_rue,
         "Adresse 2 (facturation)" => "",
-        "Code postal (facturation)" => user.codepostal,
-        "Ville (facturation)" => user.ville,
+        "Code postal (facturation)" => codepostal,
+        "Ville (facturation)" => ville,
         "Code Pays (facturation)" => "YT",
-        "Nom (contact) (facturation)" => user.nom,
-        "Prénom (facturation)" => user.prenom,
-        "Téléphone portable (facturation)" => user.telephone,
-        "E-mail (facturation)" => user.adresseMessage,
-        "Adresse 1 (livraison)" => user.nom_rue,
+        "Nom (contact) (facturation)" => nom,
+        "Prénom (facturation)" => prenom,
+        "Téléphone portable (facturation)" => telephone,
+        "E-mail (facturation)" => adresseMessage,
+        "Adresse 1 (livraison)" => nom_rue,
         "Adresse 2 (livraison)" => "",
-        "Code postal (livraison)" => user.codepostal,
-        "Ville (livraison)" => user.ville,
+        "Code postal (livraison)" => codepostal,
+        "Ville (livraison)" => ville,
         "Code Pays (livraison)" => "YT",
-        "Nom (contact) (livraison)" => user.nom,
-        "Prénom (livraison)" => user.prenom,
-        "Téléphone portable (livraison)" => user.telephone,
-        "E-mail (livraison)" => user.adresseMessage,
-        "IdWeb" => user.id_user
+        "Nom (contact) (livraison)" => nom,
+        "Prénom (livraison)" => prenom,
+        "Téléphone portable (livraison)" => telephone,
+        "E-mail (livraison)" => adresseMessage,
+        "IdWeb" => id
       }
 
       adresse_1_facturation = if client["Adresse 1 (facturation)"] != "" do
