@@ -206,9 +206,9 @@ defmodule BebemayotteWeb.CompteController do
       quantites = qn
       prix = ProdRequette.get_price_in_produit(pn)
       produit = ProdRequette.get_name_produit(pn)
-      message = "#{produit prix quantite prix_total}"
-      IO.puts "MESSAGE"
-      IO.inspect message
+      # message = "#{produit prix quantite prix_total}"
+      # IO.puts "MESSAGE"
+      # IO.inspect message
     end
     render(conn,"annule.html", categories: categories, souscategories: souscategories, search: nil)
   end
