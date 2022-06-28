@@ -1,13 +1,9 @@
  defmodule Bebemayotte.Client do
   alias Bebemayotte.UserRequette
 
-  def exec do
+  def exec(id, nom, nom_rue, codepostal, vile, prenom, telephone, adresseMessage) do
     {:ok, chemin} = File.cwd
-    {:ok, file} = File.open("#{chemin}/current-clientv2.csv", [:write])
-    header = "\"Code (tiers)\";Nom;\"Adresse 1 (facturation)\";\"Adresse 2 (facturation)\";\"Code postal (facturation)\";\"Ville (facturation)\";\"Code Pays (facturation)\";\"Nom (contact) (facturation)\";\"Prénom (facturation)\";\"Téléphone portable (facturation)\";\"E-mail (facturation)\";\"Adresse 1 (livraison)\";\"Adresse 2 (livraison)\";\"Code postal (livraison)\";\"Ville (livraison)\";\"Code Pays (livraison)\";\"Nom (contact) (livraison)\";\"Prénom (livraison)\";\"Téléphone portable (livraison)\";\"E-mail (livraison)\";IdWeb*\n"
-    IO.binwrite(file, header)
-    users = UserRequette.get_all_user()
-    for user <- users do
+    {:ok, file} = File.open("#{chemin}/current-clientv2.csv", [:append])
       client = %{
         "Code (tiers)" => user.id_user,
         "Nom" => user.nom,
@@ -70,7 +66,6 @@
 
       client_joined = Enum.join(client_list, ";")
       IO.binwrite(file, "#{client_joined}\n")
-    end
-    File.close file
+      File.close file
   end
 end
