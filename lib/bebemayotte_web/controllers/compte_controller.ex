@@ -241,7 +241,18 @@ defmodule BebemayotteWeb.CompteController do
     end
     Client.exec(id, nom, adresse1, codep, ville, prenom, tel, email)
     Reglement.exec(id, date, prix_total, num_commande)
-    mail(panier, quantite, prix_total, num_commande)
+    # mail(panier, quantite, prix_total, num_commande)
+
+    list_commandes = for {pn, qn} <- Enum.zip(panier, quantite) do
+      price = ProdRequette.get_price_in_produit(pn)
+      title = ProdRequette.get_name_produit(pn)
+      quantity = qn
+      subtotal = price * quantity
+      "<tr><td>#{title}</td><td>#{price}</td><td>#{quantity}</td><td>#{subtotal}</td></tr>"
+    end
+    str_list_commandes = Enum.join(list_commandes, "")
+    Email.confirmation_mail(email, num_commande, prix_total, date, str_list_commandes)
+    Email.confirmation_mail_bbmay(num_commande, prix_total, date, str_list_commandes, nom)
     render(conn,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
