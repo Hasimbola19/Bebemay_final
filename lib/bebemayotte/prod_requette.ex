@@ -126,6 +126,14 @@ defmodule Bebemayotte.ProdRequette do
       Repo.one(query)
     end
 
+    def get_name_produit(params) do
+      query =
+        from p in Produit,
+          where: p.id_produit == ^params,
+          select: p.title
+        Repo.one(query)
+    end
+
     # GET PRODUIT APPARENTES
     def get_produit_apparentes(id_souscat,id) do
       case id_souscat do
