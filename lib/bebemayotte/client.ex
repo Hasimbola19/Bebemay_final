@@ -1,7 +1,7 @@
  defmodule Bebemayotte.Client do
   alias Bebemayotte.UserRequette
 
-  def exec(id, nom, nom_rue, codepostal, vile, prenom, telephone, adresseMessage) do
+  def exec(id, nom, nom_rue, codepostal, ville, prenom, telephone, adresseMessage) do
     {:ok, chemin} = File.cwd
     {:ok, file} = File.open("#{chemin}/current-clientv2.csv", [:append])
       client = %{
