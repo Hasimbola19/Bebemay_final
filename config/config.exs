@@ -27,16 +27,24 @@ config :logger, :console,
 
 config :bebemayotte, Bebemayotte.Mailer,
   adapter: Bamboo.SMTPAdapter,
-  server: "ssl0.ovh.net",
+  # server: "ssl0.ovh.net",
   hostname: "bbmay.fr",
-  # server: "smtp.office365.com",
+  server: "smtp.office365.com",
   # tls_verify: :verify_peer,
   port: 587,
-  username: "noreply@bbmay.fr",
-  # username: "bbmayotte@outlook.fr",
+  # username: "noreply@bbmay.fr",
+  username: "bbmaymayotte@outlook.fr",
   password: "Mgbi@261!",
   # tls: :always,
   retries: 1
+  # adapter: Bamboo.SMTPAdapter,
+  # server: "mail.gmx.com",
+  # port: 25,
+  # username: "bbmay@gmx.com",
+  # password: "Mgbi@261!",
+  # tls: :if_available,
+  # auth: :always,
+  # retries: 1
 
 
 # Use Jason for JSON parsing in Phoenix
