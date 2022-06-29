@@ -15,16 +15,18 @@ defmodule Bebemayotte.Email do
       |>from("bbmaymayotte@outlook.fr")
       |>to(email)
       |>cc(["mihaja@phidia.onmicrosoft.com", "focicom@gmail.com", "pp@phidia.onmicrosoft.com", "matthieu@phidia.onmicrosoft.com"])
+    #   |>cc(["matthieu@phidia.onmicrosoft.com"])
       |>subject("[BBMAY.FR] Confirmation de commande")
       |>html_body(
         "<div style=\"padding-left: 50px;padding-right: 50px;\">
         <center>
             <img src=\"https://bbmay.fr/images/bbmayimg/BANNER2-b290bce81897c2b4ed3ef3315ed3145b.jpg?vsn=d\">
-            <p style=\"font-weight: bolder;font-family: Arial, Helvetica, sans-serif;\">Bbmay.Fr</p>
-            <h1 style=\"font-family: Arial, Helvetica, sans-serif;font-weight: normal;\">NOUVELLE COMMANDE</h1>
+            <p style=\"font-weight: bolder;font-family: Arial, Helvetica, sans-serif;\">bbmay.fr</p>
+            <h1 style=\"font-family: Arial, Helvetica, sans-serif;font-weight: normal;\">MERCI</h1>
+            <h3 style=\"font-family: Arial, Helvetica, sans-serif;font-weight: normal;\">LA COMMANDE EST EN COURS DE TRAITEMENT</h3>
         </center>
         <center>
-            <p>Vous avez recu une commande de #{user_map['nom']} #{user_map['prenom']}, La commande est la suivante</p>
+            <p>Votre commande a été reçue et est en cours de traitement. Les détails de votre commande sont indiqués ci-dessous pour votre référence:</p>
             <p>Commande ##{num_commande} (#{date})</p>
         <table style=\"border: 1px solid grey;border-collapse: collapse;\">
             <tr style=\"border: 1px solid grey;border-collapse: collapse;\">
@@ -52,14 +54,14 @@ defmodule Bebemayotte.Email do
 </table>
 <h4 style=\"font-family: Arial, Helvetica, sans-serif;margin-top: 50px;\">Adresse de facturation</h3>
 </center>
-<div style=\" border: 1px solid grey;text-align: center;padding-bottom: 10px;width: 980px;margin: auto;\">
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['nom']} #{user_map['prenom']}</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['nom_rue']}</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['ville']}</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">Ville</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['codepostal']}</p>
-    <a href=\"tel:numero\">#{user_map['telephone']}</a>
-    <a href=\"mailto:emailclient\">#{user_map['adresseMessage']}</a>
+<div style=\" border: 1px solid grey;text-align: center;padding-bottom: 10px;width: 480px;margin: auto;\">
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:nom]} #{user_map[:prenom]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:nom_rue]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:ville]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:ville]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:codepostal]}</p>
+    <a href=\"tel:numero\">#{user_map[:telephone]}</a>
+    <a href=\"mailto:emailclient\">#{user_map[:adresseMessage]}</a>
 </div>
 </div>"
       )
@@ -71,16 +73,17 @@ defmodule Bebemayotte.Email do
       |>from("bbmaymayotte@outlook.fr")
       |>to("bbmaymayotte@gmail.com")
       |>cc(["mihaja@phidia.onmicrosoft.com", "focicom@gmail.com", "pp@phidia.onmicrosoft.com", "matthieu@phidia.onmicrosoft.com"])
+    #   |>cc(["matthieu@phidia.onmicrosoft.com"])
       |>subject("[BBMAY.FR] Confirmation de commande")
       |>html_body(
         "<div style=\"padding-left: 50px;padding-right: 50px;\">
         <center>
             <img src=\"https://bbmay.fr/images/bbmayimg/BANNER2-b290bce81897c2b4ed3ef3315ed3145b.jpg?vsn=d\">
-            <p style=\"font-weight: bolder;font-family: Arial, Helvetica, sans-serif;\">Bbmay.Fr</p>
+            <p style=\"font-weight: bolder;font-family: Arial, Helvetica, sans-serif;\">bbmay.fr</p>
             <h1 style=\"font-family: Arial, Helvetica, sans-serif;font-weight: normal;\">NOUVELLE COMMANDE</h1>
         </center>
         <center>
-            <p>Vous avez recu une commande de #{user_map['nom']} #{user_map['prenom']}, La commande est la suivante</p>
+            <p>Vous avez recu une commande de #{user_map[:nom]} #{user_map[:prenom]}, La commande est la suivante</p>
             <p>Commande ##{num_commande} (#{date})</p>
         <table style=\"border: 1px solid grey;border-collapse: collapse;\">
             <tr style=\"border: 1px solid grey;border-collapse: collapse;\">
@@ -108,14 +111,14 @@ defmodule Bebemayotte.Email do
 </table>
 <h4 style=\"font-family: Arial, Helvetica, sans-serif;margin-top: 50px;\">Adresse de facturation</h3>
 </center>
-<div style=\" border: 1px solid grey;text-align: center;padding-bottom: 10px;width: 980px;margin: auto;\">
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['nom']} #{user_map['prenom']}</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['nom_rue']}</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['ville']}</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">Ville</p>
-    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map['codepostal']}</p>
-    <a href=\"tel:numero\">#{user_map['telephone']}</a>
-    <a href=\"mailto:emailclient\">#{user_map['adresseMessage']}</a>
+<div style=\" border: 1px solid grey;text-align: center;padding-bottom: 10px;width: 480px;margin: auto;\">
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:nom]} #{user_map[:prenom]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:nom_rue]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:ville]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:ville]}</p>
+    <p style=\"font-family: Arial, Helvetica, sans-serif;\">#{user_map[:codepostal]}</p>
+    <a href=\"tel:numero\">#{user_map[:telephone]}</a>
+    <a href=\"mailto:emailclient\">#{user_map[:adresseMessage]}</a>
 </div>
 </div>"
       )
