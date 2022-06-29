@@ -1562,6 +1562,38 @@ img {vertical-align: middle;}
   .header-nav .ul3 .menu-item{
     width: 110px;
   }
+
+  .compte{
+    display: inline-block;
+  }
+  
+  .containe{
+    width: 320px;
+  }
+  
+  .mcd-menu{
+    width: 250px;
+  }
+  
+  .contenue-compte{
+    margin: auto 0;
+        width: 425px;
+  }
+  
+  #detail {
+      margin: 0 auto;
+      grid-template-columns: 40% 40%;
+  }
+  
+  .details {
+      width: 80%;
+      color: #313131;
+      margin: 0 auto 3%;
+  }
+  
+  #detail input , details input{
+      font-size: small;
+  }
 }
 
 @media only screen and (max-width: 376px){

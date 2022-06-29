@@ -1,3 +1,4 @@
+<div id="enhaut"></div>
 <div class="row product">
   <div class="navigation-bar">
     <a href="/">Accueil</a><span>  /  </span>
@@ -55,7 +56,7 @@
   <!-- début contenue principale -->
   <section class="col-sm all">
       <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
-      <div class="article">
+        <div class="article">
           <%= for produit <- @produits do %>
           <%= if produit.id_souscat != "SFAR00043" do %>
             <%= if Decimal.to_integer(produit.stockmax) > 0 do %>
@@ -79,10 +80,13 @@
                 </div>
 
                 <div class="column containt">
-                    <h4 class="prix">€<%= Decimal.round(produit.price,2) %></h4>
-                    <a class="ajout" onclick="add_panier('<%= produit.id_produit %>')">
-                      <i class="fas fa-shopping-cart"></i>
-                    </a>
+                  <h4 class="prix">€<%= Decimal.round(produit.price,2) %></h4>
+                  <form phx-submit="add_panier">
+                    <input type="hidden" value=<%= produit.id_produit %> name="id_produit">
+                    <button class="ajout" type="submit" onclick="add_panier('<%= produit.id_produit %>')">
+                      <i class="fas fa-shopping-cart"> </i>
+                    </button>
+                  </form>
                 </div>
               </a>
             </div>
@@ -95,11 +99,11 @@
       </div>
     <center>
     <div class="page_navig">
-      <a phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
+      <a href="#enhaut" phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
         <i class="fas fa-angle-left"></i>
       </a>
       <%= @page %>
-      <a phx-click="next_page" phx-value-finpage="<%= @nb_page %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
+      <a href="#enhaut" phx-click="next_page" phx-value-finpage="<%= @nb_page %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
         <i class="fas fa-angle-right"></i>
       </a>
     </div>
