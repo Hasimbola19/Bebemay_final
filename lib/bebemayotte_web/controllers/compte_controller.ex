@@ -447,7 +447,7 @@ defmodule BebemayotteWeb.CompteController do
       IO.inspect(mail)
 
       # // Paramétrage de l'url de retour back office site (notification de paiement IPN) :
-      pbx_repondre_a = "https://preprod-guest.e-transaction.fr/Vision/";
+      pbx_repondre_a = "https://guest.e-transactions.fr/Vision/";
 
       # // Paramétrage des données retournées via l'IPN :
       pbx_retour = "Mt:M;Ref:R;Auto:A;Erreur:E";
