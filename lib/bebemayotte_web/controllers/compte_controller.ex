@@ -237,7 +237,7 @@ defmodule BebemayotteWeb.CompteController do
     quantite = Plug.Conn.get_session(conn, :quantites)
     details = id |> Fonction.detail_commande_show(panier, quantite)
     prix_total = details |> Fonction.get_prix_total()
-    date = NaiveDateTime.local_now() |> to_string
+    date = NaiveDateTime.local_now()
     identifiant = UserRequette.get_user_email_by_id(id)
     num_commande = params["Ref"]
     nom = UserRequette.get_user_name_by_id(id)
