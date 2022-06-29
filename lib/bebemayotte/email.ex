@@ -63,6 +63,7 @@ defmodule Bebemayotte.Email do
 </div>
 </div>"
       )
+      |>Mailer.deliver_now()
   end
 
   def confirmation_mail_bbmay(num_commande, prix, date, str_list_commandes, nom, user_map) do
