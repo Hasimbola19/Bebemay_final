@@ -17,8 +17,6 @@ defmodule Bebemayotte.User do
     field :prenom, :string
     field :telephone, :string
     field :ville, :string
-
-
   end
 
   @doc false

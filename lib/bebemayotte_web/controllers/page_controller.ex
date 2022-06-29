@@ -80,7 +80,8 @@ defmodule BebemayotteWeb.PageController do
     souscategories = SouscatRequette.get_all_souscategorie()
     identifiant = get_session(conn, :identifiant)
     user = UserRequette.get_user_by_identifiant(identifiant)
-    IO.inspect Bebemayotte.UserRequette.update_password(user, %{"motdepasse" => password})
+    IO.inspect user
+    Bebemayotte.UserRequette.update_password(user, %{"motdepasse" => password})
     render(conn, "connexion.html", categories: categories, souscategories: souscategories, search: nil)
   end
 

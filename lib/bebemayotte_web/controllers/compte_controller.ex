@@ -199,17 +199,32 @@ defmodule BebemayotteWeb.CompteController do
     id = Plug.Conn.get_session(conn, :user_id)
     panier = Plug.Conn.get_session(conn, :paniers)
     quantite = Plug.Conn.get_session(conn, :quantites)
+    email = UserRequette.get_user_email_by_id(id)
     details = id |> Fonction.detail_commande_show(panier, quantite)
+    date = NaiveDateTime.local_now()
     prix_total = details |> Fonction.get_prix_total()
-    for {pn,qn} <- Enum.zip(panier, quantite) do
-      paniers = pn
-      quantites = qn
-      prix = ProdRequette.get_price_in_produit(pn)
-      produit = ProdRequette.get_name_produit(pn)
-      # message = "#{produit prix quantite prix_total}"
-      # IO.puts "MESSAGE"
-      # IO.inspect message
-    end
+    num_commande = params["Ref"]
+    nom = UserRequette.get_user_name_by_id(id)
+    # list_commandes = for {pn, qn} <- Enum.zip(panier, quantite) do
+    #   price = ProdRequette.get_price_in_produit(pn)
+    #   title = ProdRequette.get_name_produit(pn)
+    #   quantity = qn
+    #   subtotal = Decimal.to_float(price) * quantity
+    #   prix_unitaire = :erlang.float_to_binary(Decimal.to_float(price), [decimals: 2])
+    #   sous_total = :erlang.float_to_binary(subtotal, [decimals: 2])
+    #   "<tr style=\"border: 1px solid grey;border-collapse: collapse;\">
+    #     <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\">#{title}</td>
+    #     <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">#{quantity}</td>
+    #     <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">€#{prix_unitaire}</td>
+    #   </tr style=\"border: 1px solid grey;border-collapse: collapse;\">"
+    # end
+    # customer = UserRequette.get_user!(id)
+    # user_map = Map.from_struct(customer)
+    # str_list_commandes = Enum.join(list_commandes, "")
+    # montant_total = :erlang.float_to_binary(prix_total, [decimals: 2])
+    # date_formatted = UserRequette.letters_date_format_with_hours(date)
+    # Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, user_map)
+    # Email.confirmation_mail_bbmay(num_commande, montant_total, date_formatted, str_list_commandes, nom, user_map)
     render(conn,"annule.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
@@ -247,12 +262,22 @@ defmodule BebemayotteWeb.CompteController do
       price = ProdRequette.get_price_in_produit(pn)
       title = ProdRequette.get_name_produit(pn)
       quantity = qn
-      subtotal = price * quantity
-      "<tr><td>#{title}</td><td>#{price}</td><td>#{quantity}</td><td>#{subtotal}</td></tr>"
+      subtotal = Decimal.to_float(price) * quantity
+      prix_unitaire = :erlang.float_to_binary(Decimal.to_float(price), [decimals: 2])
+      sous_total = :erlang.float_to_binary(subtotal, [decimals: 2])
+      "<tr style=\"border: 1px solid grey;border-collapse: collapse;\">
+        <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\">#{title}</td>
+        <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">#{quantity}</td>
+        <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">€#{prix_unitaire}</td>
+      </tr style=\"border: 1px solid grey;border-collapse: collapse;\">"
     end
+    customer = UserRequette.get_user!(id)
+    user_map = Map.from_struct(customer)
     str_list_commandes = Enum.join(list_commandes, "")
-    Email.confirmation_mail(email, num_commande, prix_total, date, str_list_commandes)
-    Email.confirmation_mail_bbmay(num_commande, prix_total, date, str_list_commandes, nom)
+    montant_total = :erlang.float_to_binary(prix_total, [decimals: 2])
+    date_formatted = UserRequette.letters_date_format_with_hours(date)
+    Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, nom,user_map)
+    Email.confirmation_mail_bbmay(num_commande, montant_total, date_formatted, str_list_commandes, nom, user_map)
     render(conn,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
