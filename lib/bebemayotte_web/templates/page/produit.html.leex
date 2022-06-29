@@ -75,11 +75,12 @@
                     <img src="<%= Routes.static_path(@socket, produit.photolink) %>" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= produit.id_produit %>"/>
                   </div>
                 <% end %>
-                <div>
-                  <h3 class="detail"><%= produit.title %></h3>
-                </div>
 
-                <div class="column containt">
+
+
+
+                <div class="column cuntaint">
+                  <h3 class="detail" style="margin-bottom: 0 !important;"><%= produit.title %></h3>
                   <h4 class="prix">€<%= Decimal.round(produit.price,2) %></h4>
                   <form phx-submit="add_panier">
                     <input type="hidden" value=<%= produit.id_produit %> name="id_produit">
@@ -88,6 +89,7 @@
                     </button>
                   </form>
                 </div>
+
               </a>
             </div>
           <% end %>
