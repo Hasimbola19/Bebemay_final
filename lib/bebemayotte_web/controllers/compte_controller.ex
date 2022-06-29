@@ -205,6 +205,7 @@ defmodule BebemayotteWeb.CompteController do
     prix_total = details |> Fonction.get_prix_total()
     num_commande = params["Ref"]
     nom = UserRequette.get_user_name_by_id(id)
+
     # list_commandes = for {pn, qn} <- Enum.zip(panier, quantite) do
     #   price = ProdRequette.get_price_in_produit(pn)
     #   title = ProdRequette.get_name_produit(pn)
@@ -223,7 +224,7 @@ defmodule BebemayotteWeb.CompteController do
     # str_list_commandes = Enum.join(list_commandes, "")
     # montant_total = :erlang.float_to_binary(prix_total, [decimals: 2])
     # date_formatted = UserRequette.letters_date_format_with_hours(date)
-    # Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, user_map)
+    # Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, nom,user_map)
     # Email.confirmation_mail_bbmay(num_commande, montant_total, date_formatted, str_list_commandes, nom, user_map)
     render(conn,"annule.html", categories: categories, souscategories: souscategories, search: nil)
   end

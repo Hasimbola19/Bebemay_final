@@ -14,7 +14,7 @@ defmodule Bebemayotte.Email do
     new_email()
       |>from("bbmaymayotte@outlook.fr")
       |>to(email)
-      |>cc(['mihaja@phidia.onmicrosoft.com', 'pp@phidia.onmicrosoft.com', 'focicom@gmail.com', 'matthieu@phidia.onmicrosoft.com'])
+      |>cc(["mihaja@phidia.onmicrosoft.com", "focicom@gmail.com", "pp@phidia.onmicrosoft.com", "matthieu@phidia.onmicrosoft.com"])
       |>subject("[BBMAY.FR] Confirmation de commande")
       |>html_body(
         "<div style=\"padding-left: 50px;padding-right: 50px;\">
@@ -69,7 +69,7 @@ defmodule Bebemayotte.Email do
     new_email()
       |>from("bbmaymayotte@outlook.fr")
       |>to("bbmaymayotte@gmail.com")
-      |>cc(['mihaja@phidia.onmicrosoft.com', 'pp@phidia.onmicrosoft.com', 'focicom@gmail.com', 'matthieu@phidia.onmicrosoft.com'])
+      |>cc(["mihaja@phidia.onmicrosoft.com", "focicom@gmail.com", "pp@phidia.onmicrosoft.com", "matthieu@phidia.onmicrosoft.com"])
       |>subject("[BBMAY.FR] Confirmation de commande")
       |>html_body(
         "<div style=\"padding-left: 50px;padding-right: 50px;\">
