@@ -388,10 +388,11 @@ defmodule Bebemayotte.SyncDb do
           else
             if produit != nil do
               # compare_allow(Produit, "imageVersion", imagev, produit.imageVersion, produit)
-              compare_allow(Produit, "title", capt, produit.title, produit)
-              compare_allow(Produit, "stockstatus",condition_stock(stock_max), produit.stockstatus, produit)
-              compare_allow(Produit, "stockmax", stock_condition(stock_max), produit.stockmax, produit)
-              compare_allow(Produit, "price", prix, produit.price, produit)
+              # compare_allow(Produit, "title", capt, produit.title, produit)
+              # compare_allow(Produit, "stockstatus",condition_stock(stock_max), produit.stockstatus, produit)
+              # compare_allow(Produit, "stockmax", stock_condition(stock_max), produit.stockmax, produit)
+              # compare_allow(Produit, "price", prix, produit.price, produit)
+              :ok
             else
               IO.puts("VALEUR NULLE")
             end
@@ -487,7 +488,8 @@ defmodule Bebemayotte.SyncDb do
       else
         if categories != nil do
           # si_pareil(Categorie, "id_cat", cat_id, categories.id_cat, categories)
-          compare_allow(Categorie, "nom_cat", cat_nom, categories.nom_cat, categories)
+          # compare_allow(Categorie, "nom_cat", cat_nom, categories.nom_cat, categories)
+          :ok
         else
           IO.puts("VALEUR NULLE")
         end
