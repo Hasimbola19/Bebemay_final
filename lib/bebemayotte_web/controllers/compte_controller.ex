@@ -273,7 +273,7 @@ defmodule BebemayotteWeb.CompteController do
     user_map = Map.from_struct(customer)
     str_list_commandes = Enum.join(list_commandes, "")
     montant_total = :erlang.float_to_binary(prix_total, [decimals: 2])
-    date_formatted = UserRequette.letters_date_format_with_hours(date)
+    date_formatted = UserRequette.letters_date_format_with_hours(NaiveDateTime.add(date, 10800))
     Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, nom,user_map)
     Email.confirmation_mail_bbmay(num_commande, montant_total, date_formatted, str_list_commandes, nom, user_map)
 
