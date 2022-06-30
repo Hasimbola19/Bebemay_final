@@ -370,8 +370,8 @@ defmodule Bebemayotte.SyncDb do
         # {:ok, souscat_id} = Enum.fetch(c, 3)
         {:ok, capt} = Enum.fetch(c, 2)
         # {:ok, imagev} = Enum.fetch(c, 3)
-        {:ok, afficher} = Enum.fetch(c, 4)
-        {:ok, stock_max} = Enum.fetch(c, 5)
+        {:ok, afficher} = Enum.fetch(c, 3)
+        {:ok, stock_max} = Enum.fetch(c, 4)
         # {:ok, stock_reel} = Enum.fetch(c, 5)
 
           produit = Repo.one(from p in Produit, where: p.id_produit == ^prod_id, select: p)
