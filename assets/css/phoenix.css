@@ -1471,7 +1471,8 @@ img {vertical-align: middle;}
 }
 
 @media only screen and (max-width: 426px){
-  .header-main .logo1{margin-left: -150px;
+  .header-main .logo1{
+                      margin-left: -150px;
     display: none;
   }
 
@@ -1564,36 +1565,53 @@ img {vertical-align: middle;}
   }
 
   .compte{
-    display: inline-block;
+    display: inline-block !important;
   }
   
   .containe{
-    width: 320px;
+    width: 320px !important;
   }
   
   .mcd-menu{
-    width: 250px;
+    width: 250px !important;
   }
   
   .contenue-compte{
-    margin: auto 0;
-        width: 425px;
+    margin: auto 0 !important;
+    width: 425px !important;
+  }
+
+  .contenue-compte h2{
+    font-size: large !important;
+  }
+
+  .center{
+    grid-template-columns: 45% 45% !important;
   }
   
   #detail {
-      margin: 0 auto;
-      grid-template-columns: 40% 40%;
+      margin: 0 auto !important;
+      grid-template-columns: 40% 40% !important;  
   }
   
   .details {
-      width: 80%;
-      color: #313131;
-      margin: 0 auto 3%;
+      width: 80% !important;
+      color: #313131 !important;
+      margin: 0 auto 3% !important;
+  }
+
+  .details label{
+    padding: 0;
+  }
+
+  input{
+    font-size: small !important;
   }
   
   #detail input , details input{
-      font-size: small;
+      font-size: small !important;
   }
+
 }
 
 @media only screen and (max-width: 376px){
@@ -2682,7 +2700,7 @@ label {
   background-color: rgb(255, 255, 255);
   box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 28px 23px -7px, rgb(0 0 0 / 4%) 0px 12px 12px -7px;
   border: 1px solid rgb(233, 236, 239);
-  width: 600px;
+  width: auto;
   left: 50%;
   top: 50%;
   transform: translate(-50%, 10px);
@@ -3147,19 +3165,19 @@ caption {
     }
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+/* @media only screen and (min-width: 480px) and (max-width: 767px) {
     .containe {
         width: 428px;
         margin: 0 auto;
     }
-}
+} */
 
-@media only screen and (max-width: 479px) {
+/* @media only screen and (max-width: 479px) {
     .containe {
         width: 320px;
         margin: 0 auto;
     }
-}
+} */
 
 
 
