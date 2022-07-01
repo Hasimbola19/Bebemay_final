@@ -2,6 +2,7 @@ defmodule Bebemayotte.SouscatRequette do
   import Ecto.Query, warn: false
   alias Bebemayotte.Repo
   alias Bebemayotte.Souscategorie
+  alias Bebemayotte.Categorie
   alias Bebemayotte.CatRequette
 
   # GET SOUSCATEGORIE
@@ -13,10 +14,16 @@ defmodule Bebemayotte.SouscatRequette do
   end
 
   # GET SOUSCATEGORIE BY NOM SOUSCAT
-  def get_id_souscat_by_nom_souscat(nom_souscat) do
+  def get_id_souscat_by_nom_souscat(nom_souscat, nom_cat) do
+    # quer =
+    # id = Repo.one(quer)
     query =
       from s in Souscategorie,
-        where: s.nom_souscat == ^nom_souscat,
+        where: s.nom_souscat == ^nom_souscat and s.id_cat == ^(Repo.one(
+          from c in Categorie,
+          where: c.nom_cat == ^nom_cat,
+          select: c.id_cat
+        )),
         select: s.id_souscat
     Repo.one(query)
   end

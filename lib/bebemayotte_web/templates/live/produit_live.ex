@@ -125,7 +125,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
           nb_ligne = ProdRequette.count_ligne_produit_categorie(id_cat)
           {produits, nb_ligne}
         else
-          id_souscat = SouscatRequette.get_id_souscat_by_nom_souscat(souscat)
+          id_souscat = SouscatRequette.get_id_souscat_by_nom_souscat(souscat, cat)
           produits = ProdRequette.get_produit_limit_twelve_souscategorie(id_souscat, tri)
           nb_ligne = ProdRequette.count_ligne_produit_souscategorie(id_souscat)
           {produits, nb_ligne}
