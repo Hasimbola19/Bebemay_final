@@ -30,7 +30,7 @@
     <input type="checkbox" id="<%= categorie.id_cat %>" class="input">
       <label for="<%= categorie.id_cat %>" class="accordion">
         <a>
-         <%= categorie.nom_cat %>
+         <%= String.capitalize(categorie.nom_cat) %>
           (<%= Bebemayotte.ProdRequette.get_count_cat_by_id(categorie.id_cat) %>)
         </a>
       </label>
@@ -75,9 +75,6 @@
                     <img src="<%= Routes.static_path(@socket, produit.photolink) %>" href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>/<%= produit.id_produit %>"/>
                   </div>
                 <% end %>
-
-
-
 
                 <div class="column cuntaint">
                   <h3 class="detail" style="margin-bottom: 0 !important;"><%= produit.title %></h3>
