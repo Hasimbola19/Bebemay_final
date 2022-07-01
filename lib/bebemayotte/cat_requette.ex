@@ -17,7 +17,7 @@ defmodule Bebemayotte.CatRequette do
       from c in Categorie,
         where: c.nom_cat == ^nom_cat,
         select: c.id_cat
-    Repo.all(query)
+    Repo.one(query)
   end
 
   # GET CATEGORIE BY ID CAT
