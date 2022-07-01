@@ -116,12 +116,12 @@
               <%= for categorie <- @categories do %>
                 <%= if categorie.id_cat != "FAR00009" do %>
                   <label class="lis accordi">
-                  <a class="nav-link" href="/produit/<%= categorie.nom_cat %>"><%= categorie.nom_cat %></a>
+                  <a class="nav-link" href="/produit/<%= categorie.nom_cat %>"><%= String.capitalize(categorie.nom_cat) %></a>
                   </label>
                   <div id="list-items" class="panel">
                     <%= for souscategorie <- @souscategories do %>
                       <%= if souscategorie.id_cat == categorie.id_cat do %>
-                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= souscategorie.nom_souscat %></a>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= String.capitalize(souscategorie.nom_souscat) %></a>
                       <% end %>
                     <% end %>
                   </div>
