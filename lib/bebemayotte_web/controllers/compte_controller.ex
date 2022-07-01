@@ -182,20 +182,42 @@ defmodule BebemayotteWeb.CompteController do
     render(conn,"politique.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
-  def mail(panier, quantite, prix_total, ref) do
-    for {pn,qn} <- Enum.zip(panier, quantite) do
-      paniers = pn
-      quantites = qn
-      prix = ProdRequette.get_price_in_produit(pn)
-      produit = ProdRequette.get_name_produit(pn)
-      message = "Article = #{produit} Prix = #{prix} Quantite = #{quantite} Prix total = #{prix_total}"
-    end
-    # IO.inspect mail(panier, quantite, prix_total, "0050058")
-  end
+  # def mail(panier, quantite, prix_total, ref) do
+  #   for {pn,qn} <- Enum.zip(panier, quantite) do
+  #     paniers = pn
+  #     quantites = qn
+  #     prix = ProdRequette.get_price_in_produit(pn)
+  #     produit = ProdRequette.get_name_produit(pn)
+  #     message = "Article = #{produit} Prix = #{prix} Quantite = #{quantite} Prix total = #{prix_total}"
+  #   end
+  #   # IO.inspect mail(panier, quantite, prix_total, "0050058")
+  # end
 
-  def annule(conn, _params) do
+  def valid(conn, params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+
+    sale = params["Mt"]
+    mt = String.split_at(sale, -2) |> elem(0)
+    dc = String.split_at(sale, -2) |> elem(1)
+    montant = "#{mt},#{dc}"
+    ref = params["Ref"]
+    auto = params["Auto"]
+    erreur = params["Erreur"]
+
+    render(conn ,"accepte.html",categories: categories, souscategories: souscategories, search: nil, montant: montant, ref: ref, erreur: erreur, auto: auto)
+  end
+
+  def annule(conn, params) do
+    categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
+    sale = params["Mt"]
+    mt = String.split_at(sale, -2) |> elem(0)
+    dc = String.split_at(sale, -2) |> elem(1)
+    montant = "#{mt},#{dc}"
+    ref = params["Ref"]
+    auto = params["Auto"]
+    erreur = params["Erreur"]
     # id = Plug.Conn.get_session(conn, :user_id)
     # panier = Plug.Conn.get_session(conn, :paniers)
     # quantite = Plug.Conn.get_session(conn, :quantites)
@@ -225,65 +247,83 @@ defmodule BebemayotteWeb.CompteController do
     # date_formatted = UserRequette.letters_date_format_with_hours(date)
     # Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, nom,user_map)
     # Email.confirmation_mail_bbmay(num_commande, montant_total, date_formatted, str_list_commandes, nom, user_map)
-    render(conn ,"annule.html",categories: categories, souscategories: souscategories, search: nil)
+    render(conn ,"annule.html",categories: categories, souscategories: souscategories, search: nil, ref: ref, auto: auto, montant: montant, erreur: erreur)
   end
 
   def accepte(conn, params) do
-    categories = CatRequette.get_all_categorie()
-    souscategories = SouscatRequette.get_all_souscategorie()
-    id = Plug.Conn.get_session(conn, :user_id)
-    IO.inspect id
-    panier = Plug.Conn.get_session(conn, :paniers)
-    quantite = Plug.Conn.get_session(conn, :quantites)
-    details = id |> Fonction.detail_commande_show(panier, quantite)
-    prix_total = details |> Fonction.get_prix_total()
-    date = NaiveDateTime.local_now()
-    num_commande = params["Ref"]
-    nom = UserRequette.get_user_name_by_id(id)
-    adresse1 = UserRequette.get_user_nom_rue_by_id(id)
-    prenom = UserRequette.get_user_prename_by_id(id)
-    codep = UserRequette.get_user_codepostal_by_id(id)
-    ville = UserRequette.get_user_ville_by_id(id)
-    tel = UserRequette.get_user_telephone_by_id(id)
-    email = UserRequette.get_user_email_by_id(id)
-    for {pn,qn} <- Enum.zip(panier, quantite) do
-      paniers = pn
-      quantites = qn
-      prix = ProdRequette.get_price_in_produit(pn)
-      Test.exec(date, id, nom, adresse1, prenom, codep, ville, tel, email, paniers, quantites, prix, num_commande)
-    end
-    Client.exec(id, nom, adresse1, codep, ville, prenom, tel, email)
-    Reglement.exec(id, date, prix_total, num_commande)
-    # mail(panier, quantite, prix_total, num_commande)
+    # categories = CatRequette.get_all_categorie()
+    # souscategories = SouscatRequette.get_all_souscategorie()
+    cond do
+      (not is_nil(params["Ref"]) and not is_nil(params["Mt"])) ->
+        id = Plug.Conn.get_session(conn, :user_id)
+        panier = Plug.Conn.get_session(conn, :paniers)
+        quantite = Plug.Conn.get_session(conn, :quantites)
+        details = id |> Fonction.detail_commande_show(panier, quantite)
+        prix_total = details |> Fonction.get_prix_total()
+        date = NaiveDateTime.local_now()
+        num_commande = params["Ref"]
+        montant = params["Mt"]
+        erreur = params["Erreur"]
+        auto = params["Auto"]
+        nom = UserRequette.get_user_name_by_id(id)
+        adresse1 = UserRequette.get_user_nom_rue_by_id(id)
+        prenom = UserRequette.get_user_prename_by_id(id)
+        codep = UserRequette.get_user_codepostal_by_id(id)
+        ville = UserRequette.get_user_ville_by_id(id)
+        tel = UserRequette.get_user_telephone_by_id(id)
+        email = UserRequette.get_user_email_by_id(id)
+        for {pn,qn} <- Enum.zip(panier, quantite) do
+          paniers = pn
+          quantites = qn
+          prix = ProdRequette.get_price_in_produit(pn)
+          Test.exec(date, id, nom, adresse1, prenom, codep, ville, tel, email, paniers, quantites, prix, num_commande)
+        end
+        Client.exec(id, nom, adresse1, codep, ville, prenom, tel, email)
+        Reglement.exec(id, date, prix_total, num_commande)
+        # mail(panier, quantite, prix_total, num_commande)
 
-    list_commandes = for {pn, qn} <- Enum.zip(panier, quantite) do
-      price = ProdRequette.get_price_in_produit(pn)
-      title = ProdRequette.get_name_produit(pn)
-      quantity = qn
-      subtotal = Decimal.to_float(price) * quantity
-      prix_unitaire = :erlang.float_to_binary(Decimal.to_float(price), [decimals: 2])
-      sous_total = :erlang.float_to_binary(subtotal, [decimals: 2])
-      "<tr style=\"border: 1px solid grey;border-collapse: collapse;\">
-        <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\">#{title}</td>
-        <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">#{quantity}</td>
-        <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">€#{prix_unitaire}</td>
-      </tr style=\"border: 1px solid grey;border-collapse: collapse;\">"
+        list_commandes = for {pn, qn} <- Enum.zip(panier, quantite) do
+          price = ProdRequette.get_price_in_produit(pn)
+          title = ProdRequette.get_name_produit(pn)
+          quantity = qn
+          subtotal = Decimal.to_float(price) * quantity
+          prix_unitaire = :erlang.float_to_binary(Decimal.to_float(price), [decimals: 2])
+          sous_total = :erlang.float_to_binary(subtotal, [decimals: 2])
+          "<tr style=\"border: 1px solid grey;border-collapse: collapse;\">
+            <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\">#{title}</td>
+            <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">#{quantity}</td>
+            <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">€#{prix_unitaire}</td>
+          </tr style=\"border: 1px solid grey;border-collapse: collapse;\">"
+        end
+        customer = UserRequette.get_user!(id)
+        user_map = Map.from_struct(customer)
+        str_list_commandes = Enum.join(list_commandes, "")
+        montant_total = :erlang.float_to_binary(prix_total, [decimals: 2])
+        date_formatted = UserRequette.letters_date_format_with_hours(NaiveDateTime.add(date, 10800))
+        Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, nom,user_map)
+        Email.confirmation_mail_bbmay(num_commande, montant_total, date_formatted, str_list_commandes, nom, user_map)
+        conn
+        |> delete_session(:paniers)
+        |> delete_session(:quantites)
+        |> redirect(to: "/validation_paiment?Mt=#{montant}&Ref=#{num_commande}&Erreur=#{erreur}&Auto=#{auto}")
+      true ->
+        conn
+          |> redirect(to: "/")
     end
-    customer = UserRequette.get_user!(id)
-    user_map = Map.from_struct(customer)
-    str_list_commandes = Enum.join(list_commandes, "")
-    montant_total = :erlang.float_to_binary(prix_total, [decimals: 2])
-    date_formatted = UserRequette.letters_date_format_with_hours(NaiveDateTime.add(date, 10800))
-    Email.confirmation_mail(email, num_commande, montant_total, date_formatted, str_list_commandes, nom,user_map)
-    Email.confirmation_mail_bbmay(num_commande, montant_total, date_formatted, str_list_commandes, nom, user_map)
 
-    render(conn |> delete_session(:paniers) |> delete_session(:quantites) ,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
+    # render(conn |> delete_session(:paniers) |> delete_session(:quantites) ,"accepte.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
-  def refuse(conn, _params) do
+  def refuse(conn, params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
-    render(conn,"refuse.html", categories: categories, souscategories: souscategories, search: nil)
+    sale = params["Mt"]
+    mt = String.split_at(sale, -2) |> elem(0)
+    dc = String.split_at(sale, -2) |> elem(1)
+    montant = "#{mt},#{dc}"
+    ref = params["Ref"]
+    erreur = params["Erreur"]
+    render(conn,"refuse.html", categories: categories, souscategories: souscategories, search: nil, ref: ref, montant: montant, erreur: erreur)
   end
 
   # GET PAGE FACTURATION

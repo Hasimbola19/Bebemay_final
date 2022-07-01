@@ -91,6 +91,7 @@ defmodule BebemayotteWeb.Router do
     get "/accepte", CompteController, :accepte
     get "/annule", CompteController, :annule
     get "/refuse", CompteController, :refuse
+    get "/validation_paiment", CompteController, :valid
 
       # FORGET PASSWORD
     get "/ask_email", CompteController, :ask_email

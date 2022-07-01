@@ -11,13 +11,9 @@
         </svg>
     </div>
     <div class="information">
-        <% montant = @conn.params["Mt"]
-            ref = @conn.params["Ref"]
-            erreur = @conn.params["Erreur"]
-        %>
         <h2>Votre transaction a été refusée</h2>
-        <p>Montant : </p><%= montant %>
-        <p>Reference : </p><%= ref %>
-        <p>Retour : </p><%= erreur %>
+        <p>Montant : <%= @montant %>€</p>
+        <p>Reference : <%= @ref %></p>
+        <p>Retour : <%= @erreur %></p>
     </div>
 </div>

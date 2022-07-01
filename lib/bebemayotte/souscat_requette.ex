@@ -21,8 +21,8 @@ defmodule Bebemayotte.SouscatRequette do
       from s in Souscategorie,
         where: s.nom_souscat == ^nom_souscat and s.id_cat == ^(Repo.one(
           from c in Categorie,
-          where: c.nom_cat == ^nom_cat,
-          select: c.id_cat
+            where: c.nom_cat == ^nom_cat,
+            select: c.id_cat
         )),
         select: s.id_souscat
     Repo.one(query)

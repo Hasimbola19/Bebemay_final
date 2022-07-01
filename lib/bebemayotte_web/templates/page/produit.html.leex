@@ -58,7 +58,6 @@
       <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
         <div class="article">
           <%= for produit <- @produits do %>
-          <%= if produit.id_souscat != "SFAR00043" do %>
             <%= if Decimal.to_integer(produit.stockmax) > 0 do %>
             <div class="produit">
             <%= for categorie <- @categories do %>
@@ -92,7 +91,6 @@
           <% end %>
           <% end %>
           <% end %>
-        <% end %>
         <% end %>
         <% end %>
       </div>
