@@ -18,7 +18,7 @@ defmodule Bebemayotte.SouscatRequette do
       from s in Souscategorie,
         where: s.nom_souscat == ^nom_souscat,
         select: s.id_souscat
-    Repo.one(query)
+    Repo.all(query)
   end
 
   # GET SOUSCATEGORIE BY ID CAT
