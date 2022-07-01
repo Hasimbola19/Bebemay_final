@@ -41,11 +41,19 @@
         </ul>
         <ul class="ul2">
           <% id = Plug.Conn.get_session(@conn, :user_id) %>
-          <li class="menu-item1">
+            <li class="menu-item1 dropdown">
             <%= if is_nil(id) do %>
               <a href="/connexion"><span class="fas fa-user"></span> Se connecter</a>
             <% else %>
-              <a href="/account"><span class="fas fa-user"></span> Mon compte</a>
+              <a href="/account" class="dropbtn"><span class="fas fa-user"></span> Mon compte</a>
+              <ul class="dropdown-content">
+                <li><a href="/account">Tableau de bord</a></li>
+                <li><a href="/commandes">Commandes</a></li>
+                <li><a href="/adresse">Adresse</a></li>
+                <li><a href="/download">Téléchargements</a></li>
+                <li><a href="/detail">Détail du compte</a></li>
+                <li><a href="/deconnexions">Déconnexion</a></li>
+              </ul>
             <% end %>
           </li>
           <li class="menu-item1" style="margin-top: 2px">
