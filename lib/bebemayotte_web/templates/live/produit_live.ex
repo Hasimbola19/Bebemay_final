@@ -146,7 +146,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
         if souscat == "" do
           idnext |> ProdRequette.get_produit_limit_twelve_from_id_next_categorie(cat |> CatRequette.get_id_cat_by_nom_cat(), tri)
         else
-          idnext |> ProdRequette.get_produit_limit_twelve_from_id_next_souscategorie(souscat |> SouscatRequette.get_id_souscat_by_nom_souscat(), tri)
+          idnext |> ProdRequette.get_produit_limit_twelve_from_id_next_souscategorie(souscat |> SouscatRequette.get_id_souscat_by_nom_souscat(cat), tri)
         end
       end
     else
@@ -162,7 +162,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
         if souscat == "" do
           idprev |> ProdRequette.get_produit_limit_twelve_from_id_prev_categorie(cat |> CatRequette.get_id_cat_by_nom_cat(), tri) |> Enum.reverse()
         else
-          idprev |> ProdRequette.get_produit_limit_twelve_from_id_prev_souscategorie(souscat |> SouscatRequette.get_id_souscat_by_nom_souscat(), tri) |> Enum.reverse()
+          idprev |> ProdRequette.get_produit_limit_twelve_from_id_prev_souscategorie(souscat |> SouscatRequette.get_id_souscat_by_nom_souscat(cat), tri) |> Enum.reverse()
         end
       end
     else
