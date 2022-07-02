@@ -206,7 +206,7 @@ pre{padding: 1em;}
 .header-main .logo1{
   width: 440px;
   height: 99px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   /*margin-top: 17px;*/
 }
 
@@ -484,7 +484,7 @@ pre{padding: 1em;}
   /* position: relative; */
   width: 250px;
   border: none;
-  text-align: right;
+  text-align: left;
   outline: none;
   font-size: 15px;
   transition: 0.4s;
