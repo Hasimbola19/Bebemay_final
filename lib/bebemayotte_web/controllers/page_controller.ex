@@ -26,9 +26,9 @@ defmodule BebemayotteWeb.PageController do
     id = Plug.Conn.get_session(conn, :user_id)
     paniers = Plug.Conn.get_session(conn, :paniers)
     if id == nil do
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => 1, "user" => nil, "search" => nil, "paniers" => paniers})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => 1, "user" => nil, "search" => nil, "list_panier" => paniers})
     else
-      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => id, "user" => id, "search" => nil, "paniers" => paniers})
+      LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => id, "user" => id, "search" => nil, "list_panier" => paniers})
     end
   end
 

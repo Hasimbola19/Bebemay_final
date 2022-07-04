@@ -3,12 +3,12 @@ defmodule BebemayotteWeb.Live.LocationLive do
   alias Bebemayotte.CatRequette
   alias Bebemayotte.SouscatRequette
 
-  def mount(_params, %{"id_session" => session, "user" => user, "search" => search, "list_panier" => list_panier}, socket) do
+  def mount(_params, %{"id_session" => session, "user" => user, "search" => search, "list_panier" => paniers}, socket) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie
     {:ok,
       socket
-        |>  assign(session: session, user: user, categories: categories, souscategories: souscategories, search: search, list_panier: list_panier),
+        |>  assign(session: session, user: user, categories: categories, souscategories: souscategories, search: search, list_panier: paniers),
         layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }
   end
