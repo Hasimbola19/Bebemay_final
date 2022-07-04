@@ -1518,6 +1518,14 @@ img {vertical-align: middle;}
 }
 
 @media only screen and (max-width: 426px){
+  #menu{
+    margin-top: 105px;
+  }
+
+  #hidden{
+    padding-right: 10px;
+  }
+  
   .header-main .logo1{
     margin-left: -150px;
     display: none;
@@ -1680,8 +1688,8 @@ img {vertical-align: middle;}
 
   .box .box-content .title{
     font-size: 20px !important;
-    background-color: rgba(20, 50, 35, 0.8);
-    color: #ffb4f5;
+    background-color: #ffb4f5
+    color: #0010bb;
     border-radius: 5px;
     padding: 5px;
   }
