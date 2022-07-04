@@ -1533,6 +1533,10 @@ img {vertical-align: middle;}
     margin: 125px 50px;
   }
 
+  .box .box-content{
+    position: relative !important;
+  }
+
   .head .header .info .content{
     display: inline;
   }
@@ -2436,23 +2440,21 @@ header nav a {
     margin-left: 25px;
   }
 }
-  @media only screen and (max-width:600px) {
-    .content{
-      display: flow-root;
-    }
-    .content .a1{
-      display: grid;
-      grid-template-columns: 50% 50%;
-      height: fit-content;
-      padding-left: 5%;
-    }
-    .box .box-content{
-      position: absolute;
-      top: 25%;
-      left: 30%;
-     
-  
+@media only screen and (max-width:600px) {
+  .content{
+    display: flow-root;
   }
+  .content .a1{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: fit-content;
+    padding-left: 5%;
+  }
+  /* .box .box-content{
+    position: absolute;
+    top: 25%;
+    left: 30%;
+  } */
   .title{
     font-size: 25px !important;
   }
