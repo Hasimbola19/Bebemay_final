@@ -1357,17 +1357,19 @@ img {vertical-align: middle;}
     display: none;
   }
 
-  /* #recovery_form_id{
-    margin-top: 200px;
-  } */
-
-  /* #connexion_body_verif{
-    margin-top: 200px;
+  .head .header{
+    margin: auto 100px;
   }
 
-  #connexion_body_verif_pass{
-    margin-top: 200px;
-  } */
+  #slider{
+    width: 550px;
+    height: 550px;
+    margin: 150px auto;
+  }
+
+  .separation{
+    margin-top: 1580px;
+  }
 
   #connexion_body{
     padding-top: 0px;
@@ -1402,12 +1404,6 @@ img {vertical-align: middle;}
     margin-top: 5px;
   }
 
-  #slider{
-    margin: 100px auto;
-    width: 250px;
-    height: 250px;
-  }
-
   .fade{
     width: 220px;
     height: 220px;
@@ -1426,7 +1422,7 @@ img {vertical-align: middle;}
   }
 
   .head .header .info .content .a1{
-    width: 150px;
+    width: 600px;
     margin-right: 5px;
   }
   
@@ -1437,6 +1433,7 @@ img {vertical-align: middle;}
   .box .box-content{
     margin-top: -20px;
     margin-left: -15px;
+    text-align: center;
   }
 
   .foot{
@@ -1454,6 +1451,18 @@ img {vertical-align: middle;}
 
   .product #grid{
     display: block;
+  }
+
+  .containeur img{
+    margin-top: 905px !important;
+  }
+
+  .box .box-content .title{
+    font-size: 20px !important;
+    background-color: #ffb4f5;
+    color: #0010bb;
+    border-radius: 5px;
+    padding: 5px;
   }
 }
 
@@ -1684,14 +1693,6 @@ img {vertical-align: middle;}
     position: relative !important;
     margin: auto -25px;
     left: 30% !important;
-  }
-
-  .box .box-content .title{
-    font-size: 20px !important;
-    background-color: #ffb4f5;
-    color: #0010bb;
-    border-radius: 5px;
-    padding: 5px;
   }
 
   .head .header .info .content .a1{
