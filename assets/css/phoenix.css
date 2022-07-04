@@ -1549,6 +1549,11 @@ img {vertical-align: middle;}
   .separation{
     margin-top: 1180px !important;
   }
+
+  .logo-ecommerce div p{
+    font-size: medium;
+    margin-left: 15px;
+  }
 }
 
 @media only screen and (max-width: 426px){
