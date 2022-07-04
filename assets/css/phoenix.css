@@ -460,7 +460,7 @@ pre{padding: 1em;}
 }
 
 .activ:before {
-  content: "\2212";
+  content: "\2212" !important;
 }
 
 .panel {
@@ -503,6 +503,7 @@ pre{padding: 1em;}
   font-weight: bold;
   float: left;
   margin-left: 5px;
+  margin-right: 5px;
 }
 
 .accord a{
@@ -1518,7 +1519,7 @@ img {vertical-align: middle;}
 
 @media only screen and (max-width: 426px){
   .header-main .logo1{
-                      margin-left: -150px;
+    margin-left: -150px;
     display: none;
   }
 
@@ -1655,16 +1656,51 @@ img {vertical-align: middle;}
   }
   
   #detail input , details input{
-      font-size: small !important;
+    font-size: small !important;
   }
 
+  .head .header{
+    padding-left: 5px;
+  }
+
+  .head .header .info{
+    margin: auto 25px;
+  }
+
+  .head .header .info .content{
+    display: inline;
+    margin: auto;
+  }
+
+  .box .box-content{
+    margin: auto -25px;
+  }
+
+  .box .box-content .title{
+    font-size: 20px !important;
+  }
+
+  .head .header .info .content .a1{
+    margin: auto;
+    width: 350px;
+  }
+
+  .head .header .info .content .a1 .box{
+   width: 150px;
+  }
+
+  .separation{
+    margin-top: 800px;
+  }
+
+  #slider{
+    height: 350px;
+    width: 350px;
+    margin: 100px 36px !important;
+  }
 }
 
 @media only screen and (max-width: 376px){
-  .head .header{
-    margin-right: 35px;
-  }
-
   #slider{
     margin-left: 70px;
   }
@@ -1680,7 +1716,8 @@ img {vertical-align: middle;}
   }
 
   .head .header{
-    margin: auto;
+    /* margin: auto; */
+    margin: auto -30px;
     width: max-content;
     display: flex;
     flex-wrap: nowrap;
@@ -1738,13 +1775,15 @@ img {vertical-align: middle;}
 
 @media only screen and (max-width: 321px){
   #slider{
-    margin-left: 35px;
+    /* margin-left: 35px; */
+    width: 300px;
+    height: 300px;
   }
 
   .head .header .info .content{
-    display: flex;
+    /* display: flex;
     margin-left: 8px;
-    width: 320px;
+    width: 320px; */
   }
 
   .head .header .info .content .a1{
