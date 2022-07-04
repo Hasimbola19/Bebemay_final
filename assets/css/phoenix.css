@@ -2459,7 +2459,9 @@ header nav a {
     font-size: 25px !important;
   }
   
-  
+  #slider{
+    margin: 120px 25px;
+  }
   }
   
   .content .a1 .box{
