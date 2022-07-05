@@ -153,7 +153,7 @@ defmodule BebemayotteWeb.PageController do
         end
         {:error, :unauthorized} ->
           conn
-          |> put_flash(:error_id_mdp, "Identifiant ou adresse e-mail éronné")
+          |> put_flash(:error_id_mdp, "Adresse e-mail ou mot de passe éronné")
           |> redirect(to: Routes.page_path(conn, :connexion))
     end
   end
