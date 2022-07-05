@@ -68,7 +68,7 @@
                         <% else %>
                             <%= text_input f, :nom_rue, value: @user.nom_rue %>
                         <% end %>
-                        <%= if @user.nom_rue == "null" do %>
+                        <%= if @user.batiment == "null" do %>
                             <%= text_input f, :batiment, placeholder: "Bâtiment, appartement, lot,etc. (facultatif)" %>
                         <% else %>
                             <%= text_input f, :batiment, value: @user.batiment %>
