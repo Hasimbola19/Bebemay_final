@@ -76,7 +76,11 @@
 								<% end %>
 								 <br>
                                 <%= @user.ville %> <br>
-                                <%= @user.codepostal %> <br></p>
+                                <%= if @user.codepostal == "null" do %>
+									<%= "" %>
+								<% else %>
+                                	<%= @user.codepostal %> <br></p>
+								<% end %> <br></p>
                             </div>
                             <div class="column">
                                 <a href="/update_address/livraison" class="link">Modifier</a>
