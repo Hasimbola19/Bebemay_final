@@ -66,8 +66,8 @@
 					</label>
 					<p class="alert alert-danger" role="alert"><%= get_flash(@conn, :mdp_error) %></p>
 					<h5>Changement de mot de passe</h5>
-					<label>Mot de passe actuel (laisser vide pour le conserver)
-						<%= password_input f, :motdepasse_actuel, placeholder: "Entrer votre ancien mot de passe" %>
+					<label>Mot de passe actuel <!--(laisser vide pour le conserver)-->
+						<%= password_input f, :motdepasse_actuel, placeholder: "Entrer votre ancien mot de passe", value: @user.motdepasse %>
 					</label>
 					<label>Nouveau mot de passe (laisser vide pour conserver l’actuel)
 						<%= password_input f, :motdepasse_new, placeholder: "Entrer votre nouveau mot de passe" %>
