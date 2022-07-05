@@ -20,7 +20,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
       |> assign(categories: categories, souscategories: souscategories)
       |> assign(produits: produits,last_row_id: last_row_id, first_row_id: first_row_id,
                       search: search, user: user, session: session, nb_page: nb_page,
-                      page: 1, cat: cat, souscat: souscat, tri_select: "", list_panier: list_panier),
+                      page: 1, cat: cat, souscat: souscat, tri_select: "1", list_panier: list_panier),
      layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }
   end
