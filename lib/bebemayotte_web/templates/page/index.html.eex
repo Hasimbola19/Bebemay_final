@@ -1,7 +1,7 @@
- <section class="head">
   <div class="navigation-bar">
     <a>Accueil</a> /
   </div>
+ <section class="head">
   <img src="<%= Routes.static_path(@conn, "/images/fond.png") %>" style="visibility: hidden">
 
     <div class="header">

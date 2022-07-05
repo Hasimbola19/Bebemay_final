@@ -51,7 +51,7 @@
                             <td><button onclick="add('<%= produit.id_produit %>', <%= Decimal.to_integer(produit.stockmax) %>)" phx-click="add" phx-value-idp="<%= produit.id_produit %>" class="quantite_plus"></button></td>
                             <td>€<%= Float.round(Decimal.to_float(produit.price), 2) %>0</td>
                             <td>€<%= Float.round(Decimal.to_float(produit.price) * Enum.fetch!(@list_quantite, Enum.find_index(@list_panier, fn x -> x == produit.id_produit end)), 2) %>0</td>
-                            <td><button class="effacer" phx-click="sup" phx-value-idp="<%= produit.id_produit %>" onclick="remove_panier('<%= produit.id_produit %>')"><i class="fas fa-trash fa-3x"></i> </button></td>
+                            <td><button class="effacer" phx-click="sup" phx-value-idp="<%= produit.id_produit %>" onclick="remove_panier('<%= produit.id_produit %>')" style="font-size:xx-large"><i class="fas fa-trash"></i> </button></td>
                         </tr>
                       <% end %>
                     </tbody>

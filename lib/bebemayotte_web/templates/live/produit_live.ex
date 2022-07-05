@@ -20,7 +20,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
       |> assign(categories: categories, souscategories: souscategories)
       |> assign(produits: produits,last_row_id: last_row_id, first_row_id: first_row_id,
                       search: search, user: user, session: session, nb_page: nb_page,
-                      page: 1, cat: cat, souscat: souscat, tri_select: "1", list_panier: list_panier),
+                      page: 1, cat: cat, souscat: souscat, tri_select: "", list_panier: list_panier),
      layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }
   end
@@ -46,12 +46,31 @@ defmodule BebemayotteWeb.Live.ProduitLive do
   end
 
   def handle_event("tri", params, socket) do
-    {produits, nb_ligne} = filtre(params["cat"], params["souscat"], params["search"], params["select-1"])
+    tri_select = params["select-1"]
+    cat = socket.assigns.cat
+    souscat = socket.assigns.souscat
+    search = socket.assigns.search
+    {produits, nb_ligne} = filtre(cat, souscat, search, tri_select)
     nb_total = produits |> Enum.count()
     {first_row_id, last_row_id} = if_vide_produits(produits, nb_total)
     _nb_page = nb_ligne |> nombre_page()
-    {:noreply, socket |> assign(produits: produits, first_row_id: first_row_id, last_row_id: last_row_id, search: params["search"], tri_select: params["select-1"])}
+    tri =
+      case params["select-1"] do
+        "1" -> "1"
+        "2" -> "2"
+        "3" -> "3"
+        "4" -> "4"
+      end
+    {:noreply, socket |> assign(produits: produits, first_row_id: first_row_id, last_row_id: last_row_id, search: search,cat: cat, souscat: souscat, tri_select: tri)}
   end
+
+  # def handle_event("tri", params, socket) do
+  #   {produits, nb_ligne} = filtre(params["cat"], params["souscat"], params["search"], params["select-1"])
+  #   nb_total = produits |> Enum.count()
+  #   {first_row_id, last_row_id} = if_vide_produits(produits, nb_total)
+  #   _nb_page = nb_ligne |> nombre_page()
+  #   {:noreply, socket |> assign(produits: produits, first_row_id: first_row_id, last_row_id: last_row_id, search: params["search"], tri_select: params["select-1"])}
+  # end
 
   def handle_event("previous_page", %{"idprev" => idprev, "page" => num_page, "cat" => cat, "souscat" => souscat, "search" => search, "tri" => tri}, socket) do
       num_page = num_page |> String.to_integer()
