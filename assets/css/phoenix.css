@@ -419,6 +419,7 @@ pre{padding: 1em;}
 .accordion a{
   color: #000;
   font-size: small;
+  font-weight: bold;
 }
 
 .accordion a:hover{
@@ -446,10 +447,10 @@ pre{padding: 1em;}
   margin-right: 5px
 }
 
-.accordion a{
+/* .accordion a{
   color: #000;
   font-size: x-small;
-}
+} */
 
 .accordi a:hover{
   color: #0010bb;
@@ -2710,16 +2711,18 @@ header nav a {
 }
 
 .sider .panel ul li{
-  list-style: none;
+  list-style: square;
   text-align: left;
+  margin-left: 40px;
 }
 
 .sider .panel ul li a{
-  font-size: small;
+  font-size: 10px;
   color: #000;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
   font-weight: bold;
-  margin-left: 25px;
+  /* margin-left: 30px; */
+  white-space: nowrap;
 }
 
 .form-tri{
