@@ -20,7 +20,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
       |> assign(categories: categories, souscategories: souscategories)
       |> assign(produits: produits,last_row_id: last_row_id, first_row_id: first_row_id,
                       search: search, user: user, session: session, nb_page: nb_page,
-                      page: 1, cat: cat, souscat: souscat, tri_select: "", list_panier: list_panier),
+                      page: 1, cat: cat, souscat: souscat, tri_select: "1", list_panier: list_panier),
      layout: {BebemayotteWeb.LayoutView, "layout_live.html"}
     }
   end
@@ -71,6 +71,37 @@ defmodule BebemayotteWeb.Live.ProduitLive do
   #   _nb_page = nb_ligne |> nombre_page()
   #   {:noreply, socket |> assign(produits: produits, first_row_id: first_row_id, last_row_id: last_row_id, search: params["search"], tri_select: params["select-1"])}
   # end
+
+  def handle_event("nav", %{"idnext" => idnext, "idprev" => idprev, "finpage" => num_finpage,"id" => page, "page" => num_page, "cat" => cat, "souscat" => souscat, "search" => search, "tri" => tri}, socket) do
+    IO.inspect idprev
+    IO.inspect idnext
+    IO.inspect cat
+    IO.inspect souscat
+    IO.inspect num_page
+    IO.inspect search
+    IO.inspect tri
+    IO.inspect num_finpage
+    IO.inspect page
+    id = page |> String.to_integer()
+    num_page = num_page |> String.to_integer()
+    if id < num_page do
+      produits = filtre_prev(cat, souscat, idprev, search, tri)
+      nb_total = produits |> Enum.count()
+      {first_row_id, last_row_id} = if_vide_produits(produits, nb_total)
+      num_page = id
+      {:noreply, socket |> assign(produits: produits, first_row_id: first_row_id, last_row_id: last_row_id, page: num_page, search: search)}
+    else
+      if id > num_page do
+        produits = filtre_next(cat, souscat, idnext, search, tri)
+        nb_total = produits |> Enum.count()
+        {first_row_id, last_row_id} = if_vide_produits(produits, nb_total)
+        num_page = id
+        {:noreply, socket |> assign(produits: produits, first_row_id: first_row_id, last_row_id: last_row_id, page: num_page, search: search)}
+      else
+        {:noreply, socket}
+      end
+    end
+  end
 
   def handle_event("previous_page", %{"idprev" => idprev, "page" => num_page, "cat" => cat, "souscat" => souscat, "search" => search, "tri" => tri}, socket) do
       num_page = num_page |> String.to_integer()

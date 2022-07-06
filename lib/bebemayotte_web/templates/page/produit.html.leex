@@ -101,22 +101,50 @@
         <p>Aucun produit a afficher</p>
       </div>
       <% end %>
-    <center>
-    <div class="page_navig">
-      <a href="#enhaut" phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
-        <i class="fas fa-angle-left"></i>
-      </a>
-      <%= @page %>
-      <a href="#enhaut" phx-click="next_page" phx-value-finpage="<%= @nb_page %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
-        <i class="fas fa-angle-right"></i>
-      </a>
-    </div>
-    </center>
 </section>
-
     <!-- fin contenue principale -->
     <!--fin contenue  -->
 </div>
+  <center>
+    <div class="page_navig">`
+    <%= if @page == 1 do %>
+      <button disabled href="#enhaut" phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
+        <i class="fas fa-angle-left"></i>
+      </button>
+    <% else %>
+    <a href="#enhaut">
+      <button href="#enhaut" phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
+        <i class="fas fa-angle-left"></i>
+      </button>
+    </a>
+    <% end %>
+      <%= for page <- 1..@nb_page do %>
+        <%= if page == @page do %>
+          <button disabled>
+            <%= page %>
+          </button>
+        <% else %>
+        <a href="#enhaut">
+          <button href="#enhaut" phx-click="nav" phx-value-id="<%= page %>" phx-value-finpage="<%= @nb_page %>" phx-value-idprev="<%= @first_row_id %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
+            <%= page %>
+          </button>
+        </a>
+        <% end %>
+      <% end %>
+      <!--<%= @page %>-->
+    <%= if @page == @nb_page do %>
+      <button disabled href="#enhaut" phx-click="next_page" phx-value-finpage="<%= @nb_page %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    <% else %>
+    <a href="#enhaut">
+      <button href="#enhaut" phx-click="next_page" phx-value-finpage="<%= @nb_page %>" phx-value-idnext="<%= @last_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </a>
+    <% end %>
+    </div>
+  </center>
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;

@@ -17,8 +17,8 @@ blockquote{border-left:0.3rem solid #d1d1d1;margin-left:0;margin-right:0;padding
 blockquote *:last-child{margin-bottom:0}
 .button,button,input[type='button'],input[type='reset'],input[type='submit']{background-color:#0010bb;border:0.1rem solid #0010bb;border-radius:.4rem;color:#fff;cursor:pointer;display:inline-block;font-size:2rem;font-weight:700;height:4rem;letter-spacing:.1rem;line-height:3.8rem;text-align:center;text-decoration:none;text-transform:uppercase;white-space:nowrap;width: 5rem}
 .button:focus,.button:hover,button:focus,button:hover,input[type='button']:focus,input[type='button']:hover,input[type='reset']:focus,input[type='reset']:hover,input[type='submit']:focus,input[type='submit']:hover{background-color:#606c76;border-color:#606c76;color:#fff;outline:0}
-.button[disabled],button[disabled],input[type='button'][disabled],input[type='reset'][disabled],input[type='submit'][disabled]{cursor:default;opacity:.5}
-.button[disabled]:focus,.button[disabled]:hover,button[disabled]:focus,button[disabled]:hover,input[type='button'][disabled]:focus,input[type='button'][disabled]:hover,input[type='reset'][disabled]:focus,input[type='reset'][disabled]:hover,input[type='submit'][disabled]:focus,input[type='submit'][disabled]:hover{background-color:#0069d9;border-color:#0069d9}
+.button[disabled],button[disabled],input[type='button'][disabled],input[type='reset'][disabled],input[type='submit'][disabled]{cursor:default;opacity:.5;background-color:#606c76;color:#0001b1}
+.button[disabled]:focus,.button[disabled]:hover,button[disabled]:focus,button[disabled]:hover,input[type='button'][disabled]:focus,input[type='button'][disabled]:hover,input[type='reset'][disabled]:focus,input[type='reset'][disabled]:hover,input[type='submit'][disabled]:focus,input[type='submit'][disabled]:hover{background-color:#606c76}
 .button.button-outline,button.button-outline,input[type='button'].button-outline,input[type='reset'].button-outline,input[type='submit'].button-outline{background-color:transparent;color:#0069d9}
 .button.button-outline:focus,.button.button-outline:hover,button.button-outline:focus,button.button-outline:hover,input[type='button'].button-outline:focus,input[type='button'].button-outline:hover,input[type='reset'].button-outline:focus,input[type='reset'].button-outline:hover,input[type='submit'].button-outline:focus,input[type='submit'].button-outline:hover{background-color:transparent;border-color:#606c76;color:#606c76}
 .button.button-outline[disabled]:focus,.button.button-outline[disabled]:hover,button.button-outline[disabled]:focus,button.button-outline[disabled]:hover,input[type='button'].button-outline[disabled]:focus,input[type='button'].button-outline[disabled]:hover,input[type='reset'].button-outline[disabled]:focus,input[type='reset'].button-outline[disabled]:hover,input[type='submit'].button-outline[disabled]:focus,input[type='submit'].button-outline[disabled]:hover{border-color:inherit;color:#0069d9}
@@ -633,7 +633,7 @@ pre{padding: 1em;}
     height: 170px;
 }
 
-.all .page_navig{
+/* .all .page_navig{
   margin-top: 35px;
 }
 
@@ -650,6 +650,23 @@ pre{padding: 1em;}
 .all .page_navig a:hover{
   background-color: #0010bb;
   color: #fff;
+} */
+
+
+.page_navig{
+  background-color: #fff;
+  width: fit-content;
+  padding-top: 8px;
+  padding-right: 5px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px,
+  rgb(0 0 0 / 5%) 0px 28px 23px -7px,
+  rgb(0 0 0 / 4%) 0px 12px 12px -7px;
+}
+
+.page_navig button{
+  width: 20px;
+  height: 25px;
+  font-size: x-small;
 }
 
 [data-component="slideshow"] .slide {
@@ -2462,6 +2479,10 @@ header nav a {
   #slider{
     margin: 120px 25px;
   }
+
+  .logo-ecommerce div p{
+    font-size: larger;
+  }
   }
   
   .content .a1 .box{
@@ -2735,6 +2756,12 @@ label {
   position: relative;
 }
 
+.sider{
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px,
+  rgb(0 0 0 / 5%) 0px 28px 23px -7px,
+  rgb(0 0 0 / 4%) 0px 12px 12px -7px;
+}
+
 .side{
   /* border: 1px solid rgba(0, 0, 0, 0.295); */
   text-align: center;
@@ -2886,6 +2913,9 @@ label {
   background-color: #fff ;
   border: 1px solid rgb(225, 225, 225);
   border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px,
+  rgb(0 0 0 / 5%) 0px 28px 23px -7px,
+  rgb(0 0 0 / 4%) 0px 12px 12px -7px;
   /* box-shadow:1px 1px 15px 1px  rgba(0, 0, 0, 0.105); */
   margin: 5% 10% 5% 10% ;
   /* background: url("/show_produit/produit.id_produit") */
