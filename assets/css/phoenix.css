@@ -797,6 +797,10 @@ pre{padding: 1em;}
   text-transform: capitalize;
 }
 
+#list-items a:hover{
+  color: #606c76;
+}
+
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
@@ -2725,6 +2729,10 @@ header nav a {
   font-weight: bold;
   /* margin-left: 30px; */
   white-space: nowrap;
+}
+
+.sider .panel ul li a:hover{
+  color: #606c76;
 }
 
 .form-tri{
