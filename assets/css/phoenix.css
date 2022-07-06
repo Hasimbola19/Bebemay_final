@@ -481,9 +481,9 @@ pre{padding: 1em;}
   color: #fff;
   cursor: pointer;
   padding: 5.5px 20px 5.5px 5.5px;
-  /* padding-left: 20px; */
+  padding-left: 20px;
   /* position: relative; */
-  width: 250px;
+  width: 255px;
   border: none;
   text-align: left;
   outline: none;
@@ -783,6 +783,8 @@ pre{padding: 1em;}
 #list-items{
   display: block;
   width: 225px;
+  text-align: left;
+  padding-left: 50px;
  /* position: absolute;
   background-color: #000;*/
 }
@@ -790,7 +792,7 @@ pre{padding: 1em;}
 #list-items a{
   display: block;
   color: #000;
-  background-color: #c0bbaa;
+  /* background-color: #c0bbaa; */
   font-weight: bold;
   text-transform: capitalize;
 }

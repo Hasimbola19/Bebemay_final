@@ -130,7 +130,7 @@
             </div>
           </li>
          </ul>
-        <div class="hamburger" id="hum">
+        <div class="hamburger" id="ham">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -145,7 +145,7 @@
   var acc = document.getElementsByClassName("accordi");
   var i;
 
-  for (i = 0; i < acc.length; i++) {
+ /* for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
       this.classList.toggle("actif");
       var panell = this.nextElementSibling;
@@ -155,10 +155,11 @@
         pane.style.maxHeight = pane.scrollHeight + "px";
       }
     });
-  }
+  } */
+
   </script>
   <script>
-      const hamburger = document.getElementById('hum');
+      const hamburger = document.getElementById('ham');
       const navMenu = document.querySelector(".menu");
       const navLink = document.querySelectorAll(".nav-link");
 
@@ -181,7 +182,7 @@
     <script>
      var acc = document.getElementsByClassName("accord");
       var i;
-      for (i = 0; i < acc.length; i++) {
+       for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
           this.classList.toggle("activer");
           var pane = document.getElementsByClassName("pane")
