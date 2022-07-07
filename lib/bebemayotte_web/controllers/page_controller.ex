@@ -201,7 +201,7 @@ defmodule BebemayotteWeb.PageController do
     recup_adr = UserRequette.get_user_adresse_message(adresseMessage)
     user_email = adresseMessage
     token = Bebemayotte.Token.generate_new_account_token(adresseMessage)
-    verification_url = "https://bbmay.fr/verification_email?token=#{token}"
+    verification_url = "http://162.19.74.21/verification_email?token=#{token}"
 
     user = %{
       "id_user" => last_row_id,
