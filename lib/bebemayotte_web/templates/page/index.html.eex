@@ -26,56 +26,110 @@
         <section class="content">
           <div class="a1">
             <div class=box>
-            <a href="/produit/ACCESSOIRES">
-              <img src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
+              <img class="img" src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
               <div class= "box-content">
                 <a href="/produit/ACCESSOIRES" class="title">Accessoires</a>
               </div>
-            </a>
+              <div class="souscat" id="overlay">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "ACCESSOIRES" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
             </div>
             <div class="box">
-            <a href="/produit/SORTIE">
-              <img src="<%= Routes.static_path(@conn, "/images/article2.png") %>" >
+              <img class="img" src="<%= Routes.static_path(@conn, "/images/article2.png") %>" >
               <div class="box-content">
                 <a href="/produit/SORTIE" class="title">Sortie</a>
               </div>
-            </a>
+              <div class="souscat" id="overlay">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "SORTIE" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
             </div>
           </div>
           <div class="a1">
             <div class="box">
-            <a href="/produit/PROMENADE">
-              <img src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
+              <img class="img" src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
               <div class="box-content">
                 <a href="/produit/PROMENADE" class="title">Promenade</a>
               </div>
-            </a>
+              <div class="souscat" id="overlay">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "PROMENADE" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
             </div>
             <div class="box">
-            <a href="/produit/TEXTILE">
-              <img src="<%= Routes.static_path(@conn, "/images/article5.png") %>" >
+              <img class="img" src="<%= Routes.static_path(@conn, "/images/article5.png") %>" >
               <div class="box-content">
-                <a href="/produit/TEXTILE" class="title">Textile</a>
+                <a href="/produit/DIVERS" class="title">Divers</a>
               </div>
-            </a>
+              <div class="souscat" id="overlay">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "DIVERS" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
             </div>
           </div>
           <div class="a1">
             <div class="box">
-            <a href="/produit/SOMMEIL">
-              <img src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
+              <img class="img" src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
               <div class="box-content">
                 <a href="/produit/SOMMEIL" class="title">Sommeil</a>
               </div>
-            </a>
+              <div class="souscat" id="overlay">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "SOMMEIL" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
             </div>
             <div class="box">
-            <a href="/produit/JEU">
-              <img src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
+              <img class="img" src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
               <div class="box-content">
                 <a href="/produit/JEU" class="title">Jeux</a>
               </div>
-            </a>
+              <div class="souscat" id="overlay">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "JEU" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
             </div>
           </div>
         </section>
@@ -93,7 +147,8 @@
   </div>
 </section>
 
-  <div class="separation"><span class=></span></div>
+  <div class="separation"><span class=></span>
+  </div>
 
 <section class="row ph">
   <article class="column">
