@@ -115,6 +115,24 @@ defmodule BebemayotteWeb.PageController do
     end
   end
 
+  def verification(conn, %{"token" => token}) do
+    categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
+    user = Plug.Conn.get_session(conn, :user)
+
+    IO.puts "USER"
+    IO.inspect user
+    with  {:ok, id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
+      UserRequette.insert_user(user)
+      conn
+        |> put_flash(:info_reussi, "Inscription validé veuillez vous connecter")
+        |> delete_session(:user)
+        |> render("connexion.html", categories: categories,souscategories: souscategories, search: nil)
+    else
+      _ -> render(conn, "index.html", categories: categories,souscategories: souscategories, search: nil)
+    end
+  end
+
   def verify_email(conn, _) do
     conn
       |> put_flash(:error, "Erreur lors de la validation de l'email")
@@ -177,8 +195,13 @@ defmodule BebemayotteWeb.PageController do
     "adresseMessage" => adresseMessage,
     "motdepasse" => motdepasse
   }}) do
-
+    categories = CatRequette.get_all_categorie()
+    souscategories = SouscatRequette.get_all_souscategorie()
     last_row_id = UserRequette.get_user_last_row_id()
+    recup_adr = UserRequette.get_user_adresse_message(adresseMessage)
+    user_email = adresseMessage
+    token = Bebemayotte.Token.generate_new_account_token(adresseMessage)
+    verification_url = "https://bbmay.fr/verification_email?token=#{token}"
 
     user = %{
       "id_user" => last_row_id,
@@ -200,8 +223,6 @@ defmodule BebemayotteWeb.PageController do
 
     IO.inspect(user)
 
-    recup_adr = UserRequette.get_user_adresse_message(adresseMessage)
-
     cond do
       recup_adr == true ->
         conn
@@ -209,10 +230,19 @@ defmodule BebemayotteWeb.PageController do
         |> redirect(to: Routes.page_path(conn, :inscription))
 
       recup_adr == false -> #and recup_id == false ->
-        IO.inspect UserRequette.insert_user(user)
+        Bebemayotte.Email.send_verification_mail(user_email, verification_url) |> Mailer.deliver_now()
         conn
-        |> put_flash(:info_reussi, "Création de compte terminé! Veuillez vous connectez maitenant!!")
-        |> redirect(to: Routes.page_path(conn, :connexion))
+          |> put_flash(:info_reussi, "Un mail a été envoyé à #{adresseMessage}")
+          |> put_session(:user, user)
+          |> render( "verifier.html", categories: categories, souscategories: souscategories, search: nil)
+      # with  {:ok, id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
+      #   UserRequette.insert_user(user)
+      #   conn
+      #   |> put_flash(:info_reussi, "Création de compte terminé! Veuillez vous connectez maitenant!!")
+      #   |> render("connexion.html", categories: categories,souscategories: souscategories, search: nil)
+      # else
+      #   _ -> render(conn, "index.html", categories: categories,souscategories: souscategories, search: nil)
+      # end
     end
   end
 

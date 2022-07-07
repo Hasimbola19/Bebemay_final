@@ -132,7 +132,7 @@ defmodule Bebemayotte.UserRequette do
 
     case id do
       nil -> false
-      _ -> id
+      _ -> true
     end
   end
 
