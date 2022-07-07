@@ -26,11 +26,11 @@
         <section class="content">
           <div class="a1">
             <div class=box>
-              <img class="img" src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
+              <img id="img0" src="<%= Routes.static_path(@conn, "/images/article1.png") %>" >
               <div class= "box-content">
                 <a href="/produit/ACCESSOIRES" class="title">Accessoires</a>
               </div>
-              <div class="souscat" id="overlay">
+              <div class="souscat" id="overlay0">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
                   <%= if categorie.nom_cat == "ACCESSOIRES" do %>
@@ -43,11 +43,11 @@
               </div>
             </div>
             <div class="box">
-              <img class="img" src="<%= Routes.static_path(@conn, "/images/article2.png") %>" >
+              <img id="img1" src="<%= Routes.static_path(@conn, "/images/article2.png") %>" >
               <div class="box-content">
                 <a href="/produit/SORTIE" class="title">Sortie</a>
               </div>
-              <div class="souscat" id="overlay">
+              <div class="souscat" id="overlay1">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
                   <%= if categorie.nom_cat == "SORTIE" do %>
@@ -62,11 +62,11 @@
           </div>
           <div class="a1">
             <div class="box">
-              <img class="img" src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
+              <img id="img2" src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
               <div class="box-content">
                 <a href="/produit/PROMENADE" class="title">Promenade</a>
               </div>
-              <div class="souscat" id="overlay">
+              <div class="souscat" id="overlay2">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
                   <%= if categorie.nom_cat == "PROMENADE" do %>
@@ -79,11 +79,11 @@
               </div>
             </div>
             <div class="box">
-              <img class="img" src="<%= Routes.static_path(@conn, "/images/article5.png") %>" >
+              <img id="img3" src="<%= Routes.static_path(@conn, "/images/article5.png") %>" >
               <div class="box-content">
                 <a href="/produit/DIVERS" class="title">Divers</a>
               </div>
-              <div class="souscat" id="overlay">
+              <div class="souscat" id="overlay3">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
                   <%= if categorie.nom_cat == "DIVERS" do %>
@@ -98,11 +98,11 @@
           </div>
           <div class="a1">
             <div class="box">
-              <img class="img" src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
+              <img id="img4" src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
               <div class="box-content">
                 <a href="/produit/SOMMEIL" class="title">Sommeil</a>
               </div>
-              <div class="souscat" id="overlay">
+              <div class="souscat" id="overlay4">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
                   <%= if categorie.nom_cat == "SOMMEIL" do %>
@@ -115,11 +115,11 @@
               </div>
             </div>
             <div class="box">
-              <img class="img" src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
+              <img id="img5" src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
               <div class="box-content">
                 <a href="/produit/JEU" class="title">Jeux</a>
               </div>
-              <div class="souscat" id="overlay">
+              <div class="souscat" id="overlay5">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
                   <%= if categorie.nom_cat == "JEU" do %>
@@ -177,6 +177,26 @@
 
   </article>
 </section>
+<script>
+    document.getElementById("img0").addEventListener("click", function(){
+      document.getElementById("overlay0").classList.toggle('active_souscat');
+    })
+     document.getElementById("img1").addEventListener("click", function(){
+      document.getElementById("overlay1").classList.toggle('active_souscat');
+    })
+    document.getElementById("img2").addEventListener("click", function(){
+      document.getElementById("overlay2").classList.toggle('active_souscat');
+    })
+    document.getElementById("img3").addEventListener("click", function(){
+      document.getElementById("overlay3").classList.toggle('active_souscat');
+    })
+    document.getElementById("img4").addEventListener("click", function(){
+      document.getElementById("overlay4").classList.toggle('active_souscat');
+    })
+    document.getElementById("img5").addEventListener("click", function(){
+      document.getElementById("overlay5").classList.toggle('active_souscat');
+    })
+</script>
 <script>
 
 var slideshows = document.querySelectorAll('[data-component="slideshow"]');

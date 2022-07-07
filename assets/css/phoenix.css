@@ -2511,12 +2511,11 @@ header nav a {
   transition: all 0.3s ease 0s;
 }
 /**/
-.box .ing{
+/* .box .ing{
   opacity: 1;
-}
+} */
 
 .souscat{
-  opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2524,16 +2523,20 @@ header nav a {
   text-align: center;
   width: 100%;
   transition: .8s ease;
+  display: none;
 }
 
-.box:hover .souscat{
+.active_souscat{
+  display: block;
+}
+
+/* .box:hover .souscat{
   opacity: 1;
 }
 
 .box:hover .img{
   opacity: 0.3;
-}
-
+} */
 
 .box .souscat a{
   font-weight: bold;
