@@ -2411,7 +2411,7 @@ header nav a {
 
   .ph{
     padding: 0 5%;
-    margin-top: 640px;
+    /* margin-top: 640px; */
   }
   .titre{
     font-family: "Comic Sans MS", sans-serif;
