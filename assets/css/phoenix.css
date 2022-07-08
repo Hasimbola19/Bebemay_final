@@ -1488,6 +1488,11 @@ img {vertical-align: middle;}
     border-radius: 5px;
     padding: 5px;
   }
+
+  .product .box-contact .form div input{
+    font-size: 15px;
+    font-weight: bolder;
+  }
 }
 
 @media only screen and (max-width: 726px){
@@ -1581,6 +1586,11 @@ img {vertical-align: middle;}
   .logo-ecommerce div p{
     font-size: medium;
     margin-left: 15px;
+  }
+
+  .product .box-contact .form div input{
+    font-size: 10px;
+    font-weight: bolder;
   }
 }
 
@@ -2429,7 +2439,7 @@ header nav a {
   }
   .containeur{
     position: absolute;
-    top: 40%;
+    /* top: 40%; */
     text-align: right;
   }
   @media (max-width:639px) {
@@ -2531,12 +2541,16 @@ header nav a {
   opacity: 0;
   transition: opacity .25s ease-in-out;
   visibility: hidden;
+
 }
 
 .active_souscat{
   /* display: block; */
   opacity: 1;
   visibility: visible;
+  height: auto;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 /* .box:hover .souscat{
