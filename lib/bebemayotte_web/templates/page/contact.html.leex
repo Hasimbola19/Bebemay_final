@@ -8,20 +8,22 @@
     </div>
     <div class="box-contact">
         <h1>CONTACT</h1>
-        <form method="post" action="" class="form">
+        <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
+        <p class="alert alert-danger"><%= live_flash(@flash, :error)%></p>
+        <form phx-submit="send" class="form">
             <div>
                 <input type="text" placeholder="Entrez votre Nom (obligatoire)" required >
             </div>
             <div>
-                <input type="email" placeholder="Votre adresse de messagerie (obligatoire)" required>
+                <input type="email" name="email" placeholder="Votre adresse de messagerie (obligatoire)" required>
             </div>
             <fieldset>
             <h2>Votre Message</h2>
-            <textarea></textarea>
+            <textarea name="textarea"></textarea>
             </fieldset>
-            <div class="row section">
+            <!--<div class="row section">
 
-            </div>
+            </div>-->
             <button type="submit" class="btn">Envoyer</button>
         </form>
     </div>

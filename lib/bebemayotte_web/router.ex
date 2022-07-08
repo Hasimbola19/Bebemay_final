@@ -44,7 +44,7 @@ defmodule BebemayotteWeb.Router do
     get "/restauration", PageController, :restore_password
     post "/restorations", PageController, :send_token
     get "/verify_email", PageController, :verify_email
-    get "verification_email", PageController, :verification
+    get "/verification_email", PageController, :verification
     post "/updt_password", PageController, :mod_password
 
       # CLIENT REACTION

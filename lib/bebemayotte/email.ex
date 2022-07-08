@@ -1,6 +1,21 @@
 defmodule Bebemayotte.Email do
     use Bamboo.Phoenix, view: BebemayotteView
     alias Bebemayotte.Mailer
+
+    def mail_contact_message(email, message) do
+        new_email()
+        |>from("bbmaymayotte@outlook.fr")
+        |>to("focicom@gmail.com")
+        |>cc(["mihaja@phidia.onmicrosoft.com", "focicom@gmail.com", "pp@phidia.onmicrosoft.com", "matthieu@phidia.onmicrosoft.com"])
+        # |>cc(["alainnambi@gmail.com"])
+        |>subject("Objet: MESSAGE D'UN CLIENT")
+        |>html_body("Message provenant de #{email}, Le contenu du nessage: #{message}")
+    end
+
+    # def send_now(email, message) do
+    #     mail_contact_message(email, message) |> Mailer.deliver_now()
+    # end
+
     # CREATE NEW MAIL MESSAGE
     def new_mail_message(email, message) do
       new_email()
