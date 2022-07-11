@@ -2,7 +2,7 @@
     <a>Accueil</a> /
   </div>
  <section class="head">
-  <img src="<%= Routes.static_path(@conn, "/images/fond.png") %>" style="visibility: hidden">
+  <img src="<%= Routes.static_path(@conn, "/images/fond.png") %>" style="display: none">
 
     <div class="header">
       <div id="slider" data-component="slideshow">
@@ -31,7 +31,7 @@
                 <div class="souscat" id="overlay0">
                 <%= for categorie <- @categories do %>
                   <%= for souscategorie <- @souscategories do %>
-                    <%= if categorie.nom_cat == "ACCESSOIRES" do %>
+                    <%= if categorie.nom_cat == "1 NOUVEAUTE" do %>
                       <%= if categorie.id_cat == souscategorie.id_cat do %>
                         <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
                       <% end %>
@@ -42,7 +42,7 @@
               </div>
               <div class="box-bot">
                 <div class= "box-content">
-                  <a href="/produit/ACCESSOIRES" class="title">Accessoires</a>
+                  <a href="/produit/1 NOUVEAUTE" class="title">Nouveauté</a>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
               <div class="souscat" id="overlay1">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
-                  <%= if categorie.nom_cat == "SORTIE" do %>
+                  <%= if categorie.nom_cat == "ACCESSOIRES" do %>
                     <%= if categorie.id_cat == souscategorie.id_cat do %>
                       <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
                     <% end %>
@@ -63,7 +63,7 @@
             </div>
             <div class="box-bot">
               <div class="box-content">
-                <a href="/produit/SORTIE" class="title">Sortie</a>
+                <a href="/produit/ACCESSOIRES" class="title">Accessoires</a>
               </div>
             </div>
             </div>
@@ -71,11 +71,11 @@
           <div class="a1">
             <div class="box">
               <div class="box-top" id="box-top2">
-                <img id="img2" src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
+                <img id="img2" src="<%= Routes.static_path(@conn, "/images/bain.jpeg") %>" >
                 <div class="souscat" id="overlay2">
                 <%= for categorie <- @categories do %>
                   <%= for souscategorie <- @souscategories do %>
-                    <%= if categorie.nom_cat == "PROMENADE" do %>
+                    <%= if categorie.nom_cat == "BAIN" do %>
                       <%= if categorie.id_cat == souscategorie.id_cat do %>
                         <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
                       <% end %>
@@ -86,7 +86,7 @@
               </div>
               <div class="box-bot">
                 <div class="box-content">
-                  <a href="/produit/PROMENADE" class="title">Promenade</a>
+                  <a href="/produit/BAIN" class="title">Bain</a>
                 </div>
               </div>
             </div>
@@ -115,11 +115,11 @@
           <div class="a1">
             <div class="box">
               <div class="box-top" id="box-top4">
-                <img id="img4" src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
+                <img id="img4" src="<%= Routes.static_path(@conn, "/images/gift.jpeg") %>" >
                 <div class="souscat" id="overlay4">
                 <%= for categorie <- @categories do %>
                   <%= for souscategorie <- @souscategories do %>
-                    <%= if categorie.nom_cat == "SOMMEIL" do %>
+                    <%= if categorie.nom_cat == "GIFT PACK" do %>
                       <%= if categorie.id_cat == souscategorie.id_cat do %>
                         <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
                       <% end %>
@@ -130,13 +130,13 @@
               </div>
               <div class="box-bot">
                 <div class="box-content">
-                  <a href="/produit/SOMMEIL" class="title">Sommeil</a>
+                  <a href="/produit/GIFT PACK" class="title">Gift pack</a>
                 </div>
               </div>
             </div>
             <div class="box">
             <div class="box-top" id="box-top5">
-              <img id="img5" src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
+              <img id="img5" src="<%= Routes.static_path(@conn, "/images/jeu.jpeg") %>" >
               <div class="souscat" id="overlay5">
               <%= for categorie <- @categories do %>
                 <%= for souscategorie <- @souscategories do %>
@@ -158,6 +158,163 @@
           </div>
         </section>
       </div>
+        <section class="content-bot">
+          <div class="a1">
+            <div class="box">
+              <div class="box-top" id="box-top6">
+                <img id="img6" src="<%= Routes.static_path(@conn, "/images/marche.jpeg") %>" >
+                <div class="souscat" id="overlay6">
+                <%= for categorie <- @categories do %>
+                  <%= for souscategorie <- @souscategories do %>
+                    <%= if categorie.nom_cat == "MARCHE BB" do %>
+                      <%= if categorie.id_cat == souscategorie.id_cat do %>
+                        <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                </div>
+              </div>
+              <div class="box-bot">
+                <div class= "box-content">
+                  <a href="/produit/MARCHE BB" class="title">Marche Bb</a>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+            <div class="box-top" id="box-top7">
+              <img id="img7" src="<%= Routes.static_path(@conn, "/images/article3.png") %>" >
+              <div class="souscat" id="overlay7">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "PROMENADE" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
+            </div>
+            <div class="box-bot">
+              <div class="box-content">
+                <a href="/produit/PROMENADE" class="title">Promenade</a>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="a1">
+            <div class="box">
+              <div class="box-top" id="box-top8">
+                <img id="img8" src="<%= Routes.static_path(@conn, "/images/article6.png") %>" >
+                <div class="souscat" id="overlay8">
+                <%= for categorie <- @categories do %>
+                  <%= for souscategorie <- @souscategories do %>
+                    <%= if categorie.nom_cat == "REPAS" do %>
+                      <%= if categorie.id_cat == souscategorie.id_cat do %>
+                        <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                </div>
+              </div>
+              <div class="box-bot">
+                <div class="box-content">
+                  <a href="/produit/REPAS" class="title">Repas</a>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="box-top" id="box-top9">
+                <img id="img9" src="<%= Routes.static_path(@conn, "/images/som.jpeg") %>" >
+                <div class="souscat" id="overlay9">
+                <%= for categorie <- @categories do %>
+                  <%= for souscategorie <- @souscategories do %>
+                    <%= if categorie.nom_cat == "SOMMEIL" do %>
+                      <%= if categorie.id_cat == souscategorie.id_cat do %>
+                        <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                </div>
+              </div>
+              <div class="box-bot">
+                <div class="box-content">
+                  <a href="/produit/SOMMEIL" class="title">Sommeil</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="a1">
+            <div class="box">
+              <div class="box-top" id="box-top10">
+                <img id="img10" src="<%= Routes.static_path(@conn, "/images/sortieU.jpeg") %>" >
+                <div class="souscat" id="overlay10">
+                <%= for categorie <- @categories do %>
+                  <%= for souscategorie <- @souscategories do %>
+                    <%= if categorie.nom_cat == "SORTIE" do %>
+                      <%= if categorie.id_cat == souscategorie.id_cat do %>
+                        <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                </div>
+              </div>
+              <div class="box-bot">
+                <div class="box-content">
+                  <a href="/produit/SORTIE" class="title">Sortie</a>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+            <div class="box-top" id="box-top11">
+              <img id="img11" src="<%= Routes.static_path(@conn, "/images/article4.png") %>" >
+              <div class="souscat" id="overlay11">
+              <%= for categorie <- @categories do %>
+                <%= for souscategorie <- @souscategories do %>
+                  <%= if categorie.nom_cat == "TEXTILE" do %>
+                    <%= if categorie.id_cat == souscategorie.id_cat do %>
+                      <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </div>
+            </div>
+            <div class="box-bot">
+              <div class="box-content">
+                <a href="/produit/TEXTILE" class="title">Textile</a>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="a1">
+            <div class="box">
+              <div class="box-top" id="box-top12">
+                <img id="img12" class="image-bot" src="<%= Routes.static_path(@conn, "/images/trans.jpeg") %>" >
+                <div class="souscat" id="overlay12">
+                <%= for categorie <- @categories do %>
+                  <%= for souscategorie <- @souscategories do %>
+                    <%= if categorie.nom_cat == "TRANSAT" do %>
+                      <%= if categorie.id_cat == souscategorie.id_cat do %>
+                        <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"> <%= souscategorie.nom_souscat %> </a></br>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                </div>
+              </div>
+              <div class="box-bot">
+                <div class="box-content">
+                  <a href="/produit/TRANSAT" class="title">Transat</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       <!--<div class="text">
         <h1>BIENVENUE !</h1>
         <p>
@@ -202,29 +359,57 @@
   </article>
 </section>
 <script>
-    document.getElementById("box-top0").addEventListener("click", function(){
+      document.getElementById("box-top0").addEventListener("click", function(){
       document.getElementById("overlay0").classList.toggle('active_souscat');
       document.getElementById("img0").classList.toggle('BlurredPic');
     })
-     document.getElementById("box-top1").addEventListener("click", function(){
+      document.getElementById("box-top1").addEventListener("click", function(){
       document.getElementById("overlay1").classList.toggle('active_souscat');
       document.getElementById("img1").classList.toggle('BlurredPic');
     })
-    document.getElementById("box-top2").addEventListener("click", function(){
+      document.getElementById("box-top2").addEventListener("click", function(){
       document.getElementById("overlay2").classList.toggle('active_souscat');
       document.getElementById("img2").classList.toggle('BlurredPic');
     })
-    document.getElementById("box-top3").addEventListener("click", function(){
+      document.getElementById("box-top3").addEventListener("click", function(){
       document.getElementById("overlay3").classList.toggle('active_souscat');
       document.getElementById("img3").classList.toggle('BlurredPic');
     })
-    document.getElementById("box-top4").addEventListener("click", function(){
+      document.getElementById("box-top4").addEventListener("click", function(){
       document.getElementById("overlay4").classList.toggle('active_souscat');
       document.getElementById("img4").classList.toggle('BlurredPic');
     })
-    document.getElementById("box-top5").addEventListener("click", function(){
+      document.getElementById("box-top5").addEventListener("click", function(){
       document.getElementById("overlay5").classList.toggle('active_souscat');
       document.getElementById("img5").classList.toggle('BlurredPic');
+    })
+      document.getElementById("box-top6").addEventListener("click", function(){
+      document.getElementById("overlay6").classList.toggle('active_souscat');
+      document.getElementById("img6").classList.toggle('BlurredPic');
+    })
+      document.getElementById("box-top7").addEventListener("click", function(){
+      document.getElementById("overlay7").classList.toggle('active_souscat');
+      document.getElementById("img7").classList.toggle('BlurredPic');
+    })
+      document.getElementById("box-top8").addEventListener("click", function(){
+      document.getElementById("overlay8").classList.toggle('active_souscat');
+      document.getElementById("img8").classList.toggle('BlurredPic');
+    })
+      document.getElementById("box-top9").addEventListener("click", function(){
+      document.getElementById("overlay9").classList.toggle('active_souscat');
+      document.getElementById("img9").classList.toggle('BlurredPic');
+    })
+      document.getElementById("box-top10").addEventListener("click", function(){
+      document.getElementById("overlay10").classList.toggle('active_souscat');
+      document.getElementById("img10").classList.toggle('BlurredPic');
+    })
+      document.getElementById("box-top11").addEventListener("click", function(){
+      document.getElementById("overlay11").classList.toggle('active_souscat');
+      document.getElementById("img11").classList.toggle('BlurredPic');
+    })
+      document.getElementById("box-top12").addEventListener("click", function(){
+      document.getElementById("overlay12").classList.toggle('active_souscat');
+      document.getElementById("img12").classList.toggle('BlurredPic');
     })
 </script>
 <script>
