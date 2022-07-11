@@ -211,6 +211,7 @@ defmodule BebemayotteWeb.CompteController do
   def annule(conn, params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+
     sale = params["Mt"]
     mt = String.split_at(sale, -2) |> elem(0)
     dc = String.split_at(sale, -2) |> elem(1)
@@ -218,6 +219,13 @@ defmodule BebemayotteWeb.CompteController do
     ref = params["Ref"]
     auto = params["Auto"]
     erreur = params["Erreur"]
+
+    # ref = ""
+    # auto = ""
+    # montant = ""
+    # erreur = ""
+
+
     # id = Plug.Conn.get_session(conn, :user_id)
     # panier = Plug.Conn.get_session(conn, :paniers)
     # quantite = Plug.Conn.get_session(conn, :quantites)
@@ -234,8 +242,15 @@ defmodule BebemayotteWeb.CompteController do
     #   subtotal = Decimal.to_float(price) * quantity
     #   prix_unitaire = :erlang.float_to_binary(Decimal.to_float(price), [decimals: 2])
     #   sous_total = :erlang.float_to_binary(subtotal, [decimals: 2])
+    #   produit = ProdRequette.get_produit_by_id_produit(pn)
+    #   pic = cond do
+    #     not is_nil(produit.photolink) ->
+    #       produit.photolink
+    #     true ->
+    #       "/images/empty.png"
+    #   end
     #   "<tr style=\"border: 1px solid grey;border-collapse: collapse;\">
-    #     <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\">#{title}</td>
+    #     <td style=\"display: flex;border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\"><img src=\"https://bbmay.fr#{pic}\" height=\"80\" width=\"80\" style=\"margin: auto;\"><p style=\"margin: auto; margin-left: 10px;\">#{title}</p></td>
     #     <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">#{quantity}</td>
     #     <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">€#{prix_unitaire}</td>
     #   </tr style=\"border: 1px solid grey;border-collapse: collapse;\">"
@@ -289,8 +304,15 @@ defmodule BebemayotteWeb.CompteController do
           subtotal = Decimal.to_float(price) * quantity
           prix_unitaire = :erlang.float_to_binary(Decimal.to_float(price), [decimals: 2])
           sous_total = :erlang.float_to_binary(subtotal, [decimals: 2])
+          produit = ProdRequette.get_produit_by_id_produit(pn)
+          pic = cond do
+            not is_nil(produit.photolink) ->
+              produit.photolink
+            true ->
+              "/images/empty.png"
+          end
           "<tr style=\"border: 1px solid grey;border-collapse: collapse;\">
-            <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\">#{title}</td>
+            <td style=\"display: flex;border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;width: 200px;\"><img src=\"https://bbmay.fr#{pic}\" height=\"80\" width=\"80\" style=\"margin: auto;\"><p style=\"margin: auto; margin-left: 10px;\">#{title}</p></td>
             <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">#{quantity}</td>
             <td style=\"border: 1px solid grey;border-collapse: collapse;padding: 15px;height: 100px;font-family: Arial, Helvetica, sans-serif;\">€#{prix_unitaire}</td>
           </tr style=\"border: 1px solid grey;border-collapse: collapse;\">"
