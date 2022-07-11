@@ -20,7 +20,7 @@ defmodule Bebemayotte.MixProject do
   def application do
     [
       mod: {Bebemayotte.Application, []},
-      extra_applications: [:logger, :runtime_tools, :bamboo]
+      extra_applications: [:logger, :runtime_tools, :bamboo, :bamboo_smtp]
     ]
   end
 
@@ -47,8 +47,10 @@ defmodule Bebemayotte.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:tds, "~> 2.1.3"},
-      {:bamboo, "~> 0.7"},
-      {:bamboo_smtp, "~> 1.2.1"},
+      {:bamboo, "~> 2.2"},
+      {:bamboo_phoenix, "~> 1.0"},
+      {:bamboo_smtp, "~> 4.2"},
+      {:pdf_generator, "~> 0.6.2"},
       {:stripity_stripe, git: "https://github.com/code-corps/stripity_stripe",
     ref: "e593641f4087d669f48c1e7435be181bbe3990e0"}
     ]
