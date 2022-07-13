@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
@@ -162,227 +162,339 @@
             <div id="popup1" class="overlay">
                 <div class="popup">
                     <a class="close" href="#">&times;</a>
-                    <div class="content-pop">
-                        <h1>DEFINITION DES PARTIES</h1>
-                        <p>
-                            Entre la Société BBMAY,<br>
-                            Rd point Kaweni , 97600, MAMOUDZOU<br>
-                            au Capital Social de 00000€,<br>
-                            immatriculée au Registre du Commerce et des Sociétés de MAMOUDZOU,<br>
-                            sous le numéro SIRET 000000,<br>
-                            représentée par Mr Naylhoussen Cheraly
-                            en qualité de Gérant,<br>
-                            dûment habilité aux fins des présentes.<br>
-                            La société peut être jointe par email en cliquant sur le formulaire de contact accessible via la page d’accueil du site.<br>
-                            Ci-après le « Vendeur » ou la « Société ».<br>
-                            D’une part,
-                            Et la personne physique ou morale procédant à l’achat de produits ou services de la société,
-                            Ci-après, « l’Acheteur », ou « le Client »
-                            D’autre part,
-                        </p>
-                        <h1>PREAMBULE</h1>
-                        <p>
-                            Le Vendeur est éditeur de produits et de services de Produits pour bébé commercialisés par
-                            l’intermédiaire de son site Internet <a href="https://bbmay.fr"></a>(https://bbmay.fr). <br>
-                            La liste et le descriptif des biens et services proposés par la Société peuvent être consultés
-                            sur le site susmentionné ainsi que ses pages de vente.
-                        </p>
+                  <div class="content-pop">
+                        <h2>Généré par <a class="link">WP-CGV</a></h2>
+                        <style>
+                        .politique ul li{
+                            list-style: square;
+                        }
+                        </style>
+                    <div class="politique">
+                      <h1>POLITIQUE DE CONFIDENTIALITÉ</h1>
+                      <h2>1. Introduction</h2>
 
-                        <h1>ARTICLE 1 - OBJET</h1>
-                        <p>
-                            Les présentes Conditions Générales de Vente déterminent les droits et obligations des parties
-                            ans le cadre de la vente en ligne de Produits et de Services proposés par le Vendeur.
-                        </p>
-                        <h1>ARTICLE 2 - DISPOSITIONS GENERALES</h1>
-                        <p>
-                            Les présentes Conditions Générales de Vente (CGV) s’appliquent à toutes les ventes de Produits,
-                            ou Services effectuées au travers du site Internet de la Société et sont partie intégrante du
-                            Contrat entre l’Acheteur et le Vendeur. Le Vendeur se réserve la possibilité de modifier les
-                            présentes, à tout moment par la publication d’une nouvelle version sur son site Internet.<br>
-                            Les CGV applicables alors sont celles étant en vigueur à la date du paiement (ou du premier paiement
-                            en cas de paiements multiples) de la commande. <br>
-                            Ces CGV sont consultables sur le site Internet de la Société à l’adresse suivante : <a href="https://bbmay.fr/legal">https://bbmay.fr/legal</a> . <br>
-                            La Société s’assure également que leur acceptation soit claire et sans réserve au moment de l’achat.<br>
-                            Le Client déclare avoir pris connaissance de l’ensemble des présentes Conditions Générales de Vente,
-                            et le cas échéant des Conditions Particulières de Vente liées à un produit ou à un service, e
-                            t les accepter sans restriction ni réserve. Le Client reconnaît qu’il a bénéficié des conseils et informations
-                            nécessaires afin de s’assurer de l’adéquation de l’offre à ses besoins. Le Client déclare être en mesure de
-                            contracter légalement en vertu des lois françaises ou valablement représenter la personne physique ou morale
-                            pour laquelle il s’engage. Sauf preuve contraire les informations enregistrées par la Société constituent la
-                            preuve de l’ensemble des transactions.
-                        </p>
-                        <h1>ARTICLE 3 - PRIX</h1>
-                        <p>
-                            Les prix des produits vendus au travers des sites Internet sont indiqués en Euros hors
-                            taxes et précisément déterminés sur les pages de descriptifs des Produits. <br>
-                            Ils sont également indiqués en euros toutes taxes comprises (TVA + autres taxes éventuelles)
-                            sur la page de commande des produits, et hors frais spécifiques d’expédition. <br>
-                            Pour tous les produits expédiés hors Union européenne et/ou DOM-TOM, le prix est calculé hors
-                            taxes automatiquement sur la facture. Des droits de douane ou autres taxes locales ou droits
-                            d’importation ou taxes d’état sont susceptibles d’être exigibles dans certains cas.<br>
-                            Ces droits et sommes ne relèvent pas du ressort du Vendeur. Ils seront à la charge de
-                            l’acheteur et relèvent de sa responsabilité (déclarations, paiement aux autorités compétentes, etc.).<br>
-                            Le Vendeur invite à ce titre l’acheteur à se renseigner sur ces aspects auprès des autorités
-                            locales correspondantes.<br>
-                            La Société se réserve la possibilité de modifier ses prix à tout moment pour l’avenir.<br>
-                            Les frais de télécommunication nécessaires à l’accès aux sites Internet de la Société sont à
-                            la charge du Client. Le cas échéant également, les frais de livraison.
-                        </p>
-                        <h1>ARTICLE 4 - CONCLUSION DU CONTRAT EN LIGNE</h1>
-                        <p>
-                            Le Client devra suivre une série d’étapes spécifiques à chaque Produit ou Service offert à la
-                            vente par le Vendeur pour pouvoir réaliser sa commande.<br>
-                            Toutefois, les étapes décrites ci-après sont systématiques : <br>
-                            – Information sur les caractéristiques essentielles du Produit ; <br>
-                            – Choix du Produit, le cas échéant de ses options et indication des données essentielles du Client (
-                                identification, adresse…) ; <br>
-                            – Acceptation des présentes Conditions Générales de Vente. <br>
-                            – Vérification des éléments de la commande et, le cas échéant, correction des erreurs. <br>
-                            – Suivi des instructions pour le paiement, et paiement des produits. <br>
-                            – Livraison des produits.
-                            Le Client recevra alors confirmation par courrier électronique du paiement de la commande,
-                            ainsi qu’un accusé de réception de la commande la confirmant. <br>
-                            Il recevra un exemplaire .pdf des présentes conditions générales de vente. <br>
-                            Pour les produits livrés, cette livraison se fera à l’adresse indiquée par le Client. <br>
-                            Aux fins de bonne réalisation de la commande, le Client s’engage à fournir ses éléments
-                            d’identification véridiques.<br>
-                            Le Vendeur se réserve la possibilité de refuser la commande, par exemple pour toute demande anormale,
-                            réalisée de mauvaise foi ou pour tout motif légitime.
-                        </p>
-                        <h1>ARTICLE 5 - PRODUITS ET SERVICES</h1>
-                        <p>
-                            Les caractéristiques essentielles des biens, des services et leurs prix respectifs sont mis à
-                            disposition de l’acheteur sur les sites Internet de la société.<br>
-                            Le client atteste avoir reçu un détail des frais de livraison ainsi que les modalités de
-                            paiement, de livraison et d’exécution du contrat. <br>
-                            Le Vendeur s’engage à honorer la commande du Client dans la limite des stocks disponibles uniquement.<br>
-                            A défaut, le Vendeur en informe le Client. <br>
-                            Ces informations contractuelles sont présentées en détail et en langue française. <br>
-                            Conformément à la loi française, elles font l’objet d’un récapitulatif et d’une confirmation
-                            lors de la validation de la commande.<br>
-                            Les parties conviennent que les illustrations ou photos des produits offerts à la vente n’ont
-                            as de valeur contractuelle.<br>
-                            La durée de validité de l’offre des Produits ainsi que leurs prix est précisée sur les pages de
-                            entes des produits, ainsi que la durée minimale des contrats proposés lorsque ceux-ci portent sur
-                            une fourniture continue ou périodique de produits ou services. <br>
-                            Sauf conditions particulières, les droits concédés au titre des présentes le sont uniquement à la
-                            personne physique signataire de la commande (ou la personne titulaire de l’adresse email communiqué).<br>
-                            Conformément aux dispositions légales en matière de conformité et de vices cachés, le Vendeur rembourse ou
-                            échange les produits défectueux ou ne correspondant pas à la commande. Le remboursement peut être demandé en
-                            contactant le Vendeur par email ou lettre simple.
-                        </p>
-                        <h1>ARTICLE 6 - CLAUSE DE RESERVE DE PROPRIETE</h1>
-                        <p>
-                            Les produits demeurent la propriété de la Société jusqu’au complet paiement du prix.
-                        </p>
-                        <h1>ARTICLE 7 - MODALITES DE LIVRAISON</h1>
-                        <p>
-                            Les produits sont livrés à l’adresse de livraison qui a été indiquée lors de la commande et
-                            le délai indiqué. Ce délai ne prend pas en compte le délai de préparation de la commande. <br>
-                            Lorsque le Client commande plusieurs produits en même temps ceux-ci peuvent avoir des délais
-                            de livraison différents acheminés selon des modalités différentes. <br>
-                            Le Vendeur met à disposition un point de contact téléphonique (coût d’une communication locale à partir d’un poste fixe)
-                            indiqué dans l’email de confirmation de commande afin d’assurer le suivi de la commande. <br>
-                            Le Vendeur rappelle qu’au moment où le Client pend possession physiquement des produits, les risques de perte ou
-                            d’endommagement des produits lui est transféré.
-                        </p>
-                        <h1>ARTICLE 8 - DISPONIBILITE ET PRESENTATION</h1>
-                        <p>
-                            Les commandes seront traitées dans la limite de nos stocks disponibles ou sous réserve des
-                            stocks disponibles chez nos fournisseurs.
-                        </p>
-                        <h1>ARTICLE 9 - PAIMENT</h1>
-                        <p>
-                            Le paiement est exigible immédiatement à la commande, y compris pour les produits en
-                            précommande. Le Client peut effectuer le règlement par carte de paiement ou chèque bancaire. <br>
-                            Le paiement sécurisé en ligne par carte bancaire est réalisé par notre prestataire de paiement. <br>
-                            Les informations transmises sont chiffrées dans les règles de l’art et ne peuvent être lues au cours
-                            u transport sur le réseau.<br>
-                            Une fois le paiement réalisé par le Client, la transaction est immédiatement débitée après
-                            vérification des informations.<br>
-                            Conformément aux dispositions du Code monétaire et financier, l’engagement de payer donné par carte
-                            est irrévocable.<br>
-                            En communiquant ses informations bancaires lors de la vente, le Client autorise le Vendeur à débiter
-                            sa carte du montant relatif au prix indiqué.<br>
-                            Le Client confirme qu’il est bien le titulaire légal de la carte à débiter et qu’il est légalement
-                            en droit d’en faire usage. <br>
-                            En cas d’erreur, ou d’impossibilité de débiter la carte, la Vente est immédiatement résolue de
-                            plein droit et la commande annulée.
-                        </p>
-                        <h1>ARTICLE 10 - DELAI DE RETRACTATION</h1>
-                        <p>
-                            Conformément à l’article L. 121-20 du Code de la consommation, « le consommateur dispose d’un délai de quatorze
-                            jours francs pour exercer son droit de rétractation sans avoir à justifier de motifs ni à payer de pénalités,
-                            à l’exception, le cas échéant, des frais de retour ». <br>
-                            « Le délai mentionné à l’alinéa précédent court à compter de la réception pour les biens ou de l’acceptation de
-                            l’offre pour les prestations de services ». <br>
-                            Le droit de rétractation peut être exercé en contactant la Société par email ou téléphone. <br>
-                            En cas d’exercice du droit de rétractation dans le délai susmentionné, seul le prix du ou des produits achetés et
-                            les frais d’envoi seront remboursés, les frais de retour restent à la charge du Client. <br>
-                            Les retours des produits sont à effectuer dans leur état d’origine et complets (emballage, accessoires, notice…)
-                            de sorte qu’ils puissent être recommercialisés à l’état neuf ; ils doivent si possible être accompagnés d’une copie
-                            du justificatif d’achat.
-                        </p>
-                        <h1>ARTICLE 11 - GARANTIES</h1>
-                        <p>
-                             Conformément à la loi, le Vendeur assume deux garanties :
-                             de conformité et relative aux vices cachés des produits.<br>
-                             Le Vendeur rembourse l’acheteur ou échange les produits apparemment défectueux ou ne
-                             correspondant pas à la commande effectuée. <br>
-                             La demande de remboursement doit s’effectuer en contactant le Veneur par email ou par lettre
-                             simple. <br>
-                             Le Vendeur rappelle que le consommateur : <br>
-                             – dispose d’un délai de 2 ans à compter de la délivrance du bien pour agir auprès du Vendeur <br>
-                             – qu’il peut choisir entre le remplacement et la réparation du bien sous réserve des
-                             conditions prévues par les dispositions susmentionnées. apparemment défectueux ou ne
-                             correspondant <br>
-                             – qu’il est dispensé d’apporter la preuve l’existence du défaut de conformité du bien durant
-                             les six mois suivant la délivrance du bien. <br>
-                             – que, sauf biens d’occasion, ce délai sera porté à 24 mois à compter du 18 mars 2016 <br>
-                             – que le consommateur peut également faire valoir la garantie contre les vices cachés de la
-                             chose vendue au sens de l’article 1641 du code civil et, dans cette hypothèse, il peut choisir
-                             entre la résolution de la vente ou une réduction du prix de vente (dispositions des articles
-                             1644 du Code Civil).
-                        </p>
-                        <h1>ARTICLE 12 - RECLAMATIONS</h1>
-                        <p>
-                            Le cas échéant, l’Acheteur peut présenter toute réclamation en contactant la société par email
-                            ou par lettre simple.
-                        </p>
-                        <h1>ARTICLE 13 - DROITS DE PROPRIETE INTELLECTUELLE</h1>
-                        <p>
-                            Les marques, noms de domaines, produits, logiciels, images, vidéos, textes ou plus généralement
-                            toute information objet de droits de propriété intellectuelle sont et restent la propriété
-                            exclusive du vendeur. <br>
-                            Aucune cession de droits de propriété intellectuelle n’est réalisée au travers des présentes CGV. <br>
-                            Toute reproduction totale ou partielle, modification ou utilisation de ces biens pour quelque motif que ce soit
-                            est strictement interdite.
-                        </p>
-                        <h1>ARTICLE 14 - FORCE MAJEURE</h1>
-                        <p>
-                            L’exécution des obligations du vendeur au terme des présentes est suspendue en cas de survenance d’un cas
-                            fortuit ou de force majeure qui en empêcherait l’exécution. Le vendeur avisera le client de la survenance d’un tel
-                            évènement dès que possible.
+                      <p>
+                          Bienvenue chez Prestige Labo-photo.
 
-                        </p>
-                        <h1>ARTICLE 15 - NULLITE ET MODIFICATION DU CONTRAT</h1>
-                        <p>
-                            Si l’une des stipulations du présent contrat était annulée, cette nullité n’entraînerait pas la nullité des autres
-                            stipulations qui demeureront en vigueur entre les parties. <br>
-                            Toute modification contractuelle n’est valable qu’après un accord écrit et signé des parties.
-                        </p>
-                        <h1>ARTICLE 16 - RGPD ET PROTECTION DES DONNEES PERSONNELLES</h1>
-                        <p>
-                            Conformément au règlement européen en matière de protection des données personnelles, vous disposez des droits d’interrogation, d’accès, de modification, d’opposition et de rectification sur les données personnelles vous concernant. En adhérant à ces conditions générales de vente,
-                            vous consentez à ce que nous collections et utilisions ces données pour l’exacution du présent contrat.
-                        </p>
-                        <h1>ARTICLE 17 - DROIT APPLICABLE</h1>
-                        <p>
-                            Toutes les clauses figurant dans les présentes conditions générales de vente, ainsi que toutes les opérations d’achat
-                            et de vente qui y sont visées, seront soumises au droit français.
+                          Prestige Labo-photo exploite www.bbmay.fr (ci-après dénommé "Service").
 
-                        </p>
+                          Notre politique de confidentialité régit votre visite sur www.bbmay.fr et explique comment nous collectons, protégeons et divulguons les informations résultant de votre utilisation de notre service.
+
+                          Nous utilisons vos données pour fournir et améliorer le Service. En utilisant le Service, vous acceptez la collecte et l'utilisation des informations conformément à cette politique. Sauf indication contraire dans la présente politique de confidentialité, les termes utilisés dans la présente politique de confidentialité ont la même signification que dans nos conditions générales.
+
+                          Nos conditions générales régissent toute utilisation de notre service et, avec la politique de confidentialité, constituent votre accord avec nous.
+                      </p>
+
+                      <h2>2. Définitions</h2>
+
+                      <p>
+                          SERVICE désigne le site <a href="https://www.bbmay.fr">www.bbmay.fr</a> exploité par Prestige Labo-photo.
+
+                          Les DONNÉES PERSONNELLES désignent les données concernant une personne vivante qui peuvent être identifiées à partir de ces données.
+
+                          Les DONNÉES D'UTILISATION sont des données collectées automatiquement générées par l'utilisation du Service ou à partir de l'infrastructure du Service elle-même.
+
+                          CONTRÔLEUR DE DONNÉES désigne une personne physique ou morale qui détermine les finalités pour lesquelles et la manière dont les données personnelles sont ou doivent être traitées. Aux fins de la présente politique de confidentialité, nous sommes un contrôleur de données de vos données.
+
+                          LES PROCESSEURS DE DONNÉES désignent toute personne physique ou morale qui traite les données pour le compte du Responsable du traitement. Nous pouvons utiliser les services de divers fournisseurs de services afin de traiter vos données plus efficacement.
+
+                          La personne concernée est toute personne physique faisant l'objet de données personnelles.
+
+                          L'UTILISATEUR est la personne qui utilise notre Service. L'Utilisateur correspond à la Personne Concernée, qui fait l'objet des Données Personnelles.
+                      </p>
+
+                      <h2>3. Collecte et utilisation des informations</h2>
+
+                      <p>
+                          Nous collectons différents types d'informations à diverses fins pour vous fournir et améliorer notre service.
+                      </p>
+
+                      <h2>4. Types de données collectées</h2>
+
+                      <p>Données personnelles</p>
+                      <p>
+                          Lors de l'utilisation de notre Service, nous pouvons vous demander de nous fournir certaines informations personnellement identifiables qui peuvent être utilisées pour vous contacter ou vous identifier ("Données personnelles"). Les informations personnellement identifiables peuvent inclure, mais sans s'y limiter :
+                      </p>
+                      <ul>
+                          <li>0.1. Adresse e-mail</li>
+                          <li>0.2. Prénom et nom</li>
+                          <li>0.3. Numéro de téléphone</li>
+                          <li>0.4. Adresse, Pays, État, Province, Code ZIP/Postal, Ville</li>
+                          <p>
+                              Nous pouvons utiliser vos données personnelles pour vous contacter avec des newsletters, du matériel marketing ou promotionnel et d'autres informations susceptibles de vous intéresser. Vous pouvez refuser de recevoir tout ou partie de ces communications de notre part en suivant le lien de désabonnement.
+
+                              Données d'utilisation
+
+                              Nous pouvons également collecter des informations que votre navigateur envoie chaque fois que vous visitez notre Service ou lorsque vous accédez au Service par ou via n'importe quel appareil ("Données d'utilisation").
+
+                              Ces données d'utilisation peuvent inclure des informations telles que l'adresse de protocole Internet de votre ordinateur (par exemple, l'adresse IP), le type de navigateur, la version du navigateur, les pages de notre service que vous visitez, l'heure et la date de votre visite, le temps passé sur ces pages, les identificateurs d'appareil et autres données de diagnostic.
+
+                              Lorsque vous accédez au Service avec un appareil, ces données d'utilisation peuvent inclure des informations telles que le type d'appareil que vous utilisez, l'identifiant unique de votre appareil, l'adresse IP de votre appareil, le système d'exploitation de votre appareil, le type de navigateur Internet que vous utilisez, l'appareil unique identifiants et autres données de diagnostic.
+
+                              Données de localisation
+
+                              Nous pouvons utiliser et stocker des informations sur votre emplacement si vous nous en donnez l'autorisation ("Données de localisation"). Nous utilisons ces données pour fournir des fonctionnalités de notre Service, pour améliorer et personnaliser notre Service.
+
+                              Vous pouvez activer ou désactiver les services de localisation lorsque vous utilisez notre Service à tout moment via les paramètres de votre appareil.
+
+                              Suivi des données des cookies
+
+                              Nous utilisons des cookies et des technologies de suivi similaires pour suivre l'activité sur notre Service et nous détenons certaines informations.
+
+                              Les cookies sont des fichiers contenant une petite quantité de données qui peuvent inclure un identifiant unique anonyme. Les cookies sont envoyés à votre navigateur à partir d'un site Web et stockés sur votre appareil. D'autres technologies de suivi sont également utilisées telles que les balises, les balises et les scripts pour collecter et suivre les informations et pour améliorer et analyser notre Service.
+
+                              Vous pouvez demander à votre navigateur de refuser tous les cookies ou d'indiquer quand un cookie est envoyé. Cependant, si vous n'acceptez pas les cookies, vous ne pourrez peut-être pas utiliser certaines parties de notre Service.
+                          </p>
+                      </ul>
+
+                      <p>Exemples de Cookies que nous utilisons :</p>
+
+                      <ul>
+                          <li>0.1. Cookies de session : Nous utilisons des cookies de session pour faire fonctionner notre Service.</li>
+                          <li>0.2. Cookies de préférence : Nous utilisons des cookies de préférence pour mémoriser vos préférences et divers paramètres.</li>
+                          <li>0.3. Cookies de sécurité : Nous utilisons des cookies de sécurité à des fins de sécurité.</li>
+                          <li>0.4. Cookies publicitaires : les cookies publicitaires sont utilisés pour vous servir
+
+                              avec des publicités qui peuvent être pertinentes pour vous et vos intérêts.
+
+                              Autre informations
+
+                              Lors de l'utilisation de notre Service, nous pouvons également collecter les informations suivantes : nom, prénom, email, enregistrement au lieu de résidence et adresse réelle, numéro de téléphone (travail, mobile)</li>
+                      </ul>
+
+                      <h2>5. Utilisation des données</h2>
+
+                      <p>Bbmay utilise les données collectées à diverses fins :</p>
+
+                      <ul>
+                          <li>0.1. fournir et maintenir notre service ;</li>
+                          <li>0.2. Pour vous avertir des changements de notre service;</li>
+                          <li>0.3. pour vous permettre de participer aux fonctionnalités interactives de notre Service lorsque vous choisissez de le faire ;</li>
+                          <li>0.4. pour fournir un support client ;</li>
+                          <li>0,5. pour recueillir des analyses ou des informations précieuses afin que nous puissions améliorer notre Service ;</li>
+                          <li>0,6. surveiller l'utilisation de notre service ;</li>
+                          <li>0,7. détecter, prévenir et résoudre les problèmes techniques ;</li>
+                          <li>0,8. pour remplir toute autre finalité pour laquelle vous les fournissez ;</li>
+                          <li>0,9. pour exécuter nos obligations et faire valoir nos droits découlant de tout contrat conclu entre vous et nous, y compris pour la facturation et le recouvrement ;</li>
+                          <li>0,10. pour vous fournir des avis concernant votre compte et/ou votre abonnement, y compris des avis d'expiration et de renouvellement, des instructions par e-mail, etc. ;</li>
+                          <li>0.11. pour vous fournir des actualités, des offres spéciales et des informations générales sur d'autres biens, services et événements que nous proposons et qui sont similaires à ceux que vous avez déjà achetés ou demandés, sauf si vous avez choisi de ne pas recevoir ces informations ;</li>
+                          <li>0,12. de toute autre manière que nous pouvons décrire lorsque vous fournissez les informations ;</li>
+                          <li>0,13. à toute autre fin avec votre consentement.</li>
+                      </ul>
+
+                      <h2>6. Conservation des données</h2>
+
+                      <p>
+                          Nous ne conserverons vos données personnelles que le temps nécessaire aux fins énoncées dans la présente politique de confidentialité. Nous conserverons et utiliserons vos données personnelles dans la mesure nécessaire pour nous conformer à nos obligations légales (par exemple, si nous sommes tenus de conserver vos données pour nous conformer aux lois applicables), résoudre les litiges et appliquer nos accords et politiques juridiques.
+
+                          Nous conserverons également les données d'utilisation à des fins d'analyse interne. Les données d'utilisation sont généralement conservées pendant une période plus courte, sauf lorsque ces données sont utilisées pour renforcer la sécurité ou pour améliorer la fonctionnalité de notre service, ou lorsque nous sommes légalement tenus de conserver ces données pendant des périodes plus longues.
+                      </p>
+
+                      <h2>7. Transfert de données</h2>
+
+                      <p>
+                          Vos informations, y compris les données personnelles, peuvent être transférées et conservées sur des ordinateurs situés en dehors de votre état, province, pays ou autre juridiction gouvernementale où les lois sur la protection des données peuvent différer de celles de votre juridiction.
+
+                          Si vous êtes situé en dehors de Mayotte et que vous choisissez de nous fournir des informations, veuillez noter que nous transférons les données, y compris les données personnelles, à Mayotte et que nous les traitons là-bas.
+
+                          Votre consentement à cette politique de confidentialité suivi de votre soumission de ces informations représente votre accord à ce transfert.
+
+                          Prestige Bbmay prendra toutes les mesures raisonnablement nécessaires pour s'assurer que vos données soient traitées en toute sécurité et conformément à la présente politique de confidentialité et aucun transfert de vos données personnelles n'aura lieu vers une organisation ou un pays à moins qu'il n'y ait des contrôles adéquats en place, y compris la sécurité de vos données et autres informations personnelles.
+                      </p>
+
+                      <h2>8. Divulgation des données</h2>
+
+                      <p>
+                          Nous pouvons divulguer les informations personnelles que nous collectons ou que vous fournissez :
+                      </p>
+
+                      <ul>
+                          <li>
+                              0.1. Divulgation pour les forces de l'ordre.
+
+                              Dans certaines circonstances, nous pouvons être tenus de divulguer vos données personnelles si la loi l'exige ou en réponse à des demandes valables des autorités publiques.
+                          </li>
+                          <li>
+                              0.2. Transaction d'affaires.
+
+                              Si nous ou nos filiales sommes impliqués dans une fusion, une acquisition ou une vente d'actifs, vos données personnelles peuvent être transférées.
+                          </li>
+                          <li>
+                              <p>
+                                  0.3. Autres cas. Nous pouvons également divulguer vos informations :
+                              </p>
+                              <ul>
+                                  <li>0.3.1. à nos filiales et sociétés affiliées ;</li>
+                                  <li>0.3.2. aux sous-traitants, prestataires de services et autres tiers auxquels nous faisons appel pour soutenir nos activités ;</li>
+                                  <li>0.3.3. pour atteindre l'objectif pour lequel vous le fournissez ;</li>
+                                  <li>0.3.4. dans le but d'inclure le logo de votre entreprise sur notre site Web ;</li>
+                                  <li>0.3.5. à toute autre fin divulguée par nous lorsque vous fournissez les informations ;</li>
+                                  <li>0.3.6. avec votre consentement dans tous les autres cas ;</li>
+                                  <li>0.3.7. si nous pensons que la divulgation est nécessaire ou appropriée pour protéger les droits, la propriété ou la sécurité de la Société, de nos clients ou d'autres personnes.</li>
+                              </ul>
+                          </li>
+                      </ul>
+
+                      <h2>9. Sécurité des données</h2>
+
+                      <p>
+                          La sécurité de vos données est importante pour nous, mais n'oubliez pas qu'aucune méthode de transmission sur Internet ou méthode de stockage électronique n'est sécurisée à 100 %. Bien que nous nous efforcions d'utiliser des moyens commercialement acceptables pour protéger vos données personnelles, nous ne pouvons garantir leur sécurité absolue.
+                      </p>
+
+                      <h2>10. Vos droits en matière de protection des données en vertu du règlement général sur la protection des données (RGPD)</h2>
+
+                      <p>
+                          Si vous êtes un résident de l'Union européenne (UE) et de l'Espace économique européen (EEE), vous disposez de certains
+
+                          droits de section, couverts par le RGPD.
+
+                          Nous visons à prendre des mesures raisonnables pour vous permettre de corriger, modifier, supprimer ou limiter l'utilisation de vos données personnelles.
+
+                          Si vous souhaitez être informé des données personnelles que nous détenons à votre sujet et si vous souhaitez qu'elles soient supprimées de nos systèmes, veuillez nous envoyer un e-mail à <a href="mailto:bbmaymayotte@gmail.com">bbmaymayotte@gmail.com</a>.
+
+                          Dans certaines circonstances, vous disposez des droits suivants en matière de protection des données :
+                      </p>
+
+                      <ul>
+                          <li>0.1. le droit d'accéder, de mettre à jour ou de supprimer les informations que nous avons sur vous ;</li>
+                          <li>0.2. le droit de rectification. Vous avez le droit de faire rectifier vos informations si ces informations sont inexactes ou incomplètes ;</li>
+                          <li>0.3. le droit de s'opposer. Vous avez le droit de vous opposer à notre traitement de vos données personnelles ;</li>
+                          <li>0.4. le droit de restriction. Vous avez le droit de demander que nous restreignions le traitement de vos informations personnelles ;</li>
+                          <li>0,5. le droit à la portabilité des données. Vous avez le droit de recevoir une copie de vos données personnelles dans un format structuré, lisible par machine et couramment utilisé ;</li>
+                          <li>
+                              0,6. le droit de retirer son consentement. Vous avez également le droit de retirer votre consentement à tout moment lorsque nous nous appuyons sur votre consentement pour traiter vos informations personnelles ;
+
+                              Veuillez noter que nous pouvons vous demander de vérifier votre identité avant de répondre à de telles demandes. Veuillez noter que nous ne pourrons peut-être pas fournir de service sans certaines données nécessaires.
+
+                              Vous avez le droit de porter plainte auprès d'une autorité de protection des données concernant notre collecte et notre utilisation de vos données personnelles. Pour plus d'informations, veuillez contacter votre autorité locale de protection des données dans l'Espace économique européen (EEE).
+                          </li>
+                      </ul>
+
+                      <h2>11. Vos droits de protection des données en vertu de la California Privacy Protection Act (CalOPPA)</h2>
+
+                      <p>
+                          CalOPPA est la première loi d'État du pays à exiger que les sites Web commerciaux et les services en ligne publient une politique de confidentialité. La portée de la loi s'étend bien au-delà de la Californie pour exiger d'une personne ou d'une entreprise aux États-Unis (et concevable dans le monde) qui exploite des sites Web collectant des informations personnellement identifiables auprès de consommateurs californiens qu'elle publie une politique de confidentialité visible sur son site Web indiquant exactement les informations collectées et celles personnes avec lesquelles elles sont partagées et de se conformer à cette politique.
+
+                          Selon CalOPPA, nous convenons de ce qui suit :
+                      </p>
+
+                      <ul>
+                          <li>0.1. les utilisateurs peuvent visiter notre site de manière anonyme ;</li>
+                          <li>0.2. notre lien Politique de confidentialité comprend le mot « Confidentialité » et peut être facilement trouvé sur la page d'accueil de notre site Web ;</li>
+                          <li>0.3. les utilisateurs seront informés de toute modification de la politique de confidentialité sur notre page de politique de confidentialité ;</li>
+                          <li>0.4. les utilisateurs peuvent modifier leurs informations personnelles en nous envoyant un e-mail à  <a href="mailto:bbmaymayotte@gmail.com">bbmaymayotte@gmail.com</a>.</li>
+                      </ul>
+
+                      <p>Notre politique sur les signaux « Ne pas suivre » :</p>
+
+                      <p>
+                          Nous respectons les signaux Do Not Track et ne suivons pas, n'installons pas de cookies ou n'utilisons pas de publicité lorsqu'un mécanisme de navigateur Do Not Track est en place. Ne pas suivre est une préférence que vous pouvez définir dans votre navigateur Web pour informer les sites Web que vous ne souhaitez pas être suivi.
+
+                          Vous pouvez activer ou désactiver Do Not Track en visitant la page Préférences ou Paramètres de votre navigateur Web.
+                      </p>
+
+                      <h2>12. Vos droits en matière de protection des données en vertu du California Consumer Privacy Act (CCPA)</h2>
+
+                      <p>
+                          Si vous résidez en Californie, vous avez le droit de savoir quelles données nous collectons à votre sujet, de demander à supprimer vos données et de ne pas les vendre (partager). Pour exercer vos droits de protection des données, vous pouvez faire certaines demandes et nous demander :
+                      </p>
+                      <ul>
+                          <li>
+                              <p>0.1. Quelles informations personnelles nous avons sur vous. Si vous faites cette demande, nous vous retournerons :</p>
+                              <ul>
+                                  <li>0.0.1. Les catégories d'informations personnelles que nous avons collectées à votre sujet.</li>
+                                  <li>0.0.2. Les catégories de sources à partir desquelles nous collectons vos informations personnelles.</li>
+                                  <li>0.0.3. Le but commercial ou commercial de la collecte ou de la vente de vos informations personnelles.</li>
+                                  <li>0.0.4. Les catégories de tiers avec lesquels nous partageons des informations personnelles.</li>
+                                  <li>0.0.5. Les informations personnelles spécifiques que nous avons collectées à votre sujet.</li>
+                                  <li>0.0.6. Une liste des catégories d'informations personnelles que nous avons vendues, ainsi que la catégorie de toute autre société à laquelle nous les avons vendues. Si nous n'avons pas vendu vos informations personnelles, nous vous en informerons.</li>
+                                  <li>
+                                      0.0.7. Une liste des catégories d'informations personnelles que nous avons divulguées à des fins commerciales, ainsi que la catégorie de toute autre société avec laquelle nous les avons partagées.
+
+                                      Veuillez noter que vous avez le droit de nous demander de vous fournir ces informations jusqu'à deux fois sur une période de douze mois glissants. Lorsque vous faites cette demande, les informations fournies peuvent être limitées aux informations personnelles que nous avons collectées à votre sujet au cours des 12 mois précédents.
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                              0.2. Pour supprimer vos informations personnelles. Si vous faites cette demande, nous supprimerons les informations personnelles que nous détenons à votre sujet à la date de votre demande de nos dossiers et demanderons à tout fournisseur de services de faire de même. Dans certains cas, la suppression peut être effectuée en désidentifiant les informations. Si vous choisissez de supprimer vos informations personnelles, vous ne pourrez peut-être pas utiliser certaines fonctions qui nécessitent vos informations personnelles pour fonctionner.
+                          </li>
+                          <li>
+                              0.3. Pour arrêter de vendre vos informations personnelles. Nous ne vendons ni ne louons vos informations personnelles à des tiers
+
+                              parties à quelque fin que ce soit. Nous ne vendons pas vos informations personnelles pour une contrepartie monétaire. Cependant, dans certaines circonstances, un transfert d'informations personnelles à un tiers, ou au sein de notre famille d'entreprises, sans contrepartie monétaire peut être considéré comme une « vente » en vertu de la loi californienne. Vous êtes le seul propriétaire de vos données personnelles et pouvez demander leur divulgation ou leur suppression à tout moment.
+
+                              Si vous soumettez une demande pour cesser de vendre vos informations personnelles, nous cesserons d'effectuer de tels transferts.
+
+                              Veuillez noter que si vous nous demandez de supprimer ou d'arrêter de vendre vos données, cela peut avoir un impact sur votre expérience avec nous et vous ne pourrez peut-être pas participer à certains programmes ou services d'adhésion qui nécessitent l'utilisation de vos informations personnelles pour fonctionner. Mais en aucun cas, nous ne vous discriminerons pour l'exercice de vos droits.
+
+                              Pour exercer vos droits de protection des données en Californie décrits ci-dessus, veuillez envoyer votre ou vos demandes par e-mail :  <a href="mailto:bbmaymayotte@gmail.com">bbmaymayotte@gmail.com</a>.
+
+                              Vos droits en matière de protection des données, décrits ci-dessus, sont couverts par le CCPA, abréviation de California Consumer Privacy Act. Pour en savoir plus, visitez le site Web officiel d'informations législatives de la Californie. Le CCPA est entré en vigueur le 01/01/2020.
+                          </li>
+                      </ul>
+
+                      <h2>13. Fournisseurs de services</h2>
+
+                      <p>
+                          Nous pouvons faire appel à des sociétés tierces et à des particuliers pour faciliter notre service (« fournisseurs de services »), fournir le service en notre nom, exécuter des services liés au service ou nous aider à analyser la façon dont notre service est utilisé.
+
+                          Ces tiers ont accès à vos données personnelles uniquement pour effectuer ces tâches en notre nom et sont tenus de ne pas les divulguer ou les utiliser à d'autres fins.
+                      </p>
+
+                      <h2>14. Analytique</h2>
+
+                      <p>
+                          Nous pouvons utiliser des fournisseurs de services tiers pour surveiller et analyser l'utilisation de notre service.
+                      </p>
+
+                      <h2>15. Outils CI/CD</h2>
+
+                      <p>
+                          Nous pouvons utiliser des fournisseurs de services tiers pour automatiser le processus de développement de notre service.
+                      </p>
+
+                      <h2>16. Remarketing comportemental</h2>
+
+                      <p>
+                          Nous pouvons utiliser des services de remarketing pour vous faire de la publicité sur des sites Web tiers après que vous ayez visité notre service. Nous et nos fournisseurs tiers utilisons des cookies pour informer, optimiser et diffuser des annonces en fonction de vos visites passées sur notre Service.
+                      </p>
+
+                      <h2>17. Paiements</h2>
+
+                      Nous pouvons fournir des produits et/ou services payants dans le cadre du Service. Dans ce cas, nous utilisons des services tiers pour le traitement des paiements (par exemple, des processeurs de paiement).
+
+                      Nous ne stockerons ni ne collecterons les détails de votre carte de paiement. Ces informations sont fournies directement à nos processeurs de paiement tiers dont l'utilisation de vos informations personnelles est régie par leur politique de confidentialité. Ces processeurs de paiement respectent les normes établies par PCI-DSS, gérées par le Conseil des normes de sécurité PCI, qui est un effort conjoint de marques telles que Visa, Mastercard. Les exigences PCI-DSS contribuent à garantir le traitement sécurisé des informations de paiement.
+
+                      <h2>18. Liens vers d'autres sites</h2>
+
+                      <p>
+                          Notre service peut contenir des liens vers d'autres sites que nous n'exploitons pas. Si vous cliquez sur un lien tiers, vous serez dirigé vers le site de ce tiers. Nous vous conseillons vivement de consulter la politique de confidentialité de chaque site que vous visitez.
+
+                          Nous n'avons aucun contrôle et n'assumons aucune responsabilité quant au contenu, aux politiques de confidentialité ou aux pratiques des sites ou services tiers.
+
+                          Par exemple, la politique de confidentialité décrite a été élaborée à l'aide de PolicyMaker.io, un outil gratuit qui permet de créer des documents juridiques de haute qualité. Le générateur de politique de confidentialité de PolicyMaker est un outil facile à utiliser pour créer une politique de confidentialité pour un blog, un site Web, une boutique de commerce électronique ou une application mobile.
+                      </p>
+
+                      <h2>19. Modifications de cette politique de confidentialité</h2>
+
+                      <p>
+                          Nous pouvons mettre à jour notre politique de confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle politique de confidentialité sur cette page.
+
+                          Nous vous informerons par e-mail et/ou par un avis visible sur notre service, avant que le changement ne devienne effectif et que la « date d'entrée en vigueur » soit mise à jour en haut de la présente politique de confidentialité.
+
+                          Il vous est conseillé de consulter périodiquement cette politique de confidentialité pour tout changement. Les modifications apportées à cette politique de confidentialité entrent en vigueur lorsqu'elles sont publiées sur cette page.
+                      </p>
+
+                      <h2>20. Contactez-nous</h2>
+
+                      <p>
+                          Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter par e-mail : <a href="mailto:bbmaymayotte@gmail.com">bbmaymayotte@gmail.com</a>.
+                      </p>
+
+                      <h4>Cette politique de confidentialité a été créée pour www.bbmay.fr le 2022-06-01.</h4>
+
                     </div>
+                  </div>
                 </div>
             </div>
         </div>
