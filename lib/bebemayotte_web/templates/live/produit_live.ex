@@ -2,6 +2,7 @@ defmodule BebemayotteWeb.Live.ProduitLive do
   use Phoenix.LiveView
   alias Bebemayotte.CatRequette
   alias Bebemayotte.SouscatRequette
+  alias Bebemayotte.SouscategorieRequette
   alias Bebemayotte.ProdRequette
   alias Bebemayotte.SyncDb
   alias Bebemayotte.PanierRequette
@@ -9,15 +10,18 @@ defmodule BebemayotteWeb.Live.ProduitLive do
   def mount(_params, %{"id_session" => session,"user" => user,"cat" => cat, "souscat" => souscat,"list_panier" => list_panier, "search" => search}, socket) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+    souscategorie = SouscategorieRequette.get_all_souscategories()
     {produits, nb_ligne} = filtre(cat, souscat, search, "1")
     nb_total = produits |> Enum.count()
     {first_row_id, last_row_id} = if_vide_produits(produits, nb_total)
     nb_page = nb_ligne |> nombre_page()
+    IO.inspect cat
+    IO.inspect souscat
     SyncDb.subscribe()
 
     {:ok,
      socket
-      |> assign(categories: categories, souscategories: souscategories)
+      |> assign(categories: categories, souscategories: souscategories, souscategorie: souscategorie)
       |> assign(produits: produits,last_row_id: last_row_id, first_row_id: first_row_id,
                       search: search, user: user, session: session, nb_page: nb_page,
                       page: 1, cat: cat, souscat: souscat, tri_select: "1", list_panier: list_panier),
@@ -73,15 +77,6 @@ defmodule BebemayotteWeb.Live.ProduitLive do
   # end
 
   def handle_event("nav", %{"idnext" => idnext, "idprev" => idprev, "finpage" => num_finpage,"id" => page, "page" => num_page, "cat" => cat, "souscat" => souscat, "search" => search, "tri" => tri}, socket) do
-    IO.inspect idprev
-    IO.inspect idnext
-    IO.inspect cat
-    IO.inspect souscat
-    IO.inspect num_page
-    IO.inspect search
-    IO.inspect tri
-    IO.inspect num_finpage
-    IO.inspect page
     id = page |> String.to_integer()
     num_page = num_page |> String.to_integer()
     if id < num_page do

@@ -5,6 +5,7 @@ defmodule Bebemayotte.SyncDb do
   alias Bebemayotte.Categorie
   alias Bebemayotte.Produit
   alias Bebemayotte.Souscategorie
+  alias Bebemayotte.Souscategories
 
   @topic inspect(__MODULE__)
   def subscribe do
@@ -14,14 +15,6 @@ defmodule Bebemayotte.SyncDb do
   defp broadcast_change({:ok, result}, event) do
     Phoenix.PubSub.broadcast(Bebemayotte.PubSub, @topic, {__MODULE__, event, result})
   end
-
-  # def subscribe_panier do
-  #   Phoenix.PubSub.subscribe(Bebemayotte.PubSub, "topic_panier")
-  # end
-
-  # def broadcast_panier({:ok, result}, event, id) do
-  #   Phoenix.PubSub.broadcast(Bebemayotte.PubSub, "topic_panier", {__MODULE__, event, result})
-  # end
 
   def start_link do
     Task.start_link(&sync/0)
@@ -98,6 +91,11 @@ defmodule Bebemayotte.SyncDb do
   end
 
   def insert_prod do
+    if File.exists?(Path.expand("assets/static/images/uploads")) do
+      :ok
+    else
+      {:ok, File.mkdir(Path.expand("assets/static/images/uploads"))}
+    end
     query = Repo.all(from a in Produit,
     select: a.id_produit)
     liste = Enum.join(query, "','")
@@ -157,123 +155,6 @@ defmodule Bebemayotte.SyncDb do
     end
   end
 
-  # def updt_prod do
-  #     queri = Repo.all(from a in Produit,
-  #     select: a.id_produit)
-  #     if queri == [] do
-  #       {:ok, quer} = EBPRepo.query("SELECT Item.FamilyId,Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.SubFamilyId,Item.Caption, Item.ImageVersion,Item.RealStock FROM Item WHERE Item.AllowPublishOnWeb = 1")
-  #       for c <- quer.rows do
-  #         {:ok, cat_id} = Enum.fetch(c, 0)
-  #         {:ok, prod_id} = Enum.fetch(c, 1)
-  #         {:ok, photo} = Enum.fetch(c, 2)
-  #         {:ok, prix} = Enum.fetch(c, 3)
-  #         {:ok, souscat_id} = Enum.fetch(c, 4)
-  #         {:ok, capt} = Enum.fetch(c, 5)
-  #         {:ok, afficher} = Enum.fetch(c, 6)
-  #         {:ok, stock_max} = Enum.fetch(c, 7)
-  #         # {:ok, stock_reel} = Enum.fetch(c, 7)
-
-  #         if photo != nil do
-  #         File.write(Path.expand("assets/static/images/uploads/#{prod_id}.jpeg"), photo, [:binary])
-
-  #         # if afficher == true do
-  #           params = %{
-  #             "id_produit" => prod_id,
-  #             "title" => capt,
-  #             "photolink" => "/images/uploads/#{prod_id}.jpeg",
-  #             "id_cat" => cat_id,
-  #             "id_souscat" => souscat_id,
-  #             "stockstatus" => condition_stock(stock_max),
-  #             "stockmax" => stock_condition(stock_max),
-  #             "price" => prix,
-  #             "id_user" => 0,
-  #             "imageVersion" => afficher
-  #           }
-
-  #           %Produit{}
-  #             |> Produit.changeset(params)
-  #             |> Repo.insert()
-  #         else
-
-  #         # if afficher == true do
-  #           params = %{
-  #             "id_produit" => prod_id,
-  #             "title" => capt,
-  #             "photolink" => "/images/empty.png",
-  #             "id_cat" => cat_id,
-  #             "id_souscat" => souscat_id,
-  #             "stockstatus" => condition_stock(stock_max),
-  #             "stockmax" => stock_condition(stock_max),
-  #             "price" => prix,
-  #             "id_user" => 0,
-  #             "imageVersion" => afficher
-  #           }
-
-  #           %Produit{}
-  #             |> Produit.changeset(params)
-  #             |> Repo.insert()
-  #         end
-
-  #       end
-  #     else
-  #       liste1 = Enum.join(queri, "','")
-  #       {:ok, quer} = EBPRepo.query("SELECT Item.FamilyId,Item.Id,Item.ItemImage,Item.SalePriceVatExcluded,Item.SubFamilyId,Item.Caption,Item.ImageVersion,Item.RealStock FROM Item WHERE Item.Id NOT IN ('#{liste1}') AND Item.AllowPublishOnWeb = 1")
-  #       for c <- quer.rows do
-  #         {:ok, cat_id} = Enum.fetch(c, 0)
-  #         {:ok, prod_id} = Enum.fetch(c, 1)
-  #         {:ok, photo} = Enum.fetch(c, 2)
-  #         {:ok, prix} = Enum.fetch(c, 3)
-  #         {:ok, souscat_id} = Enum.fetch(c, 4)
-  #         {:ok, capt} = Enum.fetch(c, 5)
-  #         {:ok, afficher} = Enum.fetch(c, 6)
-  #         {:ok, stock_max} = Enum.fetch(c, 7)
-  #         # {:ok, stock_reel} = Enum.fetch(c, 7)
-  #         if photo != nil do
-  #         File.write(Path.expand("assets/static/images/uploads/#{prod_id}.jpeg"), photo, [:binary])
-
-  #         IO.inspect(stock_max)
-
-  #         # if afficher == 1 do
-  #           params = %{
-  #             "id_produit" => prod_id,
-  #             "title" => capt,
-  #             "photolink" => "/images/uploads/#{prod_id}.jpeg",
-  #             "id_cat" => cat_id,
-  #             "id_souscat" => souscat_id,
-  #             "stockstatus" => condition_stock(stock_max),
-  #             "stockmax" => stock_condition(stock_max),
-  #             "price" => prix,
-  #             "id_user" => 0,
-  #             "imageVersion" => afficher
-  #           }
-
-  #           %Produit{}
-  #             |> Produit.changeset(params)
-  #             |> Repo.insert()
-  #         else
-
-  #         # if afficher == true do
-  #           params = %{
-  #             "id_produit" => prod_id,
-  #             "title" => capt,
-  #             "photolink" => "/images/empty.png",
-  #             "id_cat" => cat_id,
-  #             "id_souscat" => souscat_id,
-  #             "stockstatus" => condition_stock(stock_max),
-  #             "stockmax" => stock_condition(stock_max),
-  #             "price" => prix,
-  #             "id_user" => 0,
-  #             "imageVersion" => afficher
-  #           }
-
-  #           %Produit{}
-  #             |> Produit.changeset(params)
-  #             |> Repo.insert()
-  #         end
-  #     end
-  #   end
-  # end
-
     # TABLE SOUSCATEGORIE
   defp updt_scat do
     queri = Repo.all(from a in Souscategorie,
@@ -308,6 +189,89 @@ defmodule Bebemayotte.SyncDb do
         %Souscategorie{}
           |> Souscategorie.changeset(params)
           |> Repo.insert()
+      end
+    end
+  end
+
+  def deletes do
+    Repo.delete_all(Souscategories)
+    File.rm_rf(Path.expand("assets/static/images/scat"))
+  end
+
+  def insert_scat do
+    if File.exists?(Path.expand("assets/static/images/scat")) do
+      :ok
+    else
+      {:ok, File.mkdir(Path.expand("assets/static/images/scat"))}
+    end
+    queri = Repo.all(from a in Souscategories,
+      select: a.id_souscat)
+      if queri == [] do
+        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily")
+        for sc <- souscategorie.rows do
+          {:ok, subfamilyid} = Enum.fetch(sc, 0)
+          {:ok, nom} = Enum.fetch(sc, 1)
+          {:ok, familyid} = Enum.fetch(sc, 2)
+          {:ok, image} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT ItemImage FROM Item WHERE (FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}') AND AllowPublishOnWeb = 1")
+          {:ok, texte} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT Id FROM Item WHERE FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}'")
+          if image.rows != [] do
+            photo = Enum.random(image.rows)
+            nom_image = Enum.random(texte.rows)
+              File.write(Path.expand("assets/static/images/scat/#{nom_image}1.jpeg"), photo, [:binary])
+              params = %{
+                "id_souscat" => subfamilyid,
+                "nom_souscat" => nom,
+                "id_cat" => familyid,
+                "photolink" => "/images/scat/#{nom_image}1.jpeg"
+              }
+              %Souscategories{}
+                |> Souscategories.changeset(params)
+                |> Repo.insert()
+          else
+            params = %{
+              "id_souscat" => subfamilyid,
+              "nom_souscat" => nom,
+              "id_cat" => familyid,
+              "photolink" => "/images/empty.png"
+            }
+            %Souscategories{}
+              |> Souscategories.changeset(params)
+              |> Repo.insert()
+          end
+        end
+    else
+      liste = Enum.join(queri, "','")
+      {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE Id NOT IN ('#{liste}')")
+      for sc <- souscategorie.rows do
+        {:ok, subfamilyid} = Enum.fetch(sc, 0)
+        {:ok, nom} = Enum.fetch(sc, 1)
+        {:ok, familyid} = Enum.fetch(sc, 2)
+        {:ok, image} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT ItemImage FROM Item WHERE (FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}') AND AllowPublishOnWeb = 1")
+        {:ok, texte} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT Id FROM Item WHERE FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}'")
+        if image.rows != [] do
+          photo = Enum.random(image.rows)
+          nom_image = Enum.random(texte.rows)
+            File.write(Path.expand("assets/static/images/scat/#{nom_image}1.jpeg"), photo, [:binary])
+            params = %{
+              "id_souscat" => subfamilyid,
+              "nom_souscat" => nom,
+              "id_cat" => familyid,
+              "photolink" => "/images/scat/#{nom_image}1.jpeg"
+            }
+            %Souscategories{}
+              |> Souscategories.changeset(params)
+              |> Repo.insert()
+        else
+          params = %{
+            "id_souscat" => subfamilyid,
+            "nom_souscat" => nom,
+            "id_cat" => familyid,
+            "photolink" => "/images/empty.png"
+          }
+          %Souscategories{}
+            |> Souscategories.changeset(params)
+            |> Repo.insert()
+        end
       end
     end
   end
@@ -363,21 +327,15 @@ defmodule Bebemayotte.SyncDb do
   def mod_prod do
       {:ok, queri} = EBPRepo.query("SELECT Item.Id,Item.SalePriceVatExcluded,Item.Caption,Item.AllowPublishOnWeb,Item.RealStock FROM Item")
       for c <- queri.rows do
-        # {:ok, cat_id} = Enum.fetch(c, 0)
         {:ok, prod_id} = Enum.fetch(c, 0)
-        # {:ok, photo} = Enum.fetch(c, 1)
         {:ok, prix} = Enum.fetch(c, 1)
-        # {:ok, souscat_id} = Enum.fetch(c, 3)
         {:ok, capt} = Enum.fetch(c, 2)
-        # {:ok, imagev} = Enum.fetch(c, 3)
         {:ok, afficher} = Enum.fetch(c, 3)
         {:ok, stock_max} = Enum.fetch(c, 4)
-        # {:ok, stock_reel} = Enum.fetch(c, 5)
 
           produit = Repo.one(from p in Produit, where: p.id_produit == ^prod_id, select: p)
           if afficher == true do
             if produit != nil do
-              # si_pareil(Produit, imagev, produit.imageVersion, produit, photo, prod_id, imagev)
               si_pareils(Produit, "title", capt, produit.title, produit)
               si_pareils(Produit, "stockstatus",condition_stock(stock_max), produit.stockstatus, produit)
               si_pareils(Produit, "stockmax", stock_condition(stock_max), produit.stockmax, produit)
@@ -387,11 +345,6 @@ defmodule Bebemayotte.SyncDb do
             end
           else
             if produit != nil do
-              # compare_allow(Produit, "imageVersion", imagev, produit.imageVersion, produit)
-              # compare_allow(Produit, "title", capt, produit.title, produit)
-              # compare_allow(Produit, "stockstatus",condition_stock(stock_max), produit.stockstatus, produit)
-              # compare_allow(Produit, "stockmax", stock_condition(stock_max), produit.stockmax, produit)
-              # compare_allow(Produit, "price", prix, produit.price, produit)
               :ok
             else
               IO.puts("VALEUR NULLE")
@@ -438,21 +391,6 @@ defmodule Bebemayotte.SyncDb do
     end
   end
 
-  #def get_image do
-    #{:ok, query} = EBPRepo.query("SELECT Item.Id, Item.ItemImage FROM Item")
-
-    #for c <- query.rows do
-     # {:ok, prod_id} = Enum.fetch(c, 0)
-      #{:ok, photo} = Enum.fetch(c, 1)
-
-      #path = File.write(Path.absname("C:/Données/MGBI/Hasimbola/Bebemay_dev/priv/uploads/#{prod_id}.jpeg"), photo, [:binary])
-    # {:ok, data} = Base.decode64(condition_image(photo, prod_id))
-    # path = File.write!("#{List.to_string(:code.priv_dir(:bebemayotte))}/uploads/#{prod_id}.png", photo, [:binary])
-    #  path = File.write(Application.app_dir(:bebemayotte, Path.join("priv/uploads", "#{prod_id}.png")), photo, [:binary])
-     # IO.inspect(path)
-    #end
-  #end
-
   def mod_scat do
     {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily")
 
@@ -462,8 +400,10 @@ defmodule Bebemayotte.SyncDb do
         {:ok, familyid} = Enum.fetch(sc, 2)
 
         souscategories = Repo.one(from p in Souscategorie, where: p.id_souscat == ^subfamilyid, select: p)
+        souscategorie = Repo.one(from p in Souscategories, where: p.id_souscat == ^subfamilyid, select: p)
           if souscategories != nil do
-          si_pareils(Souscategorie, "nom_souscat", nom, souscategories.nom_souscat, souscategories)
+            si_pareils(Souscategorie, "nom_souscat", nom, souscategories.nom_souscat, souscategories)
+            si_pareils(Souscategories, "nom_souscat", nom, souscategories.nom_souscat, souscategorie)
           else
             IO.puts("VALEUR NULLE")
           end
@@ -480,15 +420,12 @@ defmodule Bebemayotte.SyncDb do
       categories = Repo.one(from p in Categorie, where: p.id_cat == ^cat_id, select: p)
       if afficher == true do
         if categories != nil do
-          # si_pareil(Categorie, "id_cat", cat_id, categories.id_cat, categories)
           si_pareils(Categorie, "nom_cat", cat_nom, categories.nom_cat, categories)
         else
           IO.puts("VALEUR NULLE")
         end
       else
         if categories != nil do
-          # si_pareil(Categorie, "id_cat", cat_id, categories.id_cat, categories)
-          # compare_allow(Categorie, "nom_cat", cat_nom, categories.nom_cat, categories)
           :ok
         else
           IO.puts("VALEUR NULLE")
@@ -520,6 +457,8 @@ defmodule Bebemayotte.SyncDb do
       |> Repo.delete_all
       Souscategorie -> from(a in Souscategorie, where: a.id_souscat not in ^lis)
       |> Repo.delete_all
+      Souscategories -> from(a in Souscategories, where: a.id_souscat not in ^lis)
+      |> Repo.delete_all
     end
   end
 
@@ -528,7 +467,7 @@ defmodule Bebemayotte.SyncDb do
     after
       45_000 ->
         insert_prod()
-        # updt_prod()
+        insert_scat()
         updt_cat()
         updt_scat()
         mod_prod()

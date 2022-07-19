@@ -2898,6 +2898,49 @@ label {
   grid-template-columns: 50% 50% /*30%*/;
 }
 
+.souscategorie_article{
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 15px;
+  display:grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.souscategorie_liste{
+  width: 90%;
+  height: auto;
+  position: relative;
+  background-color: #fff ;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px,
+  rgb(0 0 0 / 5%) 0px 28px 23px -7px,
+  rgb(0 0 0 / 4%) 0px 12px 12px -7px;
+  margin: 5% 5% 5% 0% ;
+}
+
+.souscategorie_image, .souscategories_nom{
+  text-align: center;
+}
+
+.souscategories_nom a{
+  font-size: larger;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.souscategories_nom a:hover{
+  font-weight: bold;
+  color: #0001b1;
+}
+
+.souscategorie_liste .souscategorie_image img{
+  max-width: 100%;
+  height: 250px;
+}
+
 @media screen and (min-width:1300px){
   .article{
     display: grid;
@@ -2911,6 +2954,10 @@ label {
     grid-template-columns: 45% 45% ;
     margin-left: 75px;
   } 
+  .souscategorie_article{
+    display:grid;
+    grid-template-columns: 45% 45%;
+  }
 }
 
 /*RETOUR APRES ACHAT*/
@@ -3207,12 +3254,20 @@ h4.prix{
   input {
     font-size: 2px;
   }
+  .souscategorie_article{
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+  }
 
 }
 @media screen and (max-width:800px) {
   .menu {
-      display: block !important;
- }
+    display: block !important;
+  }
+  .souscategorie_article{
+    display:grid;
+    grid-template-columns: 50% 50%;
+  }
 }
 
  /* panierrr */
@@ -3779,6 +3834,16 @@ caption {
 	.mcd-menu li ul a i {
 		font-size:14px;
 	}
+  .souscategorie_article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .souscategorie_liste{
+    margin: auto;
+    margin-bottom: 20px;
+  }
 
 }
 
@@ -4088,7 +4153,11 @@ input[type='radio']{
 
 }
 .content-pop{
-  padding: 2em;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 4em;
+  overflow-y: scroll;
+  height: 750px;
 }
 .popup h2 {
   margin-top: 0;

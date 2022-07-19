@@ -56,6 +56,7 @@
   <!-- début contenue principale -->
   <section class="col-sm all">
       <p class="alert alert-info"><%= live_flash(@flash, :info)%></p>
+      <%= if is_nil(@cat) && is_nil(@souscat) || !is_nil(@cat) && !is_nil(@souscat) do %>
         <%= if @produits != [] do %>
         <div class="article">
           <%= for produit <- @produits do %>
@@ -100,12 +101,8 @@
       <img src="<%= Routes.static_path(@socket, "/images/online-shop.png") %>">
         <p>Aucun produit a afficher</p>
       </div>
-      <% end %>
-</section>
-    <!-- fin contenue principale -->
-    <!--fin contenue  -->
-</div>
-  <center>
+    <% end %>
+    <center>
     <div class="page_navig">`
     <%= if @page == 1 do %>
       <button disabled href="#enhaut" phx-click="previous_page" phx-value-idprev="<%= @first_row_id %>" phx-value-page="<%= @page %>" phx-value-cat="<%= @cat %>" phx-value-souscat="<%= @souscat %>" phx-value-search="<%= @search %>" phx-value-tri="<%= @tri_select %>">
@@ -145,6 +142,34 @@
     <% end %>
     </div>
   </center>
+  <% else %>
+    <h3 style="text-align:center;padding-top:40px;font-size:x-large;font-weight:bold;text-transform: uppercase"> <%= @cat %> </h3>
+    <div class="souscategorie_article">
+      <%= for categorie <- @categories do %>
+        <%= for souscategorie <- @souscategorie do %>
+          <%= if categorie.nom_cat == @cat do %>
+            <%= if categorie.id_cat == souscategorie.id_cat do %>
+              <div class="souscategorie_liste">
+                <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>">
+                  <div class="souscategorie_image">
+                    <img src="<%= Routes.static_path(@socket, souscategorie.photolink) %>" alt ="Imge">
+                  </div>
+                  <div class="souscategories_nom">
+                    <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= String.capitalize(souscategorie.nom_souscat) %>
+                    (<%= Bebemayotte.ProdRequette.get_count_scat_by_id(souscategorie.id_souscat) %>)</a>
+                  </div>
+                </a>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</section>
+    <!-- fin contenue principale -->
+    <!--fin contenue  -->
+</div>
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;

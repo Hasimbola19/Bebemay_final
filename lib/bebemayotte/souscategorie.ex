@@ -6,8 +6,6 @@ defmodule Bebemayotte.Souscategorie do
     field :id_cat, :string
     field :id_souscat, :string
     field :nom_souscat, :string
-
-
   end
 
   @doc false
