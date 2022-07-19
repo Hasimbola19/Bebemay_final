@@ -206,43 +206,12 @@ defmodule Bebemayotte.SyncDb do
     end
     queri = Repo.all(from a in Souscategories,
       select: a.id_souscat)
-      if queri == [] do
-        {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily")
-        for sc <- souscategorie.rows do
-          {:ok, subfamilyid} = Enum.fetch(sc, 0)
-          {:ok, nom} = Enum.fetch(sc, 1)
-          {:ok, familyid} = Enum.fetch(sc, 2)
-          {:ok, image} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT ItemImage FROM Item WHERE (FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}') AND AllowPublishOnWeb = 1")
-          {:ok, texte} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT Id FROM Item WHERE FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}'")
-          if image.rows != [] do
-            photo = Enum.random(image.rows)
-            nom_image = Enum.random(texte.rows)
-              File.write(Path.expand("assets/static/images/scat/#{nom_image}1.jpeg"), photo, [:binary])
-              params = %{
-                "id_souscat" => subfamilyid,
-                "nom_souscat" => nom,
-                "id_cat" => familyid,
-                "photolink" => "/images/scat/#{nom_image}1.jpeg"
-              }
-              %Souscategories{}
-                |> Souscategories.changeset(params)
-                |> Repo.insert()
-          else
-            params = %{
-              "id_souscat" => subfamilyid,
-              "nom_souscat" => nom,
-              "id_cat" => familyid,
-              "photolink" => "/images/empty.png"
-            }
-            %Souscategories{}
-              |> Souscategories.changeset(params)
-              |> Repo.insert()
-          end
-        end
+      list = Enum.join(queri, "','")
+    {:ok, souscategories} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE Id NOT IN ('#{list}')")
+    if souscategories.rows == [] do
+      :ok
     else
-      liste = Enum.join(queri, "','")
-      {:ok, souscategorie} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE Id NOT IN ('#{liste}')")
-      for sc <- souscategorie.rows do
+      for sc <- souscategories.rows do
         {:ok, subfamilyid} = Enum.fetch(sc, 0)
         {:ok, nom} = Enum.fetch(sc, 1)
         {:ok, familyid} = Enum.fetch(sc, 2)
@@ -467,7 +436,7 @@ defmodule Bebemayotte.SyncDb do
     after
       45_000 ->
         insert_prod()
-        insert_scat()
+        # insert_scat()
         updt_cat()
         updt_scat()
         mod_prod()
