@@ -10,7 +10,7 @@ defmodule Bebemayotte.Application do
       # Start the Ecto repository
       Bebemayotte.Repo,
       Bebemayotte.EBPRepo,
-      worker(Task, [&Bebemayotte.SyncDb.sync/0], restart: :temporary),
+      # worker(Task, [&Bebemayotte.SyncDb.sync/0], restart: :temporary),
       # Start the Telemetry supervisor
       BebemayotteWeb.Telemetry,
       # Start the PubSub system
