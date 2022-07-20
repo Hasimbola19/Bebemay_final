@@ -199,44 +199,40 @@ defmodule Bebemayotte.SyncDb do
   end
 
   def insert_scat do
-    if File.exists?(Path.expand("assets/static/images/scat")) do
-      :ok
+    query = Repo.all(from sc in Souscategories,
+      select: sc.id_souscat)
+    IO.inspect liste = Enum.join(query, "','")
+    {:ok, query1} = Ecto.Adapters.SQL.query(Repo, "SELECT id_souscat, id_cat, nom_souscat FROM souscategories WHERE id_souscat NOT IN ('#{liste}')")
+    if query1.rows == [] do
+      {:ok, "Aucun changement"}
     else
-      {:ok, File.mkdir(Path.expand("assets/static/images/scat"))}
-    end
-    queri = Repo.all(from a in Souscategories,
-      select: a.id_souscat)
-      list = Enum.join(queri, "','")
-    {:ok, souscategories} = Ecto.Adapters.SQL.query(EBPRepo,"SELECT Id, Caption, ItemFamilyId FROM ItemSubFamily WHERE Id NOT IN ('#{list}')")
-    if souscategories.rows == [] do
-      :ok
-    else
-      for sc <- souscategories.rows do
+      for sc <- query1.rows do
         {:ok, subfamilyid} = Enum.fetch(sc, 0)
-        {:ok, nom} = Enum.fetch(sc, 1)
-        {:ok, familyid} = Enum.fetch(sc, 2)
-        {:ok, image} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT ItemImage FROM Item WHERE (FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}') AND AllowPublishOnWeb = 1")
-        {:ok, texte} = Ecto.Adapters.SQL.query(EBPRepo, "SELECT Id FROM Item WHERE FamilyId = '#{familyid}' AND SubFamilyId = '#{subfamilyid}'")
-        if image.rows != [] do
-          photo = Enum.random(image.rows)
-          nom_image = Enum.random(texte.rows)
-            File.write(Path.expand("assets/static/images/scat/#{nom_image}1.jpeg"), photo, [:binary])
-            params = %{
-              "id_souscat" => subfamilyid,
-              "nom_souscat" => nom,
-              "id_cat" => familyid,
-              "photolink" => "/images/scat/#{nom_image}1.jpeg"
-            }
-            %Souscategories{}
-              |> Souscategories.changeset(params)
-              |> Repo.insert()
-        else
+        {:ok, familyid} = Enum.fetch(sc, 1)
+        {:ok, nom} = Enum.fetch(sc, 2)
+        {:ok, image} = Ecto.Adapters.SQL.query(Repo, "SELECT photolink FROM produits WHERE id_souscat = '#{subfamilyid}' AND id_cat = '#{familyid}'")
+        # IO.inspect image
+        if image.rows == [] do
           params = %{
             "id_souscat" => subfamilyid,
             "nom_souscat" => nom,
             "id_cat" => familyid,
             "photolink" => "/images/empty.png"
           }
+          IO.inspect image
+          %Souscategories{}
+            |> Souscategories.changeset(params)
+            |> Repo.insert()
+          :ok
+        else
+          photolink = Enum.random(image.rows)
+          params = %{
+            "id_souscat" => subfamilyid,
+            "nom_souscat" => nom,
+            "id_cat" => familyid,
+            "photolink" => List.to_string(photolink)
+          }
+          IO.inspect List.to_string(photolink)
           %Souscategories{}
             |> Souscategories.changeset(params)
             |> Repo.insert()
@@ -436,7 +432,7 @@ defmodule Bebemayotte.SyncDb do
     after
       45_000 ->
         insert_prod()
-        insert_scat()
+        # insert_scat()
         updt_cat()
         updt_scat()
         mod_prod()

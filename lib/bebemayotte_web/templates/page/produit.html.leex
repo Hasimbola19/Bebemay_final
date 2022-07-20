@@ -147,20 +147,18 @@
     <div class="souscategorie_article">
       <%= for categorie <- @categories do %>
         <%= for souscategorie <- @souscategorie do %>
-          <%= if categorie.nom_cat == @cat do %>
-            <%= if categorie.id_cat == souscategorie.id_cat do %>
-              <div class="souscategorie_liste">
-                <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>">
-                  <div class="souscategorie_image">
-                    <img src="<%= Routes.static_path(@socket, souscategorie.photolink) %>" alt ="Imge">
-                  </div>
-                  <div class="souscategories_nom">
-                    <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= String.capitalize(souscategorie.nom_souscat) %>
-                    (<%= Bebemayotte.ProdRequette.get_count_scat_by_id(souscategorie.id_souscat) %>)</a>
-                  </div>
-                </a>
-              </div>
-            <% end %>
+          <%= if categorie.nom_cat == @cat && categorie.id_cat == souscategorie.id_cat do %>
+            <div class="souscategorie_liste">
+              <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>">
+                <div class="souscategorie_image">
+                  <img src="<%= Routes.static_path(@socket, souscategorie.photolink) %>" alt ="Imge">
+                </div>
+                <div class="souscategories_nom">
+                  <a href="/produit/<%= categorie.nom_cat %>/<%= souscategorie.nom_souscat %>"><%= String.capitalize(souscategorie.nom_souscat) %>
+                  (<%= Bebemayotte.ProdRequette.get_count_scat_by_id(souscategorie.id_souscat) %>)</a>
+                </div>
+              </a>
+            </div>
           <% end %>
         <% end %>
       <% end %>
