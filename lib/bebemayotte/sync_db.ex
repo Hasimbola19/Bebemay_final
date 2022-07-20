@@ -432,7 +432,7 @@ defmodule Bebemayotte.SyncDb do
     after
       45_000 ->
         insert_prod()
-        # insert_scat()
+        insert_scat()
         updt_cat()
         updt_scat()
         mod_prod()
