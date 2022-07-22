@@ -33,6 +33,7 @@ defmodule Bebemayotte.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:geolix, "~> 2.0"},
       {:pbkdf2_elixir, "~> 2.0"},
       {:phoenix, "~> 1.5.8"},
       {:phoenix_ecto, "~> 4.1"},
