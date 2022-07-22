@@ -3,28 +3,25 @@ defmodule BebemayotteWeb.PageController do
 
   alias Phoenix.LiveView
   alias Bebemayotte.CatRequette
-  alias Bebemayotte.ProdRequette
   alias Bebemayotte.SouscatRequette
-  alias Bebemayotte.PanierRequette
   alias Bebemayotte.UserRequette
-  alias Bebemayotte.Details
-  alias Bebemayotte.Fonction
-  alias Bebemayotte.User
 
   alias Bebemayotte.Mailer
-  alias Bebemayotte.SyncDb
   #----------------------------------------------------------PAGE PRODUITS-------------------------------------------------------------------------------------------------------------------
   # rendue de l'accueil
   def index(conn, _params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
-
+    IO.puts "index"
+    IO.inspect conn
     render(conn, "index.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
   def location(conn, _params) do
     id = Plug.Conn.get_session(conn, :user_id)
     paniers = Plug.Conn.get_session(conn, :paniers)
+    IO.puts "localisation"
+    IO.inspect conn
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => 1, "user" => nil, "search" => nil, "list_panier" => paniers})
     else
@@ -36,6 +33,8 @@ defmodule BebemayotteWeb.PageController do
   def produit(conn, _params) do
     id = Plug.Conn.get_session(conn, :user_id)
     list_panier = Plug.Conn.get_session(conn, :paniers)
+    IO.puts "produit"
+    IO.inspect conn
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => nil, "souscat" => nil, "search" => nil, "list_panier" => list_panier})
     else
@@ -47,6 +46,8 @@ defmodule BebemayotteWeb.PageController do
   def produit_categorie(conn, %{"cat" => cat}) do
     id = Plug.Conn.get_session(conn, :user_id)
     list_panier = Plug.Conn.get_session(conn, :paniers)
+    IO.puts "produit categorie"
+    IO.inspect conn
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => cat, "souscat" => nil, "search" => nil, "list_panier" => list_panier})
     else
@@ -58,6 +59,8 @@ defmodule BebemayotteWeb.PageController do
   def produit_souscategorie(conn, %{"cat" => cat, "souscat" => souscat}) do
     id = Plug.Conn.get_session(conn, :user_id)
     list_panier = Plug.Conn.get_session(conn, :paniers)
+    IO.puts "produit souscategorie"
+    IO.inspect conn
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => cat, "souscat" => souscat, "search" => nil, "list_panier" => list_panier})
     else
@@ -71,6 +74,8 @@ defmodule BebemayotteWeb.PageController do
   def connexion(conn, _params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+    IO.puts "Connexion"
+    IO.inspect conn
 
     render(conn, "connexion.html", categories: categories,souscategories: souscategories, search: nil)
   end
@@ -80,6 +85,8 @@ defmodule BebemayotteWeb.PageController do
     souscategories = SouscatRequette.get_all_souscategorie()
     identifiant = get_session(conn, :identifiant)
     user = UserRequette.get_user_by_identifiant(identifiant)
+    IO.puts "Modification mot de passe"
+    IO.inspect conn
     IO.inspect user
     Bebemayotte.UserRequette.update_password(user, %{"motdepasse" => password})
     render(conn, "connexion.html", categories: categories, souscategories: souscategories, search: nil)
@@ -96,7 +103,8 @@ defmodule BebemayotteWeb.PageController do
     user_detail = UserRequette.get_user_by_identifiant(identifiant)
     token = Bebemayotte.Token.generate_new_account_token(user)
     # verification_url = user_url(conn, :verify_email, token: token)
-    verification_url = "https://bbmay.fr/verify_email?token=#{token}"
+    # verification_url = "https://bbmay.fr/verify_email?token=#{token}"
+    verification_url = "http://162.19.74.21:4003//verify_email?token=#{token}"
     if user_detail do
       Bebemayotte.Email.new_mail_message(identifiant, verification_url) |> Mailer.deliver_now()
       render(conn |> put_session(:identifiant , identifiant), "verifier.html", categories: categories, souscategories: souscategories, search: nil)
@@ -108,7 +116,7 @@ defmodule BebemayotteWeb.PageController do
   def verify_email(conn, %{"token" => token}) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
-    with  {:ok, id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
+    with  {:ok, _id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
       render(conn, "update_password.html", categories: categories,souscategories: souscategories, search: nil)
     else
       _ -> render(conn, "index.html", categories: categories,souscategories: souscategories, search: nil)
@@ -122,7 +130,7 @@ defmodule BebemayotteWeb.PageController do
 
     IO.puts "USER"
     IO.inspect user
-    with  {:ok, id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
+    with  {:ok, _id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
       UserRequette.insert_user(user)
       conn
         |> put_flash(:info_reussi, "Inscription validé veuillez vous connecter")
@@ -141,38 +149,48 @@ defmodule BebemayotteWeb.PageController do
 
   #  session sur chaque page
   def submit_connexion(conn, %{"identifiant" => identifiant, "motdepasse" => motdepasse}) do
-    case UserRequette.get_user_connexion(identifiant,motdepasse) do
-      {:ok, user} ->
+    password = UserRequette.get_user_by_email(identifiant).motdepasse
+    user = UserRequette.get_user_by_email(identifiant)
+    cond do
+      Pbkdf2.verify_pass(motdepasse, password) == true ->
         case Plug.Conn.get_session(conn, :statut) do
           nil ->
+            IO.puts "Compte"
+            IO.inspect conn
             conn
               |> put_session(:info_connexion, "Vous êtes connecté en tant que #{user.prenom}, ")
               |> put_session(:user_id, user.id_user)
               |> configure_session(renew: true)
               |> redirect(to: Routes.compte_path(conn, :compte))
           "to_payer" ->
+            IO.puts "Panier"
+            IO.inspect conn
             conn
               |> put_session(:info_connexion, "Vous êtes connecté en tant que #{user.prenom}, ")
               |> put_session(:user_id, user.id_user)
               |> configure_session(renew: true)
               |> redirect(to: Routes.page_path(conn, :panier))
           "to_stripe" ->
+            IO.puts "Paiment"
+            IO.inspect conn
             conn
               |> put_session(:info_connexion, "Vous êtes connecté en tant que #{user.prenom}, ")
               |> put_session(:user_id, user.id_user)
               |> configure_session(renew: true)
               |> redirect(to: Routes.compte_path(conn, :payement_en_ligne))
           "to_pay_command" ->
+            IO.puts "Paiment final"
+            IO.inspect conn
             conn
               |> put_session(:info_connexion, "Vous êtes connecté en tant que #{user.prenom}, ")
               |> put_session(:user_id, user.id_user)
               |> configure_session(renew: true)
               |> redirect(to: Routes.compte_path(conn, :pay_command))
         end
-        {:error, :unauthorized} ->
-          conn
-          |> put_flash(:error_id_mdp, "Adresse e-mail ou mot de passe éronné")
-          |> redirect(to: Routes.page_path(conn, :connexion))
+      Pbkdf2.verify_pass(motdepasse, password) ==  false ->
+        conn
+        |> put_flash(:error_id_mdp, "Adresse e-mail ou mot de passe éronné")
+        |> redirect(to: Routes.page_path(conn, :connexion))
     end
   end
 
@@ -180,6 +198,8 @@ defmodule BebemayotteWeb.PageController do
   def inscription(conn, _params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+    IO.puts "Inscription"
+    IO.inspect conn
 
     render(conn, "inscri.html", categories: categories, souscategories: souscategories, search: nil)
   end
@@ -201,7 +221,8 @@ defmodule BebemayotteWeb.PageController do
     recup_adr = UserRequette.get_user_adresse_message(adresseMessage)
     user_email = adresseMessage
     token = Bebemayotte.Token.generate_new_account_token(adresseMessage)
-    verification_url = "https://bbmay.fr/verification_email?token=#{token}"
+    # verification_url = "https://bbmay.fr/verification_email?token=#{token}"
+    verification_url = "http://162.19.74.21:4003//verification_email?token=#{token}"
 
     user = %{
       "id_user" => last_row_id,
@@ -229,47 +250,23 @@ defmodule BebemayotteWeb.PageController do
         |> put_flash(:error_adrMess, "Adresse de Message déja éxistant!")
         |> redirect(to: Routes.page_path(conn, :inscription))
 
-      recup_adr == false -> #and recup_id == false ->
+      recup_adr == false ->
         Bebemayotte.Email.send_verification_mail(user_email, verification_url) |> Mailer.deliver_now()
         conn
           |> put_flash(:info_reussi, "Un mail a été envoyé à #{adresseMessage}")
           |> put_session(:user, user)
           |> render( "verifier.html", categories: categories, souscategories: souscategories, search: nil)
-      # with  {:ok, id_user} <- Bebemayotte.Token.verify_new_account_token(token) do
-      #   UserRequette.insert_user(user)
-      #   conn
-      #   |> put_flash(:info_reussi, "Création de compte terminé! Veuillez vous connectez maitenant!!")
-      #   |> render("connexion.html", categories: categories,souscategories: souscategories, search: nil)
-      # else
-      #   _ -> render(conn, "index.html", categories: categories,souscategories: souscategories, search: nil)
-      # end
     end
   end
 
   #--------------------------------------------------PAGE CRITIQUE ET PROPOSITION-------------------------------------------------------------------------------------------------------
 
-  # SEND MESSAGE TO EMAIL
-  # def send_message_contact(conn, %{"nom" => nom, "email" => email, "description" => description}) do
-  #
-  #     message = "
-  #
-  #         #{description}
-  #
-  #                     from:  #{nom}
-  #
-  #     "
-  #     Email.new_mail_message(email, message)
-  #       |>Mailer.deliver_later()
-  #
-  #     conn
-  #       |>put_flash(:mail_message_env, "Votre message a été bien envoyé!")
-  #       |>redirect(to: "/contact")
-  # end
-
   # GET PAGE QUESTION
   def question(conn,_params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+    IO.puts "Question"
+    IO.inspect conn
 
     render(conn,"question.html", categories: categories, souscategories: souscategories, search: nil)
   end
@@ -277,6 +274,8 @@ defmodule BebemayotteWeb.PageController do
   def restore_password(conn, _params) do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
+    IO.puts "Modification mot de passe"
+    IO.inspect conn
     render(conn, "password_recovery.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
@@ -286,8 +285,6 @@ defmodule BebemayotteWeb.PageController do
   def add_panier(conn, %{"post" => post_params}) do
     paniers = Plug.Conn.get_session(conn, :paniers)
     quantites = Plug.Conn.get_session(conn, :quantites)
-    # IO.puts "ITO ILAY PANIERS"
-    # IO.inspect(paniers)
     case paniers do
       nil ->
         paniers = [post_params["id"]]
@@ -345,6 +342,8 @@ defmodule BebemayotteWeb.PageController do
   def search(conn, %{"_csrf_token" => _csrf_token, "search" => search}) do
     id = Plug.Conn.get_session(conn, :user_id)
     list_panier = Plug.Conn.get_session(conn, :paniers)
+    IO.puts "Recherche"
+    IO.inspect conn
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => nil, "souscat" => nil, "search" => search, "list_panier" => list_panier})
     else
@@ -359,6 +358,8 @@ defmodule BebemayotteWeb.PageController do
     id = Plug.Conn.get_session(conn, :user_id)
     paniers = Plug.Conn.get_session(conn, :paniers)
     quantites = Plug.Conn.get_session(conn, :quantites)
+    IO.puts "Panier"
+    IO.inspect conn
 
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.PanierLive, session: %{"id_session" => 1, "user" => nil, "paniers" => paniers, "quantites" => quantites})
@@ -372,6 +373,8 @@ defmodule BebemayotteWeb.PageController do
     id_session = Plug.Conn.get_session(conn, :user_id)
     paniers = Plug.Conn.get_session(conn, :paniers)
     quantites = Plug.Conn.get_session(conn, :quantites)
+    IO.puts "Detail produit"
+    IO.inspect conn
 
     if id_session == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.DetailProduitLive, session: %{"id_session" => 1, "id_produit" => id, "user" => nil, "paniers" => paniers, "quantites" => quantites})
@@ -382,15 +385,15 @@ defmodule BebemayotteWeb.PageController do
 
   # GET PAGE CONTACT
   def contact(conn, _params) do
-    # categories = CatRequette.get_all_categorie()
     id = Plug.Conn.get_session(conn, :user_id)
     list_panier = Plug.Conn.get_session(conn, :paniers)
+    IO.puts "Contact"
+    IO.inspect conn
     if id == nil do
       LiveView.Controller.live_render(conn,  BebemayotteWeb.Live.ContactLive, session: %{"user" => nil, "list_panier" => list_panier})
     else
       LiveView.Controller.live_render(conn,  BebemayotteWeb.Live.ContactLive, session: %{"user" => id, "list_panier" => list_panier})
     end
-    # render(conn, "contact.html", categories: categories, search: nil)
   end
 
   #GET  PAGE PAYER
@@ -402,17 +405,15 @@ defmodule BebemayotteWeb.PageController do
         |> redirect(to: Routes.page_path(conn, :connexion))
     else
       id = Plug.Conn.get_session(conn, :user_id)
-      IO.puts "ID"
-      IO.inspect id
       user = UserRequette.get_user!(id)
-      IO.puts "USER"
-      IO.inspect user
       cond do
         user.nom_rue == "null" ->
           conn
           |> put_flash(:error, "Veuillez remplir l'adresse 1")
           |> redirect(to: Routes.compte_path(conn, :update_facturation))
         true ->
+          IO.puts "Paiment commande"
+          IO.inspect conn
           conn
             |> redirect(to: Routes.compte_path(conn, :pay_command))
       end

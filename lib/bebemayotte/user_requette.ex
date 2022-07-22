@@ -14,6 +14,13 @@ defmodule Bebemayotte.UserRequette do
     Repo.one(query)
   end
 
+  def get_user_by_email(identifiant) do
+    query = from us in User,
+      where: us.adresseMessage == ^identifiant,
+      select: us
+    Repo.one(query)
+  end
+
   def get_user_by_identifiant(identifiant) do
     query = from u in User,
     where: u.adresseMessage == ^identifiant,
@@ -37,6 +44,21 @@ defmodule Bebemayotte.UserRequette do
     case id do
       nil -> false
       _ -> id
+    end
+  end
+
+  def update_hash_password() do
+    query = Repo.all(from us in User,
+    select: us)
+    for u <- query do
+      if String.contains?(u.motdepasse, "pbkdf2") do
+        IO.puts "Tsisy"
+      else
+        IO.puts "LISTE BE A"
+        IO.puts "FIN LISTE BE"
+        mdp = Pbkdf2.hash_pwd_salt(u.motdepasse)
+        Repo.update(User.changeset_uptade_password(u, %{"motdepasse" => mdp}))
+      end
     end
   end
 

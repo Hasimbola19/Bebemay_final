@@ -130,6 +130,25 @@ pre{padding: 1em;}
 }
 
 /* CSS ADDITIONNEE */
+#cont{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#cont h1{
+  padding: 20px 10px;
+}
+
+#cont a{
+  font-size: large;
+}
+
+#cont h1, #cont h3, #cont h5, #cont p{
+  font-weight: bold;
+  text-align: center;
+}
 
 .navigation{
   position: fixed;
