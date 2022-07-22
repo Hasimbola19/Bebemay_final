@@ -3,10 +3,10 @@ use Mix.Config
 # Configure your database
 config :bebemayotte, Bebemayotte.Repo,
   adapter: Ecto.Adapters.Postgres,
-  # username: "odoo",
-  # password: "Mgbi@261!",
-  username: "postgres",
-  password: "postgres",
+  username: "odoo",
+  password: "Mgbi@261!",
+  # username: "postgres",
+  # password: "postgres",
   database: "bebemayotte_dev",
   hostname: "localhost",
   port: 5432,
@@ -18,10 +18,12 @@ config :bebemayotte, Bebemayotte.EBPRepo,
   username: "sa",
   password: "@ebp78EBP",
   database: "BB_MAY_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4",
-  hostname: "37.59.57.29",
+  hostname: "NS3072398",
   instance: "EBP_2019",
   port: 53735,
+  # hostname: "193.253.109.15",
   odbc_driver: "{SQL Server Native Client 11.0}",
+  timeout: 45_000,
   pool_size: 10
 
 # Configure mail
@@ -29,6 +31,8 @@ config :Bebemayotte, Bebemayotte.Mailer,
   adapter: Bamboo.SendGridAdapter,
   api_key: System.get_env("SENDGRID_API_KEY")
 
+config :pdf_generator,
+    wkhtml_path: "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -36,8 +40,8 @@ config :Bebemayotte, Bebemayotte.Mailer,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :bebemayotte, BebemayotteWeb.Endpoint,
-  http: [port: 4003],
-  debug_errors: true,
+  http: [port: 4002],
+  debug_errors: false,
   code_reloader: true,
   check_origin: false,
   watchers: [

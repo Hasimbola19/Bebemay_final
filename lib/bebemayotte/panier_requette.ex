@@ -96,12 +96,6 @@ defmodule Bebemayotte.PanierRequette do
         where: pa.id_produit == ^id_produit and pa.id_user == ^id_user,
         select: pa.id_panier
     _id = Repo.one(query)
-    # if query do
-    #   Repo.one(query)
-    # else
-    #   nil
-    #   #  Repo.one(query)
-    # end
   end
 
   def get_panier_by_session(id_session) do
