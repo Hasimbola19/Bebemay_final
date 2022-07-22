@@ -17,7 +17,7 @@ defmodule BebemayotteWeb.PageController do
     IO.puts "Lieu"
     # remote_ip = conn.remote_ip
     IO.inspect Geolix.lookup("45.50.161.38")
-    IO.inspect conn
+    # IO.inspect conn
     render(conn, "index.html", categories: categories, souscategories: souscategories, search: nil)
   end
 
