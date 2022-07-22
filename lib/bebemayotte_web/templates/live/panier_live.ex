@@ -10,6 +10,8 @@ defmodule BebemayotteWeb.Live.PanierLive do
     souscategories = SouscatRequette.get_all_souscategorie()
     produits = list_panier |> produits_
     somme = list_quantite |> somme_prix(list_panier, produits)
+    IO.puts "INSPECTION DE PANIER ET QU QUANTITE"
+    IO.inspect socket
     {
       :ok,
       socket

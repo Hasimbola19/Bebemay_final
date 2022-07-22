@@ -34,18 +34,12 @@ defmodule BebemayotteWeb.Live.ProduitLive do
     session = socket.assigns.session
     panier = id |> PanierRequette.find_double_in_panier(session)
     IO.inspect panier
-    if panier == nil do
-      message = "#{ProdRequette.get_nom_produit_by_id(id)} est parfaitement ajouté au panier."
-      {:noreply,
-        socket
-          |> put_flash(:info, message)
-        }
-    else
+    if panier == [] do
       message = "#{ProdRequette.get_nom_produit_by_id(id)} est déja dans le panier!!!"
-      {:noreply,
-        socket
-          |> put_flash(:info, message)
-        }
+      {:noreply, socket |> put_flash(:info, message)}
+    else
+      message = "#{ProdRequette.get_nom_produit_by_id(id)} est parfaitement ajouté au panier."
+      {:noreply, socket |> put_flash(:info, message)}
     end
   end
 

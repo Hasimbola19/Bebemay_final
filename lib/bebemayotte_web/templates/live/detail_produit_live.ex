@@ -26,30 +26,13 @@ defmodule BebemayotteWeb.Live.DetailProduitLive do
 
   def handle_event("add_panier", params, socket) do
     id = params["id_produit"]
-    # quantite = params["quantite"]
     session = socket.assigns.id_session
     panier = id |> PanierRequette.find_double_in_panier(session)
-    # last_row = PanierRequette.get_panier_last_row_id()
-    # id_user = session #|> String.to_integer()
-    # param = %{
-    #   "id_panier" => last_row,
-    #   "id_produit" => id,
-    #   "quantite" => 1,
-    #   "id_user" => id_user
-    # }
-    # para = %{
-    #   "id_panier" => last_row,
-    #   "id_produit" => id,
-    #   "quantite" => quantite,
-    #   "id_user" => id_user
-    # }
-    if panier == nil do
-      # param |> PanierRequette.insert_panier()
-      message = "#{ProdRequette.get_nom_produit_by_id(id)} est parfaitement ajouté au panier."
+    if panier == [] do
+      message = "#{ProdRequette.get_nom_produit_by_id(id)} est déja dans le panier!!!"
       {:noreply, socket |> put_flash(:info, message)}
     else
-      # id |> PanierRequette.get_panier_by_id_produit_id_session(session) |> PanierRequette.update_panier_query(para)
-      message = "#{ProdRequette.get_nom_produit_by_id(id)} est déja dans le panier!!!"
+      message = "#{ProdRequette.get_nom_produit_by_id(id)} est parfaitement ajouté au panier."
       {:noreply, socket |> put_flash(:info, message)}
     end
   end

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bbmay - 404 NOT FOUND</title>
+  <link rel="stylesheet", href="<%= Routes.static_path(@conn, "/css/app.css") %>">
+
+</head>
+
+<body>
+  <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+  <div id="cont">
+    <img src="<%= Routes.static_path(@conn, "/images/404.png") %>" alt="">
+    <h1>DON'T PANIC!!</h1>
+    <h3>The page you are looking for doesn't exist.</h3>
+    <br>
+    <h5 class="mt">Hey, maybe you will be interested in these pages:</h5>
+    <p><a href="/">Index</a> | <a href="/produit">Boutique</a> | <a href="/contact">Contact</a></p>
+  </div>
+</body>
+
+</html>
