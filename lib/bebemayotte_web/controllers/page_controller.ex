@@ -13,10 +13,11 @@ defmodule BebemayotteWeb.PageController do
     categories = CatRequette.get_all_categorie()
     souscategories = SouscatRequette.get_all_souscategorie()
     IO.puts "index"
-    IO.inspect conn.remote_ip
-    IO.puts "Lieu"
     remote_ip = conn.remote_ip
-    IO.inspect Geolix.lookup(remote_ip)
+    IO.inspect Geolix.lookup(remote_ip).country.country.names.fr
+    IO.inspect conn.request_path
+    IO.puts "Lieu"
+
     # IO.inspect conn
     render(conn, "index.html", categories: categories, souscategories: souscategories, search: nil)
   end
@@ -25,8 +26,11 @@ defmodule BebemayotteWeb.PageController do
     id = Plug.Conn.get_session(conn, :user_id)
     paniers = Plug.Conn.get_session(conn, :paniers)
     IO.puts "localisation"
-    IO.inspect conn.remote_ip
+    remote_ip = conn.remote_ip
+    IO.inspect Geolix.lookup(remote_ip)
     IO.inspect conn.request_path
+    IO.puts "Lieu"
+
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.LocationLive, session: %{"id_session" => 1, "user" => nil, "search" => nil, "list_panier" => paniers})
     else
@@ -39,8 +43,10 @@ defmodule BebemayotteWeb.PageController do
     id = Plug.Conn.get_session(conn, :user_id)
     list_panier = Plug.Conn.get_session(conn, :paniers)
     IO.puts "produit"
-    IO.inspect conn.remote_ip
+    remote_ip = conn.remote_ip
+    IO.inspect Geolix.lookup(remote_ip)
     IO.inspect conn.request_path
+    IO.puts "Lieu"
     if id == nil do
       LiveView.Controller.live_render(conn, BebemayotteWeb.Live.ProduitLive, session: %{"id_session" => 1, "user" => nil, "cat" => nil, "souscat" => nil, "search" => nil, "list_panier" => list_panier})
     else
