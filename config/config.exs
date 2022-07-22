@@ -50,12 +50,12 @@ config :bebemayotte, Bebemayotte.Mailer,
     %{
       id: :city,
       adapter: Geolix.Adapter.MMDB2,
-      source: "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz"
+      source: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=KXEimZ4YGmzwmkQg&suffix=tar.gz"
     },
     %{
       id: :country,
       adapter: Geolix.Adapter.MMDB2,
-      source: "https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz"
+      source: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=KXEimZ4YGmzwmkQg&suffix=tar.gz"
     }
   ]
 

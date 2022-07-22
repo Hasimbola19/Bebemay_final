@@ -34,6 +34,7 @@ defmodule Bebemayotte.MixProject do
   defp deps do
     [
       {:geolix, "~> 2.0"},
+      {:geolix_adapter_mmdb2, "~> 0.6.0"},
       {:pbkdf2_elixir, "~> 2.0"},
       {:phoenix, "~> 1.5.8"},
       {:phoenix_ecto, "~> 4.1"},
