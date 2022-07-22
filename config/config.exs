@@ -46,6 +46,19 @@ config :bebemayotte, Bebemayotte.Mailer,
   # auth: :always,
   # retries: 1
 
+  config :geolix, :databases, [
+    %{
+      id: :city,
+      adapter: Geolix.Adapter.MMDB2,
+      source: "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz"
+    },
+    %{
+      id: :country,
+      adapter: Geolix.Adapter.MMDB2,
+      source: "https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz"
+    }
+  ]
+
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
