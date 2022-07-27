@@ -223,4 +223,13 @@ defmodule Bebemayotte.UserRequette do
         select: u
     Repo.one(query)
   end
+
+  def delete_user_by_name() do
+    query = Repo.one(from u in User,
+      where: u.adresseMessage == "rakotosonhasina00@gmail.com",
+      select: u)
+     query
+      |> Repo.delete()
+  end
+
 end
